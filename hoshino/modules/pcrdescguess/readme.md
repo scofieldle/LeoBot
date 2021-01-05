@@ -1,0 +1,2 @@
+_pcr_data覆盖modules/priconne下面的文件
+__bot__.py中添加pcrdescguess

@@ -1,0 +1,3 @@
+适用于HoshinoV2
+更新了报错提示
+整个文件夹丢到/hoshino/modules里
