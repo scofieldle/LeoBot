@@ -46,8 +46,6 @@ class Roster:
                 n = util.normalize_str(n)
                 if n not in self._roster:
                     self._roster[n] = idx
-                else:
-                    logger.warning(f'priconne.chara.Roster: 出现重名{n}于id{idx}与id{self._roster[n]}')
         self._all_name_list = self._roster.keys()
 
 
