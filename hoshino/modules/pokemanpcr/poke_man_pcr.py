@@ -25,7 +25,7 @@ sv = Service('poke-man-pcr', bundle='pcr娱乐', help_='''
 daily_limiter = DailyNumberLimiter(POKE_DAILY_LIMIT)
 exchange_request_master = ExchangeRequestMaster(REQUEST_VALID_TIME)
 db = CardRecordDAO(DB_PATH)
-font = ImageFont.truetype('arial.ttf', 16)
+font = ImageFont.truetype('simhei.ttf', 16)
 card_file_names_all = os.listdir(DIR_PATH)
 card_file_names_all.remove('frame.png')
 card_file_names_normal = [file_name for file_name in card_file_names_all if file_name.startswith('31')]

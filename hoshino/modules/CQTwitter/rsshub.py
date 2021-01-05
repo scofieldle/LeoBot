@@ -26,14 +26,15 @@ file_path = abs_path
 async def getRSS(rss):  # 链接，订阅名
     d = ""
     try:
+        old = readRss(rss.url)
         r = requests.get(rss.geturl(), timeout=30)
         d = feedparser.parse(r.content)
     except:
         logger.error("抓取订阅 {} 的 RSS 失败".format(rss.url))
 
     # 检查是否存在rss记录
-    if os.path.isfile(file_path + (rss.url + '.json')):
-        change = checkUpdate(d, readRss(rss.url))  # 检查更新
+    if os.path.isfile(file_path + (rss.url + '.json')) and len(old) > 0:
+        change = checkUpdate(d, old)  # 检查更新
         if len(change) > 0:
             writeRss(rss.url, d)  # 写入文件
             msg_list = []
