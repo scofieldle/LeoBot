@@ -8,4 +8,4 @@ class rss():
     # 返回订阅链接
     def geturl(self) -> str:
         rsshub = 'https://rsshub.app/twitter/user/'
-        return rsshub + self.url + '/exclude_rts_replies=true'
+        return rsshub + self.url + '/exclude_rts_replies'

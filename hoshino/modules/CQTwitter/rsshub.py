@@ -34,7 +34,7 @@ async def getRSS(rss):  # 链接，订阅名
 
     # 检查是否存在rss记录
     if os.path.isfile(file_path + (rss.url + '.json')) and len(old) > 0:
-        change = checkUpdate(d, old)  # 检查更新
+        change = await checkUpdate(d, old)  # 检查更新
         if len(change) > 0:
             writeRss(rss.url, d)  # 写入文件
             msg_list = []
@@ -203,7 +203,7 @@ async def trans(text):
     return text
 
 # 检查更新
-def checkUpdate(new, old) -> list:
+async def checkUpdate(new, old) -> list:
     try:
         a = new['entries']
     except:
