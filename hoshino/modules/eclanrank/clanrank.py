@@ -7,6 +7,7 @@ from nonebot import *
 from nonebot.log import logger
 from . import query
 from . import util
+from  datetime import datetime, timezone, timedelta
 
 # 初始化配置文件
 config = util.get_config()
@@ -32,6 +33,12 @@ def get_rank(keyword):
         params['name'] = keyword
 
     info, ts = query.get_rank(**params)
+    SHA_TZ = timezone(
+        timedelta(hours=8),
+        name='Asia/Shanghai',
+    )
+    utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+    ts = utc_now.astimezone(SHA_TZ)
 
     if not info:
         return '木有找到相关的工会'
@@ -61,7 +68,13 @@ def print_rank(info, new_info=None, ts=None):
             rank_ext = f'▼{rank_calc}' if rank_calc > 0 else f'▲{abs(rank_calc)}'
             damage_ext = f'▲{format(damage_calc, ",")}'
             data = new
-        data.data['ts'] = ts if ts else time.strftime(config.str.ts_formet, time.localtime())
+        SHA_TZ = timezone(
+            timedelta(hours=8),
+            name='Asia/Shanghai',
+        )
+        utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+        now = utc_now.astimezone(SHA_TZ)
+        data.data['ts'] = ts if ts else now.strftime("%Y-%m-%d, %H:%M:%S")
         data.data['rank_ext'] = rank_ext
         data.data['score'] = format(data.damage, ",")
         data.data['score_ext'] = damage_ext

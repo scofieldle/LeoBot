@@ -19,6 +19,7 @@ comm:
   defaultLucked: ["[会公工][战会][排查][行名询]$"]
   # 查看当前档线
   
+  
 
 #规则
 rules:
@@ -35,7 +36,7 @@ rules:
   enable_clan_cron: false
 
   # 对锁定的公会多长时间更新广播一次 单位小时
-  lock_clan_cron_time: 6
+  lock_clan_cron_time: 24
 
   # -------------------------------
 

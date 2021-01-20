@@ -8,7 +8,7 @@ from . import *
 from ...util import DailyNumberLimiter
 
 
-DIR_PATH = './hoshino/modules/pokemanpcr/image'
+DIR_PATH = './res/img/priconne/unit'
 DB_PATH = os.path.expanduser("~/.hoshino/poke_man_pcr.db")
 REQUEST_VALID_TIME = 60     # 换卡请求的等待时间
 POKE_DAILY_LIMIT = 5        # 每人每天戳机器人获得卡片的数量上限
@@ -28,8 +28,8 @@ db = CardRecordDAO(DB_PATH)
 font = ImageFont.truetype('simhei.ttf', 16)
 card_file_names_all = os.listdir(DIR_PATH)
 card_file_names_all.remove('frame.png')
-card_file_names_normal = [file_name for file_name in card_file_names_all if file_name.startswith('31')]
-card_file_names_rare = [file_name for file_name in card_file_names_all if file_name.startswith('32')]
+card_file_names_normal = [file_name for file_name in card_file_names_all if file_name.endswith('11')]
+card_file_names_rare = [file_name for file_name in card_file_names_all if file_name.endswith('31')]
 cards = [int(file_name.split('.')[0]) for file_name in card_file_names_all]
 
 

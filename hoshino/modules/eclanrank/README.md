@@ -5,10 +5,16 @@
 ---
 
 ***安装依赖***
+---
 > pip install pyyaml -i https://pypi.tuna.tsinghua.edu.cn/simple
 >
 > pip install sqlitedict -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+
+***安装依赖***
+---
+优化时间，按照北京时间推送
+优化boss血量计算
 
 
 文件夹丢到modules目录下
