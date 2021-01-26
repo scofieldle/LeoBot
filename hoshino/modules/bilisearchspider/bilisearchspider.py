@@ -38,7 +38,7 @@ class BiliSearchSpider(BaseSpider):
     
     @staticmethod
     async def get_response(url) -> aiorequests.AsyncResponse:
-        resp = await aiorequests.get(url)
+        resp = await aiorequests.get(url, timeout =5)
         resp.raise_for_status()
         return resp
      

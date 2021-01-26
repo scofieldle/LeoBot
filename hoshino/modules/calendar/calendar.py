@@ -42,7 +42,7 @@ def dump_calendar_config():
 
 CALENDAR_NAME_TIP = '请选择以下日程表\n> 切换日程jp\n> 切换日程tw\n> 切换日程cn'
 @sv.on_prefix(('切换日程', '选择日程', '设置日程', '设定日程'))
-async def set_calendar(bot, ev: CQEvent):
+async def set_calendar(bot, ev):
     if not priv.check_priv(ev, priv.ADMIN):
         await bot.finish(ev, '只有群管理才能切换日程', at_sender=True)
     name = util.normalize_str(ev.message.extract_plain_text())

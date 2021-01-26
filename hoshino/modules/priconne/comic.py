@@ -52,7 +52,7 @@ async def download_img(save_path, link):
     会覆盖原有文件，需保证目录存在
     '''
     sv.logger.info(f'download_img from {link}')
-    resp = await aiorequests.get(link, stream=True)
+    resp = await aiorequests.get(link, stream=True, timeout =5)
     sv.logger.info(f'status_code={resp.status_code}')
     if 200 == resp.status_code:
         if re.search(r'image', resp.headers['content-type'], re.I):
@@ -75,7 +75,7 @@ async def download_comic(id_):
     sv.logger.info(f'getting comic {id_} ...')
     url = base + id_
     sv.logger.info(f'url={url}')
-    resp = await aiorequests.get(url)
+    resp = await aiorequests.get(url, timeout =5)
     sv.logger.info(f'status_code={resp.status_code}')
     if 200 != resp.status_code:
         return
@@ -106,7 +106,7 @@ async def update_seeker():
     index = load_index()
 
     # 获取最新漫画信息
-    resp = await aiorequests.get(index_api, timeout=10)
+    resp = await aiorequests.get(index_api, timeout=5)
     data = await resp.json()
     id_ = data['latest_cartoon']['id']
     episode = data['latest_cartoon']['episode_num']

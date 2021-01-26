@@ -27,7 +27,7 @@ class BaseSpider(abc.ABC):
 
     @classmethod
     async def get_response(cls) -> aiorequests.AsyncResponse:
-        resp = await aiorequests.get(cls.url)
+        resp = await aiorequests.get(cls.url, timeout = 5)
         resp.raise_for_status()
         return resp
 

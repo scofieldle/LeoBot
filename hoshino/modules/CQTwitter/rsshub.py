@@ -71,7 +71,7 @@ async def dowimg(url: str):
         name = str(uuid.uuid4())
         
         try:
-            pic = requests.get(url)
+            pic = requests.get(url, timeout=10)
             # 大小控制，图片压缩
             if (float(len(pic.content) / 1024) > float(zip_size)):
                 filename = await zipPic(pic.content, name)

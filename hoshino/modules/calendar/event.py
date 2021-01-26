@@ -59,7 +59,7 @@ class Event:
 
     async def load_timeline_jp_async(self):
         event_source = _calendar_json_url.get(self.setting["calendar_region"])
-        async with aiohttp.request("GET", url=event_source) as response:
+        async with aiohttp.request("GET", url=event_source, timeout =5) as response:
             if response.status != 200:
                 print('error')
             res = await response.text()
@@ -82,7 +82,7 @@ class Event:
 
     async def load_timeline_tw_async(self):
         event_source = _calendar_json_url.get(self.setting["calendar_region"])
-        async with aiohttp.request("GET", url=event_source) as response:
+        async with aiohttp.request("GET", url=event_source, timeout =5) as response:
             if response.status != 200:
                 print('error')
             res = await response.text()
@@ -105,7 +105,7 @@ class Event:
 
     async def load_timeline_cn_async(self):
         event_source = _calendar_json_url.get(self.setting["calendar_region"])
-        async with aiohttp.request("GET", url=event_source) as response:
+        async with aiohttp.request("GET", url=event_source, timeout =5) as response:
             if response.status != 200:
                 print('error')
             res = await response.text()
