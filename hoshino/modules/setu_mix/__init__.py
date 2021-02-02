@@ -13,6 +13,36 @@ sv = hoshino.Service('setu_mix', bundle='pcr娱乐', help_=HELP_MSG)
 tlmt = hoshino.util.DailyNumberLimiter(get_config('base', 'daily_max'))
 flmt = hoshino.util.FreqLimiter(get_config('base', 'freq_limit'))
 
+def China_num(china):
+    try:
+        temp = int(china)
+        return temp
+    except:
+        pass
+
+    if china == '一':
+        return 1
+    if china == '二':
+        return 2
+    if china == '三':
+        return 3
+    if china == '四':
+        return 4
+    if china == '五':
+        return 5
+    if china == '六':
+        return 6
+    if china == '七':
+        return 7
+    if china == '八':
+        return 8
+    if china == '九':
+        return 9
+    if china == '十':
+        return 10
+
+    return 1
+
 def check_lmt(uid, num):
     if uid in hoshino.config.SUPERUSERS:
         return 0, ''
@@ -83,14 +113,12 @@ async def send_setu(bot, ev):
         msg = 'invalid parameter'
     await bot.send(ev, msg)
 
-@sv.on_rex(r'^不够[涩瑟色]|^再来[点张份]|^[涩瑟色]图$|^[再]?来?(\d*)?[份点张]([涩色瑟]图)')
+@sv.on_rex(r'^不够[涩瑟色]|^再来[点张份]|^[涩瑟色]图$|^[再]?来?[0-9一二三四五六七八九十][份点张]([涩色瑟]图)')
 async def send_random_setu(bot, ev):
     num = 1
-    match = ev['match']
-    try:
-        num = int(match.group(1))
-    except:
-        pass
+    match = str(ev['message'])
+    num = China_num(match[1:2])
+
     uid = ev['user_id']
     gid = ev['group_id']
     result, msg = check_lmt(uid, num)

@@ -134,7 +134,7 @@ async def shai (bot, ev):
     try:
         margin = content[1]
     except:
-        margin = ''
+        margin = '无备注'
     gid = str(ev['group_id'])
     uid = str(ev['user_id'])
     name = str(ev['sender']['card'])

@@ -5,6 +5,7 @@ from hoshino.typing import NoticeSession
 from .pcrclient import pcrclient, ApiException
 from threading import Lock
 from os.path import dirname, join, exists
+from  datetime import datetime, timezone, timedelta
 
 sv_help = '''
 [竞技场绑定 uid] 绑定竞技场排名变动推送（仅下降），默认双场均启用
@@ -150,12 +151,21 @@ async def send_arena_sub_status(bot,ev):
     竞技场订阅：{'开启' if info['arena_on'] else '关闭'}
     公主竞技场订阅：{'开启' if info['grand_arena_on'] else '关闭'}''',at_sender=True)
 
-@sv.scheduled_job('interval', minutes=1)
+@sv.scheduled_job('interval', minutes=2)
 async def on_arena_schedule():
     global cache, binds, lck
     bot = get_bot()
     
     bind_cache = {}
+    SHA_TZ = timezone(
+        timedelta(hours=8),
+        name='Asia/Shanghai',
+    )
+    utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+    now = utc_now.astimezone(SHA_TZ)
+    hour = now.hour
+    if hour <10 or hour > 23:
+        return 
 
     with lck:
         for user in binds:
