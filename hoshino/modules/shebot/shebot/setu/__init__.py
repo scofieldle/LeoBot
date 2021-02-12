@@ -13,6 +13,9 @@ import re
 import threading 
 from .config import *
 from service import Service,Priv
+from hoshino.util import pic2b64
+from nonebot import MessageSegment
+from PIL import Image
 
 g_is_online = DEFAULT_ONLINE
 g_with_url = WITH_URL
@@ -65,7 +68,8 @@ async def _(bot,ctx):
             print('发送本地涩图')
             pic = get_random_pic(nr18_path)
             folder = nr18_path.split('/')[-1]
-            pic = f'[CQ:image,file={folder}/{pic}]'
+            path = os.path.join(folder,pic)
+            pic = str(MessageSegment.image(pic2b64(Image.open(path))))
             ret = await bot.send(ctx,pic)
             msg_id = ret['message_id']
             if is_to_delete:
@@ -105,7 +109,8 @@ async def _(bot,ctx):
             print('发送本地涩图')
             pic = get_random_pic(r18_path)
             folder = r18_path.split('/')[-1]
-            pic = f'[CQ:image,file={folder}/{pic}]'
+            path = os.path.join(folder,pic)
+            pic = str(MessageSegment.image(pic2b64(Image.open(path))))
             ret = await bot.send(ctx,pic)
             msg_id = ret['message_id']
             if is_to_delete:
