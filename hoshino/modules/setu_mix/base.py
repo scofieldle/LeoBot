@@ -8,13 +8,12 @@ import string
 import base64
 from hoshino import R
 from .config import get_config, get_group_config
-from .acggov import acggov_init, acggov_fetch_process, acggov_get_setu, acggov_search_setu, acggov_get_ranking_setu, acggov_get_ranking
 from .lolicon import lolicon_init, lolicon_get_setu,lolicon_fetch_process, lolicon_search_setu
 
 
 def check_path():
     state = {}
-    sub_dirs = ['acggov', 'lolicon', 'lolicon_r18']
+    sub_dirs = ['lolicon', 'lolicon_r18']
     for item in sub_dirs:
         res = './res/img/setu_mix/' + item
         if not os.path.exists(res):
@@ -38,8 +37,6 @@ async def get_setu(group_id):
         source_list.append(1)
     if get_group_config(group_id, 'lolicon_r18'):
         source_list.append(2)
-    if get_group_config(group_id, 'acggov'):
-        source_list.append(3)
     source = 0
     if len(source_list) > 0:
         source = random.choice(source_list)
@@ -49,8 +46,6 @@ async def get_setu(group_id):
         image = await lolicon_get_setu(0)
     elif source == 2:
         image = await lolicon_get_setu(1)
-    elif source == 3:
-        image = await acggov_get_setu()
     else:
         return None
     if not image:
@@ -68,8 +63,6 @@ async def search_setu(group_id, keyword, num):
         source_list.append(0)
     elif get_group_config(group_id, 'lolicon_r18'):
         source_list.append(1)
-    if get_group_config(group_id, 'acggov'):
-        source_list.append(3)
 
     if len(source_list) == 0:
         return None
@@ -84,36 +77,15 @@ async def search_setu(group_id, keyword, num):
             image_list = await lolicon_search_setu(keyword, 1, num)
         elif source == 2:
             image_list = await lolicon_search_setu(keyword, 2, num)
-        elif source == 3:
-            image_list = await acggov_search_setu(keyword, num)
         if image_list and len(image_list) > 0:
             for image in image_list:
                 msg_list.append(format_setu_msg(image))
     return msg_list
 
-async def get_ranking(group_id, page: int = 0):
-    if not get_group_config(group_id, 'acggov'):
-        return None
-    return await acggov_get_ranking(page)
-
-
-async def get_ranking_setu(group_id, number: int) -> (int, str):
-    if not get_group_config(group_id, 'acggov'):
-        return None
-    image = await acggov_get_ranking_setu(number)
-    if not image:
-        return '获取失败'
-    elif image['id'] != 0:
-        return format_setu_msg(image)
-    else:
-        return image['title']
-
 async def fetch_process():
     tasks = []
-    tasks.append(asyncio.ensure_future(acggov_fetch_process()))
     tasks.append(asyncio.ensure_future(lolicon_fetch_process()))
     for task in asyncio.as_completed(tasks):
         await task
 
-acggov_init()
 lolicon_init()

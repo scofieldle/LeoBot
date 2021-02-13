@@ -91,10 +91,11 @@ async def on_query_arena(bot, ev):
                 id = binds[uid]['id']
         try:
             res = await query(id)
-            await bot.finish(ev, 
-f'''
-竞技场排名：{res["arena_rank"]}
-公主竞技场排名：{res["grand_arena_rank"]}''', at_sender=True)
+            msg =f'''竞技场排名：{res["arena_rank"]}\n公主竞技场排名：{res["grand_arena_rank"]}'''
+            if binds[uid]['private']:
+                await bot.send_private_msg(user_id = uid, message = msg)
+            else:
+                await bot.finish(ev, msg)
         except ApiException as e:
             await bot.finish(ev, f'查询出错，{e}', at_sender=True)
 
@@ -153,7 +154,7 @@ async def send_arena_sub_status(bot,ev):
     公主竞技场订阅：{'开启' if info['grand_arena_on'] else '关闭'}''',at_sender=True)
 
 
-@sv.on_rex('(启用|停止)?竞技场私聊')
+@sv.on_fullmatch('竞技场私聊')
 async def change_private(bot, ev):
     global binds, lck
 
@@ -218,7 +219,7 @@ async def on_arena_schedule():
             if res[1] > last[1] and info['grand_arena_on']:
                 if binds[user]['private']:
                     await bot.send_private_msg(
-                        group_id = int(binds[user]['uid']),
+                        user_id = int(binds[user]['uid']),
                         message = f'[CQ:at,qq={user}]您的公主竞技场排名发生变化：{last[1]}->{res[1]}'
                     )
                 else:
