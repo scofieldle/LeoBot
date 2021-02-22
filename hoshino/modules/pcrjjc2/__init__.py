@@ -68,6 +68,7 @@ async def on_arena_bind(bot, ev):
             'gid': str(ev['group_id']),
             'arena_on': last is None or last['arena_on'],
             'grand_arena_on': last is None or last['grand_arena_on'],
+            'private': False,
         }
         save_binds()
 
@@ -90,10 +91,11 @@ async def on_query_arena(bot, ev):
                 id = binds[uid]['id']
         try:
             res = await query(id)
-            await bot.finish(ev, 
-f'''
-竞技场排名：{res["arena_rank"]}
-公主竞技场排名：{res["grand_arena_rank"]}''', at_sender=True)
+            msg =f'''竞技场排名：{res["arena_rank"]}\n公主竞技场排名：{res["grand_arena_rank"]}'''
+            if binds[uid]['private']:
+                await bot.send_private_msg(user_id = uid, message = msg)
+            else:
+                await bot.finish(ev, msg)
         except ApiException as e:
             await bot.finish(ev, f'查询出错，{e}', at_sender=True)
 
@@ -151,6 +153,24 @@ async def send_arena_sub_status(bot,ev):
     竞技场订阅：{'开启' if info['arena_on'] else '关闭'}
     公主竞技场订阅：{'开启' if info['grand_arena_on'] else '关闭'}''',at_sender=True)
 
+
+@sv.on_fullmatch('竞技场私聊')
+async def change_private(bot, ev):
+    global binds, lck
+
+    uid = str(ev['user_id'])
+    with lck:
+        if not uid in binds:
+            await bot.send(ev,'您还未绑定竞技场',at_sender=True)
+        else:
+            if binds[uid]['private']:
+                binds[uid]['private'] = False
+            else:
+                binds[uid]['private'] = True
+            save_binds()
+            await bot.finish(ev, f'启用私聊成功', at_sender=True)
+
+
 @sv.scheduled_job('interval', minutes=2)
 async def on_arena_schedule():
     global cache, binds, lck
@@ -186,16 +206,28 @@ async def on_arena_schedule():
             cache[user] = res
 
             if res[0] > last[0] and info['arena_on']:
-                await bot.send_group_msg(
-                    group_id = int(binds[user]['gid']),
-                    message = f'[CQ:at,qq={user}]您的竞技场排名发生变化：{last[0]}->{res[0]}'
-                )
+                if binds[user]['private']:
+                    await bot.send_private_msg(
+                        user_id = int(binds[user]['uid']),
+                        message = f'[CQ:at,qq={user}]您的竞技场排名发生变化：{last[0]}->{res[0]}'
+                    )
+                else:
+                    await bot.send_group_msg(
+                        group_id = int(binds[user]['gid']),
+                        message = f'[CQ:at,qq={user}]您的竞技场排名发生变化：{last[0]}->{res[0]}'
+                    )
 
             if res[1] > last[1] and info['grand_arena_on']:
-                await bot.send_group_msg(
-                    group_id = int(binds[user]['gid']),
-                    message = f'[CQ:at,qq={user}]您的公主竞技场排名发生变化：{last[1]}->{res[1]}'
-                )
+                if binds[user]['private']:
+                    await bot.send_private_msg(
+                        user_id = int(binds[user]['uid']),
+                        message = f'[CQ:at,qq={user}]您的公主竞技场排名发生变化：{last[1]}->{res[1]}'
+                    )
+                else:
+                    await bot.send_group_msg(
+                        group_id = int(binds[user]['gid']),
+                        message = f'[CQ:at,qq={user}]您的公主竞技场排名发生变化：{last[1]}->{res[1]}'
+                    )
         except Exception as e:
             sv.logger.info(f'对{binds[user]["id"]}的检查出错\n{e}')
 

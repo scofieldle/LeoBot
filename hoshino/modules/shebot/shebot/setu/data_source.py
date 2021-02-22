@@ -9,6 +9,9 @@ from .api import get_final_setu
 from queue import Queue
 from hoshino.util import silence
 import time
+from hoshino.util import pic2b64
+from nonebot import MessageSegment
+from PIL import Image
 
 class SetuWarehouse:
     def __init__(self,store_path,r18=0):
@@ -85,7 +88,8 @@ async def send_setus(bot,ctx,setu_path,setus,with_url=False,is_to_delete=False,m
     folder = setu_path.split('/')[-1]
     reply = ''
     for setu in setus:
-        pic = f'[CQ:image,file={setu_path}/{setu.pid}]'
+        path = os.path.join(setu_path,str(setu.pid))
+        pic = str(MessageSegment.image(pic2b64(Image.open(path))))
         reply += f'{setu.title}\n画师：{setu.author}\npid:{setu.pid}{pic}'
     await silence(ctx, 300)
     ret = await bot.send(ctx,reply,at_sender=False)
@@ -98,10 +102,4 @@ async def send_setus(bot,ctx,setu_path,setus,with_url=False,is_to_delete=False,m
         msg_id = ret['message_id']
         add_to_delete(msg_id,msgs_to_del)
     
-
-
-
-
-
-                        
 #asyncio.run(get_setu(IMGPATH,1))
