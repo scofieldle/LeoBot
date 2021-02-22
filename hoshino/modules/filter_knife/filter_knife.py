@@ -59,6 +59,7 @@ def get_compensate_time(boss_hp, _damage):
         return "无法击杀BOSS"
 
     compensate_time = (1 - boss_hp / damage)*90+10
+    compensate_time=min(compensate_time,90)
     return f"返还 {int(compensate_time)} 秒"
 
 def center(_txt):
@@ -229,8 +230,15 @@ async def feedback(bot, ev):
         reply="请输入：合刀 刀1伤害 刀2伤害"
         await bot.send(ev, reply)
         return
-    d1=float(content[1])
-    d2=float(content[2])
+    if 'w' in content[1] or 'W' in content[1]:
+        d1 = float(content[1][:-1])*10000
+    else:
+        d1=float(content[1])
+    if 'w' in content[2] or 'W' in content[2]:
+        d2 = float(content[2][:-1])*10000
+    else:
+        d2 = float(content[2])
+
     rest=boss_HP[gid]
     if(d1+d2<rest):
         reply="醒醒！这两刀是打不死boss的\n"

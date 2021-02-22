@@ -47,7 +47,7 @@ rules:
   # 设置默认每天早上5点半推送一次
   broadcast_time:
     day_of_week: '*'
-    hour: 5
+    hour: 21
     minute: 30
   # -------------------------------
 

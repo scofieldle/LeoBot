@@ -74,7 +74,7 @@ def print_rank(info, new_info=None, ts=None):
         )
         utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
         now = utc_now.astimezone(SHA_TZ)
-        data.data['ts'] = ts if ts else now.strftime("%Y-%m-%d, %H:%M:%S")
+        data.data['ts'] = now.strftime("%Y-%m-%d, %H:%M:%S")
         data.data['rank_ext'] = rank_ext
         data.data['score'] = format(data.damage, ",")
         data.data['score_ext'] = damage_ext

@@ -164,7 +164,8 @@ async def on_arena_schedule():
     utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
     now = utc_now.astimezone(SHA_TZ)
     hour = now.hour
-    if hour <10 or hour > 23:
+    if hour <10:
+        sv.logger.info(f'不是不报，时候未到')
         return 
 
     with lck:
