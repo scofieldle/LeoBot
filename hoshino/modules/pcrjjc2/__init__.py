@@ -16,6 +16,7 @@ sv_help = '''
 [启用公主竞技场订阅] 启用公主竞技场排名变动推送
 [删除竞技场订阅] 删除竞技场排名变动推送绑定
 [竞技场订阅状态] 查看排名变动推送绑定状态
+[竞技场私聊] 开启/关闭 竞技场私聊
 '''
 
 sv = Service('竞技场推送',help_=sv_help, bundle='pcr查询')
@@ -165,10 +166,12 @@ async def change_private(bot, ev):
         else:
             if binds[uid]['private']:
                 binds[uid]['private'] = False
+                await bot.finish(ev, f'关闭私聊成功', at_sender=True)
             else:
                 binds[uid]['private'] = True
+                await bot.finish(ev, f'启用私聊成功', at_sender=True)
             save_binds()
-            await bot.finish(ev, f'启用私聊成功', at_sender=True)
+            
 
 
 @sv.scheduled_job('interval', minutes=2)
@@ -229,7 +232,7 @@ async def on_arena_schedule():
                         message = f'[CQ:at,qq={user}]您的公主竞技场排名发生变化：{last[1]}->{res[1]}'
                     )
         except Exception as e:
-            sv.logger.info(f'对{binds[user]["id"]}的检查出错\n{e}')
+            sv.logger.info(e)
 
 @sv.on_notice('group_decrease.leave')
 async def leave_notice(session: NoticeSession):

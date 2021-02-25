@@ -42,6 +42,10 @@ load_images()
 
 sv = Service('image',visible=True)
 
+@sv.on_fullmatch(('表情帮助'))
+async def img_help(bot, ev):
+    await bot.send(ev, sv_help, at_sender=True)
+
 @sv.on_prefix(('img'))
 async def switch_img(bot, ev):
     uid = ev.user_id

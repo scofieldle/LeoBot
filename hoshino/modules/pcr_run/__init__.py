@@ -34,7 +34,7 @@ SUPPORT_TIME = 30
 DB_PATH = os.path.expanduser('~/.hoshino/pcr_running_counter.db')
 FILE_PATH = os.path.dirname(__file__)
 #如果此项为True，则技能由图片形式发送，减少风控。
-SKILL_IMAGE = False
+SKILL_IMAGE = True
 class RunningJudger:
     def __init__(self):
         self.on = {}
@@ -533,8 +533,8 @@ async def Racetest(bot, ev: CQEvent):
     running_judger.turn_off(ev.group_id)
     #支持环节结束
     msg = '支持环节结束，下面赛跑正式开始。'
-    await bot.send(ev, msg)    
-    await asyncio.sleep(ONE_TURN_TIME) 
+    first = await bot.send(ev, msg)
+    await asyncio.sleep(ONE_TURN_TIME)
     kokoro_id = search_kokoro(Race_list)
     if kokoro_id is not None:
         kokoro_num = numrecord.set_kokoro_num(gid,kokoro_id)
@@ -545,7 +545,7 @@ async def Racetest(bot, ev: CQEvent):
     race_init(position,silence,pause,ub)
     msg = '运动员们已经就绪！\n'
     msg += print_race(Race_list,position)
-    await bot.send(ev, msg)
+    second = await bot.send(ev, msg)
    
     gameend = 0
     i = 1
@@ -562,7 +562,7 @@ async def Racetest(bot, ev: CQEvent):
         await asyncio.sleep(ONE_TURN_TIME)
         skillmsg = "技能发动阶段:\n"
         skillmsg += skill_race(Race_list,position,silence,pause,ub,gid)
-        if SKILL_IMAGE ==True:
+        if SKILL_IMAGE:
             im = Image.new("RGB", (600, 150), (255, 255, 255))
             dr = ImageDraw.Draw(im)
             FONTS_PATH = os.path.join(FILE_PATH,'fonts')
@@ -573,14 +573,13 @@ async def Racetest(bot, ev: CQEvent):
             im.save(bio, format='PNG')
             base64_str = 'base64://' + base64.b64encode(bio.getvalue()).decode()
             mes  = f"[CQ:image,file={base64_str}]"
-            await bot.send(ev, mes)        
+            await bot.send(ev, mes)     
         else:
             await bot.send(ev, skillmsg)
 
         await asyncio.sleep(ONE_TURN_TIME)
         msg = f'技能发动结果:\n'
         msg += print_race(Race_list,position)
-        await bot.send(ev, msg)
 
         i+=1
         check = check_game(position)
@@ -609,7 +608,7 @@ async def Racetest(bot, ev: CQEvent):
             else:
                 score_counter._reduce_score(gid, uid ,support_score)
                 supportmsg += f'[CQ:at,qq={uid}]-{support_score}积分\n'
-    await bot.send(ev, supportmsg)  
+    await bot.send(ev, supportmsg) 
     running_judger.set_support(ev.group_id) 
     running_judger.turn_off(ev.group_id)
  
