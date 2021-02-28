@@ -48,7 +48,10 @@ def check_block_user(user_id):
 
 
 def get_user_priv(ev: CQEvent):
-    uid = ev.user_id
+    try:
+        uid = ev.user_id
+    except:
+        uid = ev['user_id']
     if uid in hoshino.config.SUPERUSERS:
         return SUPERUSER
     if check_block_user(uid):

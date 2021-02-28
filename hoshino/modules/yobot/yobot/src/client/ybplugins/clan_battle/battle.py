@@ -6,6 +6,7 @@ import re
 import time
 from typing import Any, Dict, List, Optional, Tuple, Union
 from urllib.parse import urljoin
+from hoshino import priv
 
 import peewee
 from aiocqhttp.api import Api
@@ -506,17 +507,15 @@ class ClanBattle:
         group = Clan_group.get_or_none(group_id=group_id)
         if group is None:
             raise GroupNotExist
-        user = User.get_or_create(
-            qqid=qqid,
-            defaults={
-                'clan_group_id': group_id,
-            }
-        )[0]
+        user = {
+            'user_id':qqid,
+            'message_type':'group'
+        }
         last_challenge = self._get_group_previous_challenge(group)
         if last_challenge is None:
             raise GroupError('本群无出刀记录')
-        if (last_challenge.qqid != qqid) and (user.authority_group >= 100):
-            raise UserError('无权撤销')
+        if not priv.check_priv(user, priv.ADMIN):
+            raise GroupError('无权撤销！')
         group.boss_cycle = last_challenge.boss_cycle
         group.boss_num = last_challenge.boss_num
         group.boss_health = (last_challenge.boss_health_ramain
