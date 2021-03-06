@@ -164,7 +164,7 @@ async def check_tenjo_num(bot, ev: CQEvent):
         await bot.finish(ev, TENJO_EXCEED_NOTICE, at_sender=True)
 
 
-@sv.on_prefix(gacha_1_aliases, only_to_me=True)
+@sv.on_fullmatch(gacha_1_aliases)
 async def gacha_1(bot, ev: CQEvent):
 
     await check_jewel_num(bot, ev)
@@ -182,7 +182,7 @@ async def gacha_1(bot, ev: CQEvent):
     await bot.send(ev, f'素敵な仲間が増えますよ！\n{res}', at_sender=True)
 
 
-@sv.on_prefix(gacha_10_aliases, only_to_me=True)
+@sv.on_fullmatch(gacha_10_aliases)
 async def gacha_10(bot, ev: CQEvent):
     SUPER_LUCKY_LINE = 170
 
@@ -212,7 +212,7 @@ async def gacha_10(bot, ev: CQEvent):
     #await silence(ev, silence_time)
 
 
-@sv.on_prefix(gacha_300_aliases, only_to_me=True)
+@sv.on_fullmatch(gacha_300_aliases)
 async def gacha_300(bot, ev: CQEvent):
 
     await check_tenjo_num(bot, ev)

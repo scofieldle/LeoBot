@@ -53,7 +53,7 @@ async def get_uploader_url(bot, ev):
     cfg = config.__bot__
     await bot.send(ev,f'http://{public_address}:{cfg.PORT}/main')
 
-@sv.on_fullmatch("机器人帮助",only_to_me=False)
+@sv.on_fullmatch(('帮助','机器人帮助'))
 async def get_uploader_url(bot, ev):
     cfg = config.__bot__
     await bot.send(ev,f'http://{public_address}:{cfg.PORT}/help')

@@ -130,7 +130,6 @@ class pcrclient:
                 print(f'pcrclient: {apiurl} api failed {data}')
                 raise ApiException(data['message'], data['status'])
 
-            print(f'pcrclient: {apiurl} api called')
             return data
         except:
             self.shouldLogin = True

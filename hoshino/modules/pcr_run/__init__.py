@@ -7,30 +7,25 @@ from nonebot import MessageSegment
 from hoshino import Service
 from hoshino.typing import CQEvent
 import random
+import numpy as np
 import heapq
+import time
+import nonebot
 from . import runchara
 import copy
 import os
 from  PIL  import   Image,ImageFont,ImageDraw
 from io import BytesIO
 import base64
-
-sv_help = '''
-[赛跑开始] 开始一轮赛跑
-[x号x积分] 下注积分
-[查赛跑积分] 查询自己的赛跑积分
-[领赛跑积分] 赛跑积分为0时可以领取50积分
-[赛跑排行榜] 查询本群赛跑积分排行榜
-'''
-
-sv = Service('pcr-run', help_=sv_help, enable_on_default=True)
+sv = Service('pcr-run', enable_on_default=True)
 
 ROAD = '='
 ROADLENGTH = 16
-TOTAL_NUMBER = 10
+TOTAL_NUMBER = 11
 NUMBER = 5
 ONE_TURN_TIME = 3
 SUPPORT_TIME = 30
+SLEEP_TIME = 10 #消息撤回间隔
 DB_PATH = os.path.expanduser('~/.hoshino/pcr_running_counter.db')
 FILE_PATH = os.path.dirname(__file__)
 #如果此项为True，则技能由图片形式发送，减少风控。
@@ -69,7 +64,7 @@ class ScoreCounter:
     def __init__(self):
         os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
         self._create_table()
-
+        self._create_pres_table()
 
     def _connect(self):
         return sqlite3.connect(DB_PATH)
@@ -81,6 +76,17 @@ class ScoreCounter:
                           (GID             INT    NOT NULL,
                            UID             INT    NOT NULL,
                            SCORE           INT    NOT NULL,
+                           PRIMARY KEY(GID, UID));''')
+        except:
+            raise Exception('创建表发生错误')
+            
+    #记录国王声望数据
+    def _create_pres_table(self):
+        try:
+            self._connect().execute('''CREATE TABLE IF NOT EXISTS PRESTIGECOUNTER
+                          (GID             INT    NOT NULL,
+                           UID             INT    NOT NULL,
+                           PRESTIGE           INT    NOT NULL,
                            PRIMARY KEY(GID, UID));''')
         except:
             raise Exception('创建表发生错误')
@@ -111,7 +117,23 @@ class ScoreCounter:
                 conn.commit()     
         except:
             raise Exception('更新表发生错误')
-
+            
+    def _get_prestige(self, gid, uid):
+        try:
+            r = self._connect().execute("SELECT PRESTIGE FROM PRESTIGECOUNTER WHERE GID=? AND UID=?", (gid, uid)).fetchone()
+            return 0 if r is None else r[0]
+        except:
+            raise Exception('查找声望发生错误')
+    
+    def _add_prestige(self, gid, uid, num):
+        prestige = self._get_prestige(gid, uid)
+        prestige += num
+        with self._connect() as conn:
+            conn.execute(
+                "INSERT OR REPLACE INTO PRESTIGECOUNTER (GID, UID, PRESTIGE) VALUES (?, ?, ?)",
+                (gid, uid, prestige),
+            )
+    
     def _get_score(self, gid, uid):
         try:
             r = self._connect().execute("SELECT SCORE FROM SCORECOUNTER WHERE GID=? AND UID=?",(gid,uid)).fetchone()        
@@ -119,7 +141,7 @@ class ScoreCounter:
         except:
             raise Exception('查找表发生错误')
             
-#判断积分是否足够下注
+#判断金币是否足够下注
     def _judge_score(self, gid, uid ,score):
         try:
             current_score = self._get_score(gid, uid)
@@ -157,6 +179,14 @@ class NumRecord:
         return self.kokoro_num[gid]
         
 numrecord = NumRecord()       
+
+#撤回消息
+async def del_msg_run(bot, ev, msg_id, sleeptime):
+    #bot = nonebot.get_bot()
+    #time.sleep(sleeptime)
+    #print(self_id)
+    self_id=ev.self_id
+    await bot.delete_msg(self_id,msg_id)
 
 #将角色以角色编号的形式分配到赛道上，返回一个赛道的列表。
 def chara_select():
@@ -221,13 +251,6 @@ def search_kokoro(charalist):
     
     else:
         return None
-
-
-
-
-
-
-
 
 #对单一对象的基本技能：前进，后退，沉默，暂停，必放ub
 def forward(id,step,position):
@@ -477,13 +500,23 @@ def print_race(Race_list,position):
       
     return racemsg
 #检查比赛结束用，要考虑到同时冲线
-def check_game(position):
-    winner = []
+def check_game(position,winner):
+    xuhao = 1
     is_win = 0
+    xuhao=xuhao+len(winner)
     for id in range(1,6):
+        mc_flag=0
+        mingcixx=[]
         if position[id-1] == 1:
-            winner.append(id)
-            is_win = 1
+            for win in winner:
+                if id==win[1]:
+                    mc_flag=1
+            if mc_flag==0:
+                mingcixx=[xuhao,id]
+                print(mingcixx)
+                winner.append(mingcixx)
+                if len(winner)>=3:
+                    is_win = 1
     return is_win,winner  
 
 
@@ -498,17 +531,12 @@ def introduce_race(Race_list):
         name = c.getname()
         msg += f'{name}，图标为{icon}'
         msg += "\n" 
-    msg += f"所有人请在{SUPPORT_TIME}秒内选择支持的选手。格式如下：\n1/2/3/4/5号xx积分\n如果积分为0，可以发送：\n领赛跑积分"    
+    msg += f"所有人请在{SUPPORT_TIME}秒内选择支持的选手。格式如下：\n1/2/3/4/5号xx金币\n如果金币为0，可以发送：\n领赛跑金币"    
     return msg    
         
-@sv.on_fullmatch('赛跑帮助', only_to_me=False)
-async def send_jjchelp(bot, ev):
-    await bot.send(ev, sv_help)
-
-@sv.on_prefix(('测试赛跑', '赛跑开始'))
+bot_del = nonebot.get_bot()
+@sv.on_prefix(('赛跑开始','赛马开始','开始赛马','开始赛跑'))
 async def Racetest(bot, ev: CQEvent):
-    if not priv.check_priv(ev, priv.ADMIN):
-        await bot.finish(ev, '只有群管理才能开启赛跑', at_sender=True)
     if running_judger.get_on_off_status(ev.group_id):
             await bot.send(ev, "此轮赛跑还没结束，请勿重复使用指令。")
             return
@@ -524,7 +552,12 @@ async def Racetest(bot, ev: CQEvent):
     numrecord.init_num(gid)
     Race_list = chara_select()
     msg = '兰德索尔赛跑即将开始！\n下面为您介绍参赛选手：'
-    await bot.send(ev, msg)
+    ret = await bot.send(ev, msg)
+    await asyncio.sleep(ONE_TURN_TIME)
+    #await bot_del.delete_msg(self_id=ev.self_id,message_id=ret['message_id'])
+    del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
+    #msg = ret['message_id']
+    #ret = await bot.send(ev, msg)
     await asyncio.sleep(ONE_TURN_TIME)
     #介绍选手，开始支持环节
     msg = introduce_race(Race_list)
@@ -533,8 +566,8 @@ async def Racetest(bot, ev: CQEvent):
     running_judger.turn_off(ev.group_id)
     #支持环节结束
     msg = '支持环节结束，下面赛跑正式开始。'
-    first = await bot.send(ev, msg)
-    await asyncio.sleep(ONE_TURN_TIME)
+    await bot.send(ev, msg)    
+    await asyncio.sleep(ONE_TURN_TIME) 
     kokoro_id = search_kokoro(Race_list)
     if kokoro_id is not None:
         kokoro_num = numrecord.set_kokoro_num(gid,kokoro_id)
@@ -545,24 +578,45 @@ async def Racetest(bot, ev: CQEvent):
     race_init(position,silence,pause,ub)
     msg = '运动员们已经就绪！\n'
     msg += print_race(Race_list,position)
-    second = await bot.send(ev, msg)
-   
+    ret = await bot.send(ev, msg)
+    del_msg=ret['message_id']
+    del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
+    await asyncio.sleep(ONE_TURN_TIME)
+    if del_msg:
+        await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg)
     gameend = 0
     i = 1
+    winner = []
+    del_msg1=''
+    del_msg2=''
+    del_msg3=''
     while gameend == 0:
-        await asyncio.sleep(ONE_TURN_TIME)
+        if del_msg1:
+            await asyncio.sleep(1)
+            #await bot.send(ev, del_msg1)
+            await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg1)
+        if del_msg2:
+            await asyncio.sleep(1)
+            #await bot.send(ev, del_msg2)
+            await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg2)
+        if del_msg3:
+            await asyncio.sleep(1)
+            #await bot.send(ev, del_msg3)
+            await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg3)
         msg = f'第{i}轮跑步:\n'
         one_turn_run(pause,position,Race_list)
         msg += print_race(Race_list,position)
-        await bot.send(ev, msg)
-        check = check_game(position)
+        ret = await bot.send(ev, msg)
+        del_msg1=ret['message_id']
+        del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
+        check = check_game(position,winner)
         if check[0]!=0:
             break
             
         await asyncio.sleep(ONE_TURN_TIME)
         skillmsg = "技能发动阶段:\n"
         skillmsg += skill_race(Race_list,position,silence,pause,ub,gid)
-        if SKILL_IMAGE:
+        if SKILL_IMAGE ==True:
             im = Image.new("RGB", (600, 150), (255, 255, 255))
             dr = ImageDraw.Draw(im)
             FONTS_PATH = os.path.join(FILE_PATH,'fonts')
@@ -573,47 +627,102 @@ async def Racetest(bot, ev: CQEvent):
             im.save(bio, format='PNG')
             base64_str = 'base64://' + base64.b64encode(bio.getvalue()).decode()
             mes  = f"[CQ:image,file={base64_str}]"
-            await bot.send(ev, mes)     
+            ret = await bot.send(ev, mes)
+            del_msg2=ret['message_id']
+            del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
         else:
-            await bot.send(ev, skillmsg)
+            ret = await bot.send(ev, skillmsg)
+            del_msg2=ret['message_id']
+            del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
 
         await asyncio.sleep(ONE_TURN_TIME)
         msg = f'技能发动结果:\n'
         msg += print_race(Race_list,position)
+        ret = await bot.send(ev, msg)
+        del_msg3=ret['message_id']
+        del_msg_run(bot, ev, ret['message_id'], SLEEP_TIME)
 
         i+=1
-        check = check_game(position)
+        check = check_game(position,check[1])
         gameend = check[0]
     winner = check[1]
-    winmsg = ""
-    for id in winner:
-        winmsg += str(id)
-        winmsg += "\n"
-    msg = f'胜利者为:\n{winmsg}'
+    if del_msg1:
+        await asyncio.sleep(1)
+        #await bot.send(ev, del_msg1)
+        await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg1)
+    if del_msg2:
+        await asyncio.sleep(1)
+        #await bot.send(ev, del_msg2)
+        await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg2)
+    if del_msg3:
+        await asyncio.sleep(1)
+        #await bot.send(ev, del_msg3)
+        await bot_del.delete_msg(self_id=ev.self_id,message_id=del_msg3)
+    winshuchu=''
+    winmsg1=''
+    winmsg2=''
+    winmsg3=''
+    for win in winner:
+        if win[0]==1:
+            winmsg1 += str(win[1])+'号选手\n'
+        if win[0]==2:
+            winmsg2 += str(win[1])+'号选手\n'
+        if win[0]==3:
+            winmsg3 += str(win[1])+'号选手\n'
+    if winmsg1:
+        winshuchu += "第一名为:\n"+winmsg1
+    if winmsg2:
+        winshuchu += "第二名为:\n"+winmsg2
+    if winmsg3:
+        winshuchu += "第三名为:\n"+winmsg3
+    msg = f'胜利者:\n{winshuchu}'
     score_counter = ScoreCounter()
     await bot.send(ev, msg)
     gid = ev.group_id
     support = running_judger.get_support(gid)
     winuid = []
-    supportmsg = '积分结算:\n'
+    shengwangmsg = ''
+    supportmsg = '金币结算:\n'
     if support!=0:
         for uid in support:
             support_id = support[uid][0]
             support_score = support[uid][1]
-            if support_id in winner:
+            jl_mingci=0
+            for win in winner:
+                if win[1]==support_id:
+                    jl_mingci=win[0]
+                    break
+            if jl_mingci==1:
                 winuid.append(uid)
-                winscore = support_score*2
-                score_counter._add_score(gid, uid ,winscore)
-                supportmsg += f'[CQ:at,qq={uid}]+{winscore}积分\n'     
+                winscore = support_score*1.5
+                addscore = winscore+support_score
+                score_counter._add_score(gid, uid ,addscore)
+                score_counter._add_prestige(gid,uid,200)
+                shengwangmsg += f'[CQ:at,qq={uid}]+200声望\n'  
+                supportmsg += f'[CQ:at,qq={uid}]+{winscore}金币\n'     
+            elif jl_mingci==2:
+                winuid.append(uid)
+                winscore = support_score*1
+                addscore = winscore+support_score
+                score_counter._add_score(gid, uid ,addscore)
+                supportmsg += f'[CQ:at,qq={uid}]+{winscore}金币\n'   
+            elif jl_mingci==3:
+                winuid.append(uid)
+                winscore = support_score*0.5
+                addscore = winscore+support_score
+                score_counter._add_score(gid, uid ,addscore)
+                supportmsg += f'[CQ:at,qq={uid}]+{winscore}金币\n'   
             else:
-                score_counter._reduce_score(gid, uid ,support_score)
-                supportmsg += f'[CQ:at,qq={uid}]-{support_score}积分\n'
-    await bot.send(ev, supportmsg) 
+                #score_counter._reduce_score(gid, uid ,support_score)
+                supportmsg += f'[CQ:at,qq={uid}]-{support_score}金币\n'
+    if shengwangmsg == '':
+        shengwangmsg='无'
+    supportmsg += f'声望结算：\n{shengwangmsg}\n(猜对第一名结算声望加200点)'
+    await bot.send(ev, supportmsg)  
     running_judger.set_support(ev.group_id) 
     running_judger.turn_off(ev.group_id)
  
- 
-@sv.on_rex(r'^(\d+)号(\d+)(积分|分)$') 
+@sv.on_rex(r'^(\d+)号(\d+)(金币|分)$') 
 async def on_input_score(bot, ev: CQEvent):
     try:
         if running_judger.get_on_off_status(ev.group_id):
@@ -634,13 +743,14 @@ async def on_input_score(bot, ev: CQEvent):
                 msg = '您已经支持过了。'
                 await bot.send(ev, msg, at_sender=True)
                 return
-            #检查积分是否足够下注
+            #检查金币是否足够下注
             if score_counter._judge_score(gid, uid ,input_score) == 0:
-                msg = '您的积分不足。'
+                msg = '您的金币不足。'
                 await bot.send(ev, msg, at_sender=True)
                 return
             else :
                 running_judger.add_support(gid,uid,select_id,input_score)
+                score_counter._reduce_score(gid, uid ,input_score)
                 msg = f'支持{select_id}号成功。'
                 await bot.send(ev, msg, at_sender=True)                
     except Exception as e:
@@ -648,7 +758,7 @@ async def on_input_score(bot, ev: CQEvent):
             
                 
                 
-@sv.on_prefix('领赛跑积分')
+@sv.on_prefix('领赛跑金币')
 async def add_score(bot, ev: CQEvent):
     try:
         score_counter = ScoreCounter()
@@ -658,16 +768,16 @@ async def add_score(bot, ev: CQEvent):
         current_score = score_counter._get_score(gid, uid)
         if current_score == 0:
             score_counter._add_score(gid, uid ,50)
-            msg = '您已领取50积分'
+            msg = '您已领取50金币'
             await bot.send(ev, msg, at_sender=True)
             return
         else:     
-            msg = '积分为0才能领取哦。'
+            msg = '金币为0才能领取哦。'
             await bot.send(ev, msg, at_sender=True)
             return
     except Exception as e:
         await bot.send(ev, '错误:\n' + str(e))         
-@sv.on_prefix('查赛跑积分')
+@sv.on_prefix('查赛跑金币')
 async def get_score(bot, ev: CQEvent):
     try:
         score_counter = ScoreCounter()
@@ -675,7 +785,7 @@ async def get_score(bot, ev: CQEvent):
         uid = ev.user_id
         
         current_score = score_counter._get_score(gid, uid)
-        msg = f'您的积分为{current_score}'
+        msg = f'您的金币为{current_score}'
         await bot.send(ev, msg, at_sender=True)
         return
     except Exception as e:
@@ -698,10 +808,10 @@ async def Race_ranking(bot, ev: CQEvent):
             if uid != ev.self_id:
                 score_dict[user_card_dict[uid]] = score_counter._get_score(gid, uid)
         group_ranking = sorted(score_dict.items(), key = lambda x:x[1], reverse = True)
-        msg = '此群赛跑积分排行为:\n'
+        msg = '此群赛跑金币排行为:\n'
         for i in range(min(len(group_ranking), 10)):
             if group_ranking[i][1] != 0:
-                msg += f'第{i+1}名: {group_ranking[i][0]}, 积分: {group_ranking[i][1]}分\n'
+                msg += f'第{i+1}名: {group_ranking[i][0]}, 金币: {group_ranking[i][1]}分\n'
         await bot.send(ev, msg.strip())
     except Exception as e:
         await bot.send(ev, '错误:\n' + str(e))        
