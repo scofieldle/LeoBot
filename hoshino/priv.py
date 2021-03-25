@@ -48,23 +48,25 @@ def check_block_user(user_id):
 
 
 def get_user_priv(ev: CQEvent):
-    uid = ev.user_id
+    try:
+        uid = ev.user_id
+    except:
+        uid = ev['user_id']
     if uid in hoshino.config.SUPERUSERS:
         return SUPERUSER
     if check_block_user(uid):
         return BLACK
     # TODO: White list
     if ev['message_type'] == 'group':
-        if not ev.anonymous:
-            role = ev.sender.get('role')
-            if role == 'member':
-                return NORMAL
-            elif role == 'admin':
-                return ADMIN
-            elif role == 'administrator':
-                return ADMIN    # for cqhttpmirai
-            elif role == 'owner':
-                return OWNER
+        role = ev.sender.get('role')
+        if role == 'member':
+            return NORMAL
+        elif role == 'admin':
+            return ADMIN
+        elif role == 'administrator':
+            return ADMIN    # for cqhttpmirai
+        elif role == 'owner':
+            return OWNER
         return NORMAL
     if ev['message_type'] == 'private':
         return PRIVATE

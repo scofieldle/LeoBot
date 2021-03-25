@@ -239,7 +239,8 @@ async def feedback(bot, ev):
     else:
         d2 = float(content[2])
 
-    rest=boss_HP[gid]
+    if not (gid in boss_HP):
+        rest = int(await get_boss_hp(gid))
     if(d1+d2<rest):
         reply="醒醒！这两刀是打不死boss的\n"
         await bot.send(ev, reply)

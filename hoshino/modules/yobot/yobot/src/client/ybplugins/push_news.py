@@ -31,19 +31,6 @@ class News:
         self.api = bot_api
         self._rssjob = {}
         self.rss = {
-            "news_jp_twitter": {
-                "name": "日服推特",
-                "source": "http://rsshub.app.cdn.cloudflare.net/twitter/user/priconne_redive",
-                # headers: 可选，附加请求头
-                "headers": {"host": "rsshub.app"},
-                "pattern": "{title}\n链接：{link}",
-            },
-            "news_jp_official": {
-                "name": "日服官网",
-                "source": "http://rsshub.app.cdn.cloudflare.net/pcr/news",
-                "headers": {"host": "rsshub.app"},
-                "pattern": "{title}\n{link}",
-            },
             "news_cn_bilibili": {
                 "name": "国服B站动态",
                 "source": "http://rsshub.app.cdn.cloudflare.net/bilibili/user/dynamic/353840826",

@@ -23,6 +23,8 @@ from .exception import (
     UserNotInGroup)
 from .typing import BossStatus, ClanBattleReport, Groupid, Pcr_date, QQid
 from .util import atqq, pcr_datetime, pcr_timestamp, timed_cached_func
+from datetime import datetime, timezone, timedelta
+from hoshino import priv
 
 _logger = logging.getLogger(__name__)
 
@@ -129,17 +131,6 @@ class ClanBattle:
                 group_id=None,
             ))
         return user.nickname or str(qqid)
-    
-    def _get_ontreeTime_by_qqid(self, qqid, group_id):
-        user = User.get_or_create(qqid=qqid)[0]
-        subscribe = Clan_subscribe.get_or_none(
-            gid=group_id,
-            qqid=qqid,
-            subscribe_item=0,
-        )
-        loss_time = subscribe.time
-        remain_time = (datetime.now() - datetime.strptime(loss_time, "%Y-%m-%d %H:%M:%S")).seconds/60
-        return remain_time
 
     def _get_group_previous_challenge(self, group: Clan_group):
         Clan_challenge_alias = Clan_challenge.alias()
@@ -413,7 +404,7 @@ class ClanBattle:
         challenges = list(challenges)
         finished = sum(bool(c.boss_health_ramain or c.is_continue)
                        for c in challenges)
-        if finished >= 3:
+        if finished >= 100:
             if previous_day:
                 raise InputError('昨日上报次数已达到3次')
             raise InputError('今日上报次数已达到3次')
@@ -515,7 +506,7 @@ class ClanBattle:
         last_challenge = self._get_group_previous_challenge(group)
         if last_challenge is None:
             raise GroupError('本群无出刀记录')
-        if (last_challenge.qqid != qqid) and (user.authority_group >= 100):
+        if (last_challenge.qqid != qqid) and (user.authority_group >= 20):
             raise UserError('无权撤销')
         group.boss_cycle = last_challenge.boss_cycle
         group.boss_num = last_challenge.boss_num
@@ -791,11 +782,11 @@ class ClanBattle:
             # 如果挂树时当前正在挑战，则取消挑战
             group.challenging_member_qq_id = None
             group.save()
-        subscribe = Clan_subscribe.create(
+        Clan_subscribe.create(
             gid=group_id,
             qqid=qqid,
             subscribe_item=boss_num,
-            message=message,
+            message= message,
             time = time,
         )
 
@@ -822,6 +813,7 @@ class ClanBattle:
                 'boss': subscribe.subscribe_item,
                 'qqid': subscribe.qqid,
                 'message': subscribe.message,
+                'time': subscribe.time,
             })
         return subscribe_list
 
@@ -1017,7 +1009,7 @@ class ClanBattle:
 
         return todaystatus
 
-    @timed_cached_func(max_len=64, max_age_seconds=10, ignore_self=True)
+    @timed_cached_func(max_len=64, max_age_seconds=5, ignore_self=True)
     def get_report(self,
                    group_id: Groupid,
                    battle_id: Union[str, int, None],
@@ -1348,21 +1340,23 @@ class ClanBattle:
             match = re.match(r'^挂树 *(?:[\:：](.*))?$', cmd)
             if not match:
                 return
+            SHA_TZ = timezone(timedelta(hours=8),name='Asia/Shanghai',)
+            utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+            now = utc_now.astimezone(SHA_TZ)
+            climb_stime = now.strftime("%H:%M:%S")
+            loss_stime = (now+timedelta(minutes=50)).strftime("%H:%M:%S")
             extra_msg = match.group(1)
             if isinstance(extra_msg, str):
                 extra_msg = extra_msg.strip()
                 if not extra_msg:
                     extra_msg = None
-            climb_stime = datetime.now().strftime("%H:%M:%S")
-            loss_time = str((datetime.now()+timedelta(minutes=50)).strftime("%Y-%m-%d %H:%M:%S"))
-            loss_stime = (datetime.now()+timedelta(minutes=50)).strftime("%H:%M:%S")
             try:
-                self.add_subscribe(group_id, user_id, 0, extra_msg, loss_time)
+                self.add_subscribe(group_id, user_id, 0, extra_msg, str(climb_stime))
             except ClanBattleError as e:
                 _logger.info('群聊 失败 {} {} {}'.format(user_id, group_id, cmd))
                 return str(e)
             _logger.info('群聊 成功 {} {} {}'.format(user_id, group_id, cmd))
-            msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]开始挂树\n因上报时间与游戏时间存在误差\n挂树时长按照50分钟计算\n开始时间:{climb_stime}\n下树期限:{loss_stime}\n距离下树期限(约)10分钟时会连续提醒您三次\n如果没有人帮助请及时下树'
+            msg = f'>>>挂树计时提醒\n[CQ:at,qq={user_id}]开始挂树\n因上报时间与游戏时间存在误差\n挂树时长按照50分钟计算\n开始时间:{climb_stime}\n下树期限:{loss_stime}\n如果没有人帮助请及时下树'
             return msg
         elif match_num == 12:  # 申请/锁定
             if cmd == '申请出刀':
@@ -1403,8 +1397,8 @@ class ClanBattle:
                 event = f'预约{b}号boss'
             counts = self.cancel_subscribe(group_id, user_id, boss_num)
             if counts == 0:
-                return '您没有'+event
                 _logger.info('群聊 失败 {} {} {}'.format(user_id, group_id, cmd))
+                return '您没有'+event
             _logger.info('群聊 成功 {} {} {}'.format(user_id, group_id, cmd))
             return '已取消'+event
         elif match_num == 14:  # 解锁
@@ -1458,13 +1452,12 @@ class ClanBattle:
             subscribers = self.get_subscribe_list(group_id, match_num-20)
             if not subscribers:
                 return '没有人'+beh
-            reply = beh+'的成员：\n'
+            reply = beh+'的成员：'
             for m in subscribers:
                 reply += '\n'+ self._get_nickname_by_qqid(m['qqid'])
-                reply += '  挂树时长:'
-                reply += self._get_ontreeTime_by_qqid(m['qqid'], group_id)
+                reply += ', 挂树时间：' + m['time']
                 if m.get('message'):
-                    reply += '：' + m['message']
+                    reply += '，留言： ' + m['message']
             return reply
 
     def register_routes(self, app: Quart):

@@ -68,7 +68,7 @@ async def Genshin_wiki(bot, ev: CQEvent):
                 msg = index_list[0][0] + ':' + index_list[0][1]
                 await bot.send(ev, msg, at_sender=True)
             else:
-                await bot.send(ev, f'没有叫{name}的人哦！', at_sender=True)
+                return
     except Exception as e:
         sv.logger.info(e)
 
