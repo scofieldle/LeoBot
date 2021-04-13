@@ -75,43 +75,28 @@ async def on_arena_bind(bot, ev):
 
     await bot.finish(ev, '竞技场绑定成功', at_sender=True)
 
-@sv.on_rex(r'^竞技场查询 ?(\d{13})?$')
+@sv.on_fullmatch(('竞技场查询','查询竞技场'))
 async def on_query_arena(bot, ev):
     global binds, lck
 
-    robj = ev['match']
-    id = robj.group(1)
-
     with lck:
-        if id == None:
-            uid = str(ev['user_id'])
-            if not uid in binds:
-                await bot.finish(ev, '您还未绑定竞技场', at_sender=True)
-                return
-            else:
-                id = binds[uid]['id']
+        uid = str(ev['user_id'])
+        if not uid in binds:
+            await bot.finish(ev, '您还未绑定竞技场', at_sender=True)
+            return
+        else:
+            id = binds[uid]['id']
         try:
             res = await query(id)
             msg =f'''竞技场排名：{res["arena_rank"]}\n公主竞技场排名：{res["grand_arena_rank"]}'''
-            await bot.finish(ev, msg)
+            if binds[uid]['private']:
+                await bot.send_private_msg(user_id = uid, message = msg)
+            else:
+                await bot.finish(ev, msg)
         except ApiException as e:
             await bot.finish(ev, f'查询出错，{e}', at_sender=True)
 
-@sv.on_rex('(启用|停止)(公主)?竞技场订阅')
-async def change_arena_sub(bot, ev):
-    global binds, lck
-
-    key = 'arena_on' if ev['match'].group(2) is None else 'grand_arena_on'
-    uid = str(ev['user_id'])
-    with lck:
-        if not uid in binds:
-            await bot.send(ev,'您还未绑定竞技场',at_sender=True)
-        else:
-            binds[uid][key] = ev['match'].group(1) == '启用'
-            save_binds()
-            await bot.finish(ev, f'{ev["match"].group(0)}成功', at_sender=True)
-
-@sv.on_prefix('删除竞技场订阅')
+@sv.on_fullmatch(('删除竞技场订阅','取消竞技场订阅','解除竞技场订阅'))
 async def delete_arena_sub(bot,ev):
     global binds, lck
 
@@ -135,7 +120,7 @@ async def delete_arena_sub(bot,ev):
 
         await bot.finish(ev, '删除竞技场订阅成功', at_sender=True)
 
-@sv.on_fullmatch('竞技场订阅状态')
+@sv.on_fullmatch('竞技场状态')
 async def send_arena_sub_status(bot,ev):
     global binds, lck
     uid = str(ev['user_id'])
