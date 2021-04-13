@@ -58,6 +58,7 @@ class ClanBattle:
         'sl': 16,
         'SL': 16,
         '查树': 20,
+        '进度':27,
     }
 
     Server = {
@@ -776,7 +777,19 @@ class ClanBattle:
         )
         if subscribe is not None:
             if boss_num == 0:
-                raise UserError('您已经在树上了')
+                if message == None:
+                    raise UserError('您已经在树上了')
+                else:
+                    time = subscribe.time
+                    self.cancel_subscribe(group_id, qqid, boss_num)
+                    Clan_subscribe.create(
+                        gid=group_id,
+                        qqid=qqid,
+                        subscribe_item=boss_num,
+                        message= message,
+                        time = time,
+                    )
+                    raise UserError('修订挂树内容成功!')
             raise UserError('您已经预约过了')
         if (boss_num == 0 and group.challenging_member_qq_id == qqid):
             # 如果挂树时当前正在挑战，则取消挑战
@@ -1324,13 +1337,15 @@ class ClanBattle:
             if not match:
                 return
             boss_num = int(match.group(1))
-            extra_msg = match.group(2)
-            if isinstance(extra_msg, str):
-                extra_msg = extra_msg.strip()
-                if not extra_msg:
-                    extra_msg = None
             try:
-                self.add_subscribe(group_id, user_id, boss_num, extra_msg)
+                extra_msg = match.group(2).strip()
+            except:
+                extra_msg = None
+            SHA_TZ = timezone(timedelta(hours=8),name='Asia/Shanghai',)
+            utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+            now = utc_now.astimezone(SHA_TZ)
+            try:
+                self.add_subscribe(group_id, user_id, boss_num, extra_msg, now)
             except ClanBattleError as e:
                 _logger.info('群聊 失败 {} {} {}'.format(user_id, group_id, cmd))
                 return str(e)
@@ -1459,6 +1474,28 @@ class ClanBattle:
                 if m.get('message'):
                     reply += '，留言： ' + m['message']
             return reply
+        elif match_num == 27:  # 进度
+            if cmd != '进度':
+                return
+            try:
+                (
+                    full_challenge_count,
+                    tailing_challenge_count,
+                    continued_challenge_count,
+                    continued_tailing_challenge_count,
+                ) = self.get_clan_daily_challenge_counts(group_id)
+            except GroupNotExist as e:
+                return str(e)
+            finished = (full_challenge_count
+                        + continued_challenge_count
+                        + continued_tailing_challenge_count)
+            unfinished = (tailing_challenge_count
+                          - continued_challenge_count
+                          - continued_tailing_challenge_count)
+            return ("今日进度\n\n"
+                    f"已完成出刀：{finished}\n"
+                    f"未完成的尾刀：{unfinished}\n"
+                    f"未开始的出刀：{90-finished-unfinished}")
 
     def register_routes(self, app: Quart):
 
@@ -1543,7 +1580,7 @@ class ClanBattle:
                 action = payload['action']
                 if user_id == 0:
                     # 允许游客查看
-                    if action not in ['get_member_list', 'get_challenge']:
+                    if action not in ['get_member_list', 'get_challensge']:
                         return jsonify(
                             code=10,
                             message='Not logged in',
@@ -1786,12 +1823,16 @@ class ClanBattle:
                 elif action == 'addsubscribe':
                     boss_num = payload['boss_num']
                     message = payload.get('message')
+                    SHA_TZ = timezone(timedelta(hours=8),name='Asia/Shanghai',)
+                    utc_now = datetime.utcnow().replace(tzinfo=timezone.utc)
+                    now = utc_now.astimezone(SHA_TZ)
                     try:
                         self.add_subscribe(
                             group_id,
                             user_id,
                             boss_num,
                             message,
+                            now,
                         )
                     except ClanBattleError as e:
                         _logger.info('网页 失败 {} {} {}'.format(
