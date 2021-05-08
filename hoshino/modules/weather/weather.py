@@ -4,12 +4,14 @@ from nonebot import NLPSession, IntentCommand
 import http.client
 import json
 import urllib
-
+from nonebot import get_bot
 import requests
 from bs4 import BeautifulSoup
 from hoshino import Service
+from  datetime import datetime, timezone, timedelta
 
 sv = Service('weather')
+last_time = datetime.now()
 
 @sv.on_command('weather', aliases=('天气', '天气预报', '查天气'))
 async def weather(session: CommandSession):

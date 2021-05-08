@@ -68,29 +68,6 @@ class ScoreCounter:
 
     def _connect(self):
         return sqlite3.connect(DB_PATH)
-
-
-    def _create_table(self):
-        try:
-            self._connect().execute('''CREATE TABLE IF NOT EXISTS SCORECOUNTER
-                          (GID             INT    NOT NULL,
-                           UID             INT    NOT NULL,
-                           SCORE           INT    NOT NULL,
-                           PRIMARY KEY(GID, UID));''')
-        except:
-            raise Exception('创建表发生错误')
-            
-    #记录国王声望数据
-    def _create_pres_table(self):
-        try:
-            self._connect().execute('''CREATE TABLE IF NOT EXISTS PRESTIGECOUNTER
-                          (GID             INT    NOT NULL,
-                           UID             INT    NOT NULL,
-                           PRESTIGE           INT    NOT NULL,
-                           PRIMARY KEY(GID, UID));''')
-        except:
-            raise Exception('创建表发生错误')
-    
     
     def _add_score(self, gid, uid ,score):
         try:
@@ -117,22 +94,6 @@ class ScoreCounter:
                 conn.commit()     
         except:
             raise Exception('更新表发生错误')
-            
-    def _get_prestige(self, gid, uid):
-        try:
-            r = self._connect().execute("SELECT PRESTIGE FROM PRESTIGECOUNTER WHERE GID=? AND UID=?", (gid, uid)).fetchone()
-            return 0 if r is None else r[0]
-        except:
-            raise Exception('查找声望发生错误')
-    
-    def _add_prestige(self, gid, uid, num):
-        prestige = self._get_prestige(gid, uid)
-        prestige += num
-        with self._connect() as conn:
-            conn.execute(
-                "INSERT OR REPLACE INTO PRESTIGECOUNTER (GID, UID, PRESTIGE) VALUES (?, ?, ?)",
-                (gid, uid, prestige),
-            )
     
     def _get_score(self, gid, uid):
         try:
@@ -141,7 +102,7 @@ class ScoreCounter:
         except:
             raise Exception('查找表发生错误')
             
-#判断金币是否足够下注
+    #判断金币是否足够下注
     def _judge_score(self, gid, uid ,score):
         try:
             current_score = self._get_score(gid, uid)

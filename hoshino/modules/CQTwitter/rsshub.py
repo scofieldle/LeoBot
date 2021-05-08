@@ -14,7 +14,6 @@ from google_trans_new import google_translator
 from nonebot.log import logger
 from pyquery import PyQuery as pq
 import numpy as np
-from PIL import Image
 import base64
 from hoshino.util import pic2b64
 from nonebot import MessageSegment
