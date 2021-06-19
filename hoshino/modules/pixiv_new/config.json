@@ -1,0 +1,15 @@
+{
+    "base": {
+        "daily_max": 10,
+        "freq_limit": 10
+    },
+    "default": {
+        "withdraw": 60,
+        "pixiv": true,
+        "pixiv_r18": false
+    },
+    "pixiv": {
+        "token": ,
+        "r18": false
+    }
+}

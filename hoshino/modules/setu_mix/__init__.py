@@ -106,7 +106,8 @@ async def send_setu(bot, ev):
             msg += f'\n{k} : {v}'
     else:
         msg = 'invalid parameter'
-    await bot.send(ev, msg)
+        
+    await bot.send(ev,msg)
 
 @sv.on_rex(r'^不够[涩瑟色]|^再来[点张份]|^[涩瑟色]图$|^[再]?来?[0-9一二三四五六七八九十][份点张]([涩色瑟]图)')
 async def send_random_setu(bot, ev):
@@ -122,16 +123,28 @@ async def send_random_setu(bot, ev):
         return
 
     result_list = []
+    msg_ = []
     for _ in range(num):
         msg = await get_setu(gid)
         if msg == None:
             await bot.send(ev, '无可用模块')
             return
-        try:
-            result_list.append(await bot.send(ev, msg))
-        except:
-            print('图片发送失败')
-        await asyncio.sleep(1)
+        data = {
+            "type": "node",
+            "data": {
+                "name": "妈",
+                "uin": "197812783",
+                "content":msg
+                    }
+                }
+        msg_.append(data)
+        
+    try:
+        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=msg_))
+    except Exception as e:
+        print(e)
+        print('图片发送失败')
+    await asyncio.sleep(1)
 
     tlmt.increase(uid, len(result_list))
 
@@ -170,12 +183,22 @@ async def send_search_setu(bot, ev):
     if len(msg_list) == 0:
         await bot.send(ev, '无结果')
     result_list = []
+    msg_ = []
     for msg in msg_list:
-        try:
-            result_list.append(await bot.send(ev, msg))
-        except:
-            print('图片发送失败')
-        await asyncio.sleep(1)
+        data = {
+            "type": "node",
+            "data": {
+                "name": "妈",
+                "uin": "197812783",
+                "content":msg
+                    }
+                }
+        msg_.append(data)
+    try:
+        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=msg_))
+    except:
+        print('图片发送失败')
+    await asyncio.sleep(1)
     tlmt.increase(uid, len(result_list))
     second = get_group_config(gid, "withdraw")
     if second and second > 0:

@@ -1,9 +1,8 @@
 import base64
 import os
 import time
-from collections import defaultdict
 
-from hoshino import aiorequests, config, util
+from hoshino import aiorequests, config
 
 from .. import chara
 from . import sv
@@ -112,7 +111,7 @@ def get_true_id(quick_key: str, user_id: int) -> str:
 
 
 def __get_auth_key():
-    return config.jjc_api
+    return config.priconne.arena.AUTH_KEY
 
 
 async def do_query(id_list, user_id, region=1):
@@ -124,7 +123,7 @@ async def do_query(id_list, user_id, region=1):
     payload = {
         "_sign": "a",
         "def": id_list,
-        "nonce": "a",
+        "nonce": "i3l38qyc1vd2afyd",
         "page": 1,
         "sort": 1,
         "ts": int(time.time()),
@@ -148,8 +147,11 @@ async def do_query(id_list, user_id, region=1):
         logger.error(f"Arena query failed.\nResponse={res}\nPayload={payload}")
         raise aiorequests.HTTPError(response=res)
 
+    result = res.get("data", {}).get("result")
+    if result is None:
+        return None
     ret = []
-    for entry in res["data"]["result"]:
+    for entry in result:
         eid = entry["id"]
         likes = get_likes(eid)
         dislikes = get_dislikes(eid)
@@ -185,4 +187,3 @@ async def do_like(qkey, user_id, action):
         raise KeyError
     add_like(true_id, user_id) if action > 0 else add_dislike(true_id, user_id)
     dump_db()
-    # TODO: upload to website

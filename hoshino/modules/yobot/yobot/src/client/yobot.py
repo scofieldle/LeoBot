@@ -18,12 +18,12 @@ from quart import Quart, send_file
 
 if __package__:
     from .ybplugins import (boss_dmg, calender, clan_battle, gacha, homepage,
-                            jjc_consult, login, marionette, push_news, settings,
+                             login, marionette, push_news, settings,
                             switcher, templating, updater, web_util, ybdata,
                             yobot_msg, custom, miner, group_leave)
 else:
     from ybplugins import (boss_dmg, calender, clan_battle, gacha, homepage,
-                           jjc_consult, login, marionette, push_news, settings,
+                            login, marionette, push_news, settings,
                            switcher, templating, updater, web_util, ybdata,
                            yobot_msg, custom, miner, group_leave)
 
@@ -196,7 +196,6 @@ class Yobot:
             switcher.Switcher(**kwargs),
             yobot_msg.Message(**kwargs),
             gacha.Gacha(**kwargs),
-            jjc_consult.Consult(**kwargs),
             boss_dmg.Boss_dmg(**kwargs),
             push_news.News(**kwargs),
             calender.Event(**kwargs),

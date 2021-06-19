@@ -1,6 +1,6 @@
 # setu_mix
 
-基于HoshinoBot v2的涩图插件, 从 [acg-gov.com](https://acg-gov.com) 和 [lolicon.app](https://lolicon.app/) 获取图片.
+基于HoshinoBot v2的涩图插件, 从[lolicon.app](https://lolicon.app/) 获取图片.
 
 本项目地址 https://github.com/zyujs/setu_mix
 
@@ -28,11 +28,6 @@
 - `来n张涩图` : 随机获取n张图片
 - `搜涩图 keyword` : 搜索指定关键字的图片
 - `搜n张涩图 keyword` : 搜索n张指定关键字的图片
-- `本日涩图排行榜 [page]` : 获取p站排行榜
-- `看涩图 [n]` : 获取p站排行榜指定排名的图片
-- `看涩图 start end` : 获取p站排行榜排名从start到end的全部图片
-
-注:排行榜相关功能需要开启acggov模块
 
 ### 以下指令仅限超级用户使用
 

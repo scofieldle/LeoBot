@@ -6,7 +6,6 @@ __all__ = [
     'yobot_msg',
     'gacha',
     'homepage',
-    'jjc_consult',
     'boss_dmg',
     'clan_battle',
     'login',

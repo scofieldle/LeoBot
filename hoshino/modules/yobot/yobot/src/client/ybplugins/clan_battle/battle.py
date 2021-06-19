@@ -24,7 +24,7 @@ from .exception import (
 from .typing import BossStatus, ClanBattleReport, Groupid, Pcr_date, QQid
 from .util import atqq, pcr_datetime, pcr_timestamp, timed_cached_func
 from datetime import datetime, timezone, timedelta
-from hoshino import priv
+from hoshino.priv import *
 
 _logger = logging.getLogger(__name__)
 
@@ -507,7 +507,7 @@ class ClanBattle:
         last_challenge = self._get_group_previous_challenge(group)
         if last_challenge is None:
             raise GroupError('本群无出刀记录')
-        if (last_challenge.qqid != qqid) and (user.authority_group >= 20):
+        if (last_challenge.qqid != qqid) and not check_priv(ev, 20):
             raise UserError('无权撤销')
         group.boss_cycle = last_challenge.boss_cycle
         group.boss_num = last_challenge.boss_num
@@ -803,7 +803,7 @@ class ClanBattle:
             time = time,
         )
 
-    def get_subscribe_list(self, group_id: Groupid, boss_num=None) -> List[Tuple[int, QQid, dict]]:
+    def get_subscribe_list(self, group_id: Groupid, boss_num=None, order_by="sid") -> List[Tuple[int, QQid, dict]]:
         """
         get the subscribe lists.
 
@@ -820,7 +820,7 @@ class ClanBattle:
         for subscribe in Clan_subscribe.select().where(
             *query
         ).order_by(
-            Clan_subscribe.sid
+            getattr(Clan_subscribe, order_by)
         ):
             subscribe_list.append({
                 'boss': subscribe.subscribe_item,
@@ -1135,6 +1135,55 @@ class ClanBattle:
             })
         return member_list
 
+    def get_clan_daily_challenge_counts(self,
+                                        group_id: Groupid,
+                                        pcrdate: Optional[Pcr_date] = None,
+                                        battle_id: Union[int, None] = None,
+                                        ):
+        """
+        get the records
+        Args:
+            group_id: group id
+            battle_id: battle id
+            pcrdate: pcrdate of report
+        """
+        group = Clan_group.get_or_none(group_id=group_id)
+        if group is None:
+            raise GroupNotExist
+        if pcrdate is None:
+            pcrdate = pcr_datetime(group.game_server)[0]
+        if battle_id is None:
+            battle_id = group.battle_id
+        full_challenge_count = 0
+        tailing_challenge_count = 0
+        continued_challenge_count = 0
+        continued_tailing_challenge_count = 0
+        for challenge in Clan_challenge.select().where(
+            Clan_challenge.gid == group_id,
+            Clan_challenge.bid == battle_id,
+            Clan_challenge.challenge_pcrdate == pcrdate,
+        ):
+            if challenge.boss_health_ramain != 0:
+                if challenge.is_continue:
+                    # 剩余刀
+                    continued_challenge_count += 1
+                else:
+                    # 完整刀
+                    full_challenge_count += 1
+            else:
+                if challenge.is_continue:
+                    # 尾余刀
+                    continued_tailing_challenge_count += 1
+                else:
+                    # 尾刀
+                    tailing_challenge_count += 1
+        return (
+            full_challenge_count,
+            tailing_challenge_count,
+            continued_challenge_count,
+            continued_tailing_challenge_count,
+        )
+        
     @timed_cached_func(max_len=16, max_age_seconds=3600, ignore_self=True)
     def get_member_list(self, group_id: Groupid) -> List[Dict[str, Any]]:
         """
@@ -1333,6 +1382,30 @@ class ClanBattle:
             )
             return '请在面板中查看：'+url
         elif match_num == 10:  # 预约
+            if cmd == '预约表':
+                # 查询预约表
+                subscribers = self.get_subscribe_list(group_id, order_by='subscribe_item')
+                if not subscribers:
+                    return '没有预约记录'
+                reply = "预约表：\n"
+                current_boss = '-1'  # 尚未开始输出结果
+                for sub in subscribers:
+                    if sub['boss'] != current_boss:  # boss 号变化前，显示小标题
+                        if sub['boss'] == 0:
+                            reply += '====挂树====\n'
+                        else:
+                            reply += f"==={sub['boss']}号boss===\n"
+                        current_boss = sub['boss']
+                    reply += self._get_nickname_by_qqid(sub['qqid'])  # 显示昵称
+                    if sub['boss'] == 0:
+                        reply += f"(已挂树{self._get_timedelta(sub['created_time'])})" if self._get_timedelta(
+                            sub['created_time']) else ''
+                    message = sub['message']  # 如果有留言则显示留言
+                    if message:
+                        reply += '：' + message
+                    reply += '\n'
+                reply += '============'  # 结束
+                return reply
             match = re.match(r'^预约([1-5]) *(?:[\:：](.*))?$', cmd)
             if not match:
                 return

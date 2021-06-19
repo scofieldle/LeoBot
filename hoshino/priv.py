@@ -14,6 +14,7 @@ SUPERUSER = 999
 from datetime import datetime
 
 import hoshino
+from hoshino import config
 from hoshino.typing import CQEvent
 
 #===================== block list =======================#
