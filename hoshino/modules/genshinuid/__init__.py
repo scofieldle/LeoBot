@@ -29,7 +29,6 @@ def zipPic(name):
     return str(MessageSegment.image(pic2b64(im)))
 
 @sv.on_message('group')  # 如果使用hoshino的分群管理取消注释这行 并注释下一行的 @_bot.on_message("group")
-# @_bot.on_message  # nonebot使用这
 async def main(*params):
     bot, ctx = (_bot, params[0]) if len(params) == 1 else params
     uid = ctx.user_id
@@ -37,27 +36,35 @@ async def main(*params):
     keyword = util.get_msg_keyword(config.comm.player_uid, msg, True)
     if isinstance(keyword, str):
         if not keyword:
-
             info = db.get(uid, {})
             if not info:
                 return await bot.send(ctx, '请在原有指令后面输入游戏uid,只需要输入一次就会记住下次直接使用%s获取就好' % config.comm.player_uid)
             else:
                 keyword = info['uid']
+        if not keyword.isdigit():
+            await bot.send(ctx, '只能是数字ID啦')
+            return
 
-        await bot.send(ctx, await get_stat(keyword))
+        await bot.send_group_forward_msg(group_id=ctx.group_id, messages=await get_stat(keyword))
         db[uid] = {'uid': keyword}
 
 
 async def get_stat(uid):
-    if not uid.isdigit():
-        return '只能是数字ID啦'
     for cookie in cookie_list:
         info = query.info(uid, cookie)
         if info.retcode != 0:
             if '30' in info.message:
                 continue
             else:
-                return '[%s]错误或者不存在 (%s)' % (uid, info.message)
+                data = {
+                        "type": "node",
+                        "data": {
+                            "name": "妈",
+                            "uin": "197812783",
+                            "content":'[%s]错误或者不存在 (%s)' % (uid, info.message)
+                                }
+                            }
+                return [data]
         else:
             break
     stats = query.stats(info.data.stats, True)
@@ -68,4 +75,12 @@ async def get_stat(uid):
     for i in info.data.avatars:
         if i["fetter"] > 7:
             msg += f'\n{zipPic(i["name"])}{i["name"]},{i["level"]}级'
-    return msg
+    data = {
+            "type": "node",
+            "data": {
+                "name": "妈",
+                "uin": "197812783",
+                "content":msg
+                    }
+                }
+    return [data]

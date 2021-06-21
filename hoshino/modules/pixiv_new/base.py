@@ -12,7 +12,10 @@ def add_salt(data):
 
 def format_setu_msg(image, item):
     base64_str = f"base64://{base64.b64encode(add_salt(image)).decode()}"
-    msg = f'id:{item["id"]}\ntitle:{item["title"]}\nauthor_id:{item["author_id"]}\nauthor:{item["author"]}\nlove:{item["bookmarks"]}\ndate:{item["date"]}\n[CQ:image,file={base64_str}]'
+    temp = ''
+    for name in item['tags']:
+        temp = temp + name + '\t'
+    msg = f'id:{item["id"]}\ntitle:{item["title"]}\nauthor_id:{item["author_id"]}\nauthor:{item["author"]}\nlove:{item["bookmarks"]}\ndate:{item["date"]}\ntags:{temp}\n[CQ:image,file={base64_str}]'
     return msg
 
 async def get_setu(item):

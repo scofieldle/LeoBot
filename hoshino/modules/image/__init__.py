@@ -44,7 +44,7 @@ sv = Service('image',visible=True)
 
 @sv.on_fullmatch(('表情帮助'))
 async def img_help(bot, ev):
-    await bot.send(ev, sv_help, at_sender=True)
+    await bot.send(ev, sv_help)
 
 @sv.on_prefix(('img','底图'))
 async def switch_img(bot, ev):
@@ -63,9 +63,29 @@ async def show_memes(bot,ev):
     msg = "当前表情有："
     for meme in img_name:
         msg += "\n" + meme
-    await bot.send(ev,msg,at_sender=True)
+        
+    msg_ = []
+    data = {
+            "type": "node",
+            "data": {
+                "name": "妈",
+                "uin": "197812783",
+                "content":msg
+                    }
+                }
+    msg_.append(data)
     res = str(MessageSegment.image(pic2b64(Image.open(backImage))))
-    await bot.send(ev, res)
+    data = {
+            "type": "node",
+            "data": {
+                "name": "妈",
+                "uin": "197812783",
+                "content":res
+                    }
+                }
+    msg_.append(data)
+    
+    await bot.send_group_forward_msg(group_id=ev.group_id, messages=msg_, at_sender=True)
 
 @sv.on_fullmatch(('更新表情','刷新表情','更新表情列表','刷新表情列表'))
 async def reload_memes(bot,event):
