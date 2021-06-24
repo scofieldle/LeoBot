@@ -13,7 +13,7 @@ config = {
         "pixiv_r18": False
     },
     "pixiv": {
-        "token": ,
+        "token": "",
         "r18": False
     }
 }

@@ -90,21 +90,26 @@ async def send_setu(bot, ev):
     keyword = ev['prefix']
     r18 = 0
     id = 0
-    try:
-        id = int(match)
-    except:
-        if ('r18' in match) and get_group_config(gid, 'pixiv_r18'):
+    if ('r18' in match) and get_group_config(gid, 'pixiv_r18'):
             r18 = 1
+    if match.isdigit():
+        id = int(match)
     await bot.send(ev, '正在搜索...')
+    
     try:
         image_list = await query_(keyword, id, r18)
     except:
         await bot.send(ev, '获取图片失败，请检查命令！', at_sender=True)
         return
-        
+    
+    print(len(image_list))
+    if image_list == []:
+        await bot.send(ev, '时候未到，不是不报', at_sender=True)
     result_list = []
     msg_ = []
+    temp = ''
     for item in image_list:
+        temp += str(item['id']) + ' :' + item['title'] + '\n'
         msg = await get_setu(item)
         if msg == None:
             await bot.send(ev, '无可用模块')
@@ -112,12 +117,21 @@ async def send_setu(bot, ev):
         data = {
             "type": "node",
             "data": {
-                "name": "妈",
-                "uin": "197812783",
+                "name": "小冰",
+                "uin": "2854196306",
                 "content":msg
                     }
                 }
         msg_.append(data)
+    msg = {
+        "type": "node",
+        "data": {
+            "name": "小冰",
+            "uin": "2854196306",
+            "content":temp
+                }
+            }
+    await bot.send_group_forward_msg(group_id=gid, messages=[msg])
         
     try:
         result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=msg_))
@@ -155,10 +169,18 @@ async def send_search_setu(bot, ev):
     if len(msg_list) == 0:
         await bot.send(ev, '无结果')
     msg = await get_setu(msg_list[0])
+    data = {
+        "type": "node",
+        "data": {
+            "name": "小冰",
+            "uin": "2854196306",
+            "content":msg
+                }
+            }
     
     result_list = []
     try:
-        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=[msg]))
+        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=[data]))
     except:
         print('图片发送失败')
     await asyncio.sleep(1)

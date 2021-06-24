@@ -2,16 +2,20 @@ import random
 import string
 import base64
 from io import BytesIO
-from PIL import Image
+from PIL import Image, ImageDraw
 from hoshino.util import pic2b64
 from .pixiv import download_image, native_get, pixiv_init
 
-def add_salt(data):
-    salt = ''.join(random.sample(string.ascii_letters + string.digits, 6))
-    return data + bytes(salt, encoding="utf8")
-
 def format_setu_msg(image, item):
-    base64_str = f"base64://{base64.b64encode(add_salt(image)).decode()}"
+    width, height = image.size
+    draw = ImageDraw.Draw(image)
+    draw.point((random.randint(10, width), random.randint(10, height)), fill=(random.randint(0, 255),
+                                                                            random.randint(0, 255),
+                                                                            random.randint(0, 255)))
+    img_byte = BytesIO()
+    image.save(img_byte, format='JPEG')
+    binary_content = img_byte.getvalue()
+    base64_str = f"base64://{base64.b64encode(binary_content).decode()}"
     temp = ''
     for name in item['tags']:
         temp = temp + name + '\t'
@@ -23,10 +27,10 @@ async def get_setu(item):
     if not native_get(item['id']):
         await download_image(item['url'], item['id'])
     im = Image.open(path)
-    img_byte = BytesIO()
-    im.save(img_byte, format='JPEG') # format: PNG or JPEG
-    binary_content = img_byte.getvalue()  # im对象转为二进制流
-    msg = format_setu_msg(binary_content, item)
+    #img_byte = BytesIO()
+    #im.save(img_byte, format='JPEG') # format: PNG or JPEG
+    #binary_content = img_byte.getvalue()  # im对象转为二进制流
+    msg = format_setu_msg(im, item)
     return msg
 
 pixiv_init()

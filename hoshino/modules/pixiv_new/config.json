@@ -9,7 +9,7 @@
         "pixiv_r18": false
     },
     "pixiv": {
-        "token": ,
+        "token": "",
         "r18": false
     }
 }

@@ -23,7 +23,7 @@ def zipPic(name):
     # 获得图像尺寸:
     w, h = im.size
     # 算出缩小比
-    Proportion = 4
+    Proportion = w/64
     # 缩放
     im.thumbnail((w // Proportion, h // Proportion))
     return str(MessageSegment.image(pic2b64(im)))
