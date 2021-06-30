@@ -5,7 +5,7 @@ from nonebot.exceptions import CQHttpError
 from hoshino import R, Service, priv, config
 from pathlib import Path
 
-public_address = '18.177.140.133'#修改为服务器公网ip
+public_address = '18.179.120.112'#修改为服务器公网ip
 
 
 sv = Service('pages', manage_priv=priv.SUPERUSER, enable_on_default=True, visible=False)

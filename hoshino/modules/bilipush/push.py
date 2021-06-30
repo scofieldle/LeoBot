@@ -235,7 +235,7 @@ async def disubscribe_dynamic(bot, ev):
     await bot.send(ev, '取消订阅成功')
 
 
-@sv.scheduled_job('cron', minute='*/2')
+@sv.scheduled_job('cron', minute='2')
 async def check_bili_dynamic():
     global push_times
     global room_states
@@ -246,7 +246,6 @@ async def check_bili_dynamic():
     if push_uids == {}:
         await loadConfig()
     uids = push_uids.keys()
-    sv.logger.info('B站动态检查开始')
     for uid in uids:
         # if uid != "171818544":
         #    continue
@@ -434,9 +433,7 @@ async def check_bili_dynamic():
             push_times[uid] = int(time.time())
         except Exception as e:
             sv.logger.info(f'B站动态检查发生错误 uid={uid}\n' + traceback.format_exc())
-    sv.logger.info('B站动态检查结束')
     # 直播状态检查
-    sv.logger.info('B站直播状态检查开始')
     for uid in uids:
         try:
             header = {
@@ -477,7 +474,6 @@ async def check_bili_dynamic():
             time.sleep(0.5)
         except Exception as e:
             sv.logger.info(f'B站直播检查发生错误 uid={uid}\n' + traceback.format_exc())
-    sv.logger.info('B站直播状态检查结束')
     isOnChecking = False
 
 

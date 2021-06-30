@@ -70,7 +70,7 @@ async def Genshin_wiki(bot, ev: CQEvent):
             else:
                 return
     except Exception as e:
-        sv.logger.info(e)
+        pass
 
 @sv.on_suffix(('命之座'))
 async def Genshin_MZZ(bot, ev: CQEvent):
@@ -93,7 +93,7 @@ async def Genshin_MZZ(bot, ev: CQEvent):
             else:
                 await bot.send(ev, f'没有叫{name}的人哦！', at_sender=True)
     except Exception as e:
-        sv.logger.info(e)
+        pass
 
 @sv.on_fullmatch(('猜原神'))
 async def description_guess(bot, ev: CQEvent):
@@ -134,7 +134,7 @@ async def description_guess(bot, ev: CQEvent):
         msg =  f'正确答案是: {answer}{img}\n{msg_part}'
         await bot.send(ev, msg)
     except Exception as e:
-        sv.logger.info(e)
+        pass
 
 
 @sv.on_message()
@@ -150,4 +150,4 @@ async def on_input_chara_name(bot, ev: CQEvent):
             msg =  f'正确答案是: {answer}{img}\n{msg_part}'
             await bot.send(ev, msg, at_sender=True)
     except Exception as e:
-        sv.logger.info(e)
+        pass

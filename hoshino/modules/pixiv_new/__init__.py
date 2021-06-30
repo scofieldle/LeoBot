@@ -90,8 +90,15 @@ async def send_setu(bot, ev):
     keyword = ev['prefix']
     r18 = 0
     id = 0
-    if ('r18' in match) and get_group_config(gid, 'pixiv_r18'):
+    single = 0
+    if ('r18' in match):
+        if get_group_config(gid, 'pixiv_r18'):
             r18 = 1
+        else:
+            bot.send(ev, '本群暂不支持查看r18呢', at_sender=True)
+    if '单发' in match:
+        single = 1
+        match = match.split(' ')[0]
     if match.isdigit():
         id = int(match)
     await bot.send(ev, '正在搜索...')
@@ -103,6 +110,7 @@ async def send_setu(bot, ev):
         return
     
     print(len(image_list))
+    
     if image_list == []:
         await bot.send(ev, '时候未到，不是不报', at_sender=True)
     result_list = []
@@ -122,7 +130,12 @@ async def send_setu(bot, ev):
                 "content":msg
                     }
                 }
-        msg_.append(data)
+        if single:
+            result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=[data]))
+        else:
+            msg_.append(data)
+    await asyncio.sleep(1)
+    
     msg = {
         "type": "node",
         "data": {
@@ -132,13 +145,11 @@ async def send_setu(bot, ev):
                 }
             }
     await bot.send_group_forward_msg(group_id=gid, messages=[msg])
-        
-    try:
-        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=msg_))
-    except Exception as e:
-        print(e)
     await asyncio.sleep(1)
-
+    
+    if msg_:
+        result_list.append(await bot.send_group_forward_msg(group_id=gid, messages=msg_))
+        
     tlmt.increase(uid, len(result_list))
 
     second = get_group_config(gid, "withdraw")

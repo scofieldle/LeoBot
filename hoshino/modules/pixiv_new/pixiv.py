@@ -12,7 +12,10 @@ from pixivpy3 import *
 
 quota_limit_time = datetime.datetime.now()
 api = AppPixivAPI()
-api.auth(refresh_token=get_config('pixiv','token'))
+try:
+    api.auth(refresh_token=get_config('pixiv','token'))
+except:
+    pass
 
 def generate_image_struct():
     return {
@@ -106,9 +109,17 @@ async def query_(keyword, uid = 0, r18 = 0):
             json_result = api.illust_ranking(mode='month')['illusts'][:15]
         else:
             json_result = api.illust_related(uid)['illusts'][:10]
-    except Exception:
-        traceback.print_exc()
+    except:
+        json_result = 0
+    
+    if not json_result:
+        try:
+            api = AppPixivAPI()
+            await api.auth(refresh_token=get_config('pixiv','token'))
+        except:
+            pass
         return image_list
+    
     quota_limit_time = datetime.datetime.now() + datetime.timedelta(seconds=10)
     for item in json_result:
         image_list.append(init_image(item))
