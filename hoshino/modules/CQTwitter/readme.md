@@ -4,7 +4,7 @@
 > 说明： 使用RSS和feedparser实现twitter关注和转发推文，无需twitter开发者账号  
 
 
-## 安装  
+# 安装  
 
 ---
 
@@ -14,7 +14,7 @@ pip(pip3) install -r requirements.txt
 
 
 
-## 命令
+# 命令
 
 添加订阅 订阅名 `twitter全名`  
 删除订阅 订阅名  
@@ -24,6 +24,4 @@ pip(pip3) install -r requirements.txt
 
 example: 添加订阅 帕瑟芬妮 scofieldle2
 
-***需要境外服务器，或者自己搭梯子***  
-
-## rss更新可能不及时，发推频繁的人会出现漏掉推送的情况，可以自己修改`rsshub`中第214行range()内容
+***需要境外服务器，或者自己搭梯子***

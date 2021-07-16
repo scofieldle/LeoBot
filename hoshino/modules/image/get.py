@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-import os,json
+import os
 
 def getQqName(uid):
     p = "/home/ubuntu/HoshinoBot/hoshino/modules/image/qqdata/"+str(uid)+".ini"

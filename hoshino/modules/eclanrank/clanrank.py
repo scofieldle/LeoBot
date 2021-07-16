@@ -1,8 +1,6 @@
 from typing import List
-import time
 import asyncio
 import math
-import nonebot
 from nonebot import *
 from nonebot.log import logger
 from . import query

@@ -30,19 +30,16 @@ def save_config(config):
     except:
         return False
 
-
-async def spider_work(rss, bot, sv:Service):
+async def spider_work(rss, bot):
     updates = await rsshub.getRSS(rss)
     if not updates:
-        sv.logger.info(f'{rss.url}未检索到新推文')
+        print(f'{rss.url}未检索到新推文')
         return
-    sv.logger.info(f'{rss.url}检索到{len(updates)}个新推文！')
+    print(f'{rss.url}检索到{len(updates)}个新推文！')
 
-    for msg in updates:
-        for gid in rss.gid:
-            await bot.send_group_msg(group_id=int(gid), message=msg)
+    for gid in rss.gid:
+        await bot.send_group_forward_msg(group_id=gid, messages=updates)
             
-
 @sv.on_prefix('添加订阅')
 async def handle_RssAdd(bot, ev: CQEvent):
     if not priv.check_priv(ev, priv.ADMIN):
@@ -58,16 +55,13 @@ async def handle_RssAdd(bot, ev: CQEvent):
     config = load_config()
     gid = str(ev.group_id)
     if url in config.keys():
-        gidList = []
-        for item in config[url]:
-            gidList.append(item[0])
-        if gid not in gidList:
-            config[url].append([gid,name])
+        if gid not in config[url].keys():
+            config[url][gid] = name
         else:
             await bot.finish(ev, '此群已经添加过该订阅，请勿重复添加')
     else:
-        config[url] = []
-        config[url].append([gid,name])
+        config[url] = {}
+        config[url][gid] = name
     
     if save_config(config):
         await bot.send(ev, f'添加订阅"{s}"成功!')
@@ -76,16 +70,15 @@ async def handle_RssAdd(bot, ev: CQEvent):
     else:
         await bot.send(ev, '添加订阅失败，请重试')
 
-
 @sv.on_prefix('删除订阅')
 async def handle_RssDel(bot, ev: CQEvent):
     config = load_config()
     s = ev.message.extract_plain_text()
     gid = str(ev.group_id)
     for url in config.keys():
-        for item in config[url]:
-            if item[0] == gid and s == item[1]:
-                config[url].remove(item)
+        if gid in config[url].keys():
+            if s == config[url][gid]:
+                config[url].pop(gid)
                 msg = f'删除订阅"{s}"成功'
                 if not save_config(config):
                     await bot.finish(ev, '删除订阅失败，请重试')
@@ -94,16 +87,14 @@ async def handle_RssDel(bot, ev: CQEvent):
     msg = f'删除失败, 此群未设置订阅"{s}"'
     await bot.send(ev, msg)
     
-
 @sv.on_fullmatch('查看所有订阅')
 async def handle_RssLook(bot, ev: CQEvent):
     config = load_config()
     gid = str(ev.group_id)
     msg = '' 
     for url in config.keys():
-        for item in config[url]:
-            if item[0] == gid:
-                msg = msg + '\n' + item[1] + ': ' + url
+        if gid in config[url].keys():
+            msg = msg + '\n' + config[url][gid] + ': ' + url
     if msg == '':
         msg = '此群还未添加twitter订阅'
     else:
@@ -115,16 +106,14 @@ async def twitter_search_spider():
     bot = hoshino.get_bot()
     config = load_config()
     for url in config.keys():
-        gid = []
-        for item in config[url]:
-            gid.append(item[0])
+        gid = config[url].keys()
         if gid:
             rss = RSS_class.rss()
             rss.url = url
             rss.gid = gid
-            await spider_work(rss, bot, sv)
+            await spider_work(rss, bot)
     for root, dirs, files in os.walk(hoshino_path):
         for name in files:
-            if name.endswith('.jpg'):
+            if name.endswith('.jpg') or name.endswith('.png'):
                 os.remove(os.path.join(root, name))
     

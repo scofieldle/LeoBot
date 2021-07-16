@@ -14,6 +14,7 @@ from google_trans_new import google_translator
 from nonebot.log import logger
 from pyquery import PyQuery as pq
 import numpy as np
+from PIL import Image
 import base64
 from hoshino.util import pic2b64
 from nonebot import MessageSegment
@@ -26,14 +27,17 @@ async def getRSS(rss):  # 链接，订阅名
     d = ""
     try:
         old = readRss(rss.url)
-        r = requests.get(rss.geturl(), timeout=30)
+        r = requests.get(rss.geturl(), timeout=5)
         d = feedparser.parse(r.content)
     except:
         logger.error("抓取订阅 {} 的 RSS 失败".format(rss.url))
 
     # 检查是否存在rss记录
-    if os.path.isfile(file_path + (rss.url + '.json')) and len(old) > 0:
-        change = await checkUpdate(d, old)  # 检查更新
+    if len(old) > 0:
+        try:
+            change = await checkUpdate(d, old)  # 检查更新
+        except:
+            return []
         if len(change) > 0:
             writeRss(rss.url, d)  # 写入文件
             msg_list = []
@@ -52,7 +56,7 @@ async def getRSS(rss):  # 链接，订阅名
 
                 str_link = re.sub('member_illust.php\?mode=medium&illust_id=', 'i/', item['link'])
                 msg = msg + '原链接：' + str_link + '\n'
-                msg_list.append(msg)
+                msg_list.append({"type": "node","data": {"name": "妈","uin": "197812783","content":msg}})
             return msg_list
     else:
         writeRss(rss.url, d)
@@ -177,7 +181,7 @@ async def checkstr(rss_str: str):
     doc_video = doc_rss('video')
     for video in doc_video.items():
         rss_str_tl = re.sub(re.escape(str(video)), '', rss_str_tl)
-        img_path = await dowimg(video.attr("poster"), img_proxy)
+        img_path = await dowimg(video.attr("poster"))
         if len(img_path) > 0:
             rss_str = re.sub(re.escape(str(video)), '视频封面：' + str(MessageSegment.image(pic2b64(Image.open(img_path)))), rss_str)
         else:

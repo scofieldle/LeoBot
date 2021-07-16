@@ -2,8 +2,7 @@ from json import load, dump
 from nonebot import get_bot
 from hoshino import Service
 from threading import Lock
-from os.path import dirname, join, exists
-from datetime import datetime, timezone, timedelta
+from os.path import dirname, join
 from binance import spot
 import time, signal
 import pandas as pd

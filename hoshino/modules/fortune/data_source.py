@@ -1,6 +1,4 @@
 import json
-from os import path
-
 from PIL import Image, ImageDraw, ImageFont
 
 def add_text_to_img(img: Image.Image, text:str, textsize:int, font='msyh.ttf', textfill='black', position:tuple=(0,0)):

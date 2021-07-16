@@ -143,9 +143,6 @@ async def load_username(uid):
 async def subscribe_dynamic(bot, ev):
     if push_uids == {}:
         await loadConfig()
-    if not check_priv(ev, 20):
-        await bot.send(ev, '您不是管理员')
-        return
     text = str(ev.message).strip()
     if not text:
         await bot.send(ev, "请按照格式发送", at_sender=True)
@@ -188,9 +185,6 @@ async def subscribe_dynamic(bot, ev):
 async def disubscribe_dynamic(bot, ev):
     if push_uids == {}:
         await loadConfig()
-    if not check_priv(ev, 20):
-        await bot.send(ev, '您不是管理员')
-        return
     text = str(ev.message).strip()
     if not text:
         await bot.send(ev, "请按照格式发送", at_sender=True)
@@ -512,9 +506,3 @@ async def make_big_image(image_urls, size, imageNum):
         return savePath
     pass
 
-
-@sv.on_fullmatch(('重新载入B站动态推送配置', '重新载入动态推送配置'))
-async def reload_config(bot, ev):
-    if check_priv(ev, SUPERUSER):
-        await loadConfig()
-        await bot.send(ev, '成功重新载入配置')

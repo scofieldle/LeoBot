@@ -4,14 +4,13 @@ import re
 import random
 import os
 from os import path
-import hoshino
 from hoshino.util import DailyNumberLimiter
 from hoshino import R, Service
 from hoshino.util import pic2b64
 from hoshino.typing import *
 from .luck_desc import luck_desc
 from .luck_type import luck_type
-from PIL import Image, ImageSequence, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 
 sv_help = '''

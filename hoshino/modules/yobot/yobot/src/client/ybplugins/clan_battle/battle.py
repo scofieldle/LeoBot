@@ -39,7 +39,7 @@ class ClanBattle:
         '加入': 2,
         '状态': 3,
         '报刀': 4,
-        '尾刀': 5,
+        '#尾刀': 5,
         '撤销': 6,
         '修正': 7,
         '修改': 7,
@@ -1314,7 +1314,7 @@ class ClanBattle:
             return str(boss_status)
         elif match_num == 5:  # 尾刀
             match = re.match(
-                r'^尾刀 ?(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$', cmd)
+                r'^#尾刀 ?(?:\[CQ:at,qq=(\d+)\])? *(昨[日天])? *(?:[\:：](.*))?$', cmd)
             if not match:
                 return
             behalf = match.group(1) and int(match.group(1))

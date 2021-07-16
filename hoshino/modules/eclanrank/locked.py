@@ -1,4 +1,3 @@
-import time
 from itertools import groupby
 import nonebot
 import asyncio

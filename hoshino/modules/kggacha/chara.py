@@ -3,12 +3,11 @@ from io import BytesIO
 
 import pygtrie
 import requests
-from fuzzywuzzy import fuzz, process
+from fuzzywuzzy import process
 from PIL import Image
 import math
 import hoshino
-from hoshino import R, log, sucmd, util
-from hoshino.typing import CommandSession
+from hoshino import R, log, util
 
 from . import _kgqgj_data
 

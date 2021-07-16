@@ -1,23 +1,23 @@
-from jieba import posseg
-from nonebot import on_command, CommandSession
-from nonebot import NLPSession, IntentCommand
+from nonebot import CommandSession
 import http.client
 import json
 import urllib
-from nonebot import get_bot
 import requests
 from bs4 import BeautifulSoup
 from hoshino import Service
-from  datetime import datetime, timezone, timedelta
+from  datetime import datetime
 
 sv = Service('weather')
 last_time = datetime.now()
 
 @sv.on_command('weather', aliases=('天气', '天气预报', '查天气'))
 async def weather(session: CommandSession):
-    city = session.get('city', prompt='你想查询哪个城市的天气呢？')
-    weather_report = await get_weather(city)
-    await session.send(weather_report, at_sender=True)
+    try:
+        city = session.get('city', prompt='你想查询哪个城市的天气呢？')
+        weather_report = await get_weather(city)
+        await session.send(weather_report, at_sender=True)
+    except Exception as e:
+        print(e)
 
 
 @weather.args_parser

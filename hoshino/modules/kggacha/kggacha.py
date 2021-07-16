@@ -1,10 +1,9 @@
 import os
 import random
-from collections import defaultdict
 import os
-from hoshino import Service, priv, util
+from hoshino import Service
 from hoshino.typing import *
-from hoshino.util import DailyNumberLimiter, concat_pic, pic2b64, silence
+from hoshino.util import concat_pic, pic2b64, silence
 from . import chara
 from .chara import *
 from .gacha import Gacha

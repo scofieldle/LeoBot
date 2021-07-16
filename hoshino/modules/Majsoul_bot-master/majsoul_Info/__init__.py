@@ -1,7 +1,7 @@
 # coding=utf-8
 from .processData import *
 from hoshino import Service
-from hoshino.typing import HoshinoBot,CQEvent
+from hoshino.typing import CQEvent
 
 sv = Service("雀魂信息查询")
 help_txt = '''这是一个HoshinoBot的雀魂查询相关插件

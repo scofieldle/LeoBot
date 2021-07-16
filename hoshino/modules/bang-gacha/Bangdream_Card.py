@@ -4,12 +4,11 @@ import random
 import csv
 
 from PIL import Image
-from hoshino import Service, R
+from hoshino import Service
 from hoshino.typing import *
 from hoshino.config import RES_DIR
 from hoshino.util import FreqLimiter, DailyNumberLimiter, pic2b64, concat_pic
-
-
+from nonebot import MessageSegment
 
 csvpath = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data')
 picpath = os.path.join(os.path.expanduser(RES_DIR), 'img','bangdreampic')

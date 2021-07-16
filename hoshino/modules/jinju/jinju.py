@@ -9,7 +9,7 @@ sv = Service('jinju', bundle='名言警句', help_='''
 @sv.on_message()
 async def jinju(bot, ev):
     num = random.random()
-    if num > 0.98:
+    if num > 0.999:
         url = 'https://v1.hitokoto.cn/' 
         html = requests.get(url, timeout = 3).content
         html = json.loads(str(html, encoding = "utf-8"))
