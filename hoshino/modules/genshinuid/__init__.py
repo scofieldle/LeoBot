@@ -3,7 +3,7 @@ from . import query, util
 from hoshino import Service  # 如果使用hoshino的分群管理取消注释这行
 from hoshino.util import pic2b64
 from nonebot import MessageSegment
-import requests, os
+import requests, os, random
 from PIL import Image
 
 #
@@ -15,7 +15,7 @@ config = util.get_config()
 _bot = get_bot()
 
 db = util.init_db(config.cache_dir)
-cookie_list = [config.a,config.b,config.c,config.d]
+cookie_list = [config.a,config.b,config.c,config.d,config.e]
 
 def zipPic(name):
     path = os.getcwd() + '/hoshino/modules/genshinuid/genshin_card/' + name + '.png'
@@ -50,31 +50,33 @@ async def main(*params):
 
 
 async def get_stat(uid):
-    for cookie in cookie_list:
-        info = query.info(uid, cookie)
-        if info.retcode != 0:
-            if '30' in info.message:
-                continue
-            else:
-                data = {
-                        "type": "node",
-                        "data": {
-                            "name": "妈",
-                            "uin": "197812783",
-                            "content":'[%s]错误或者不存在 (%s)' % (uid, info.message)
-                                }
-                            }
-                return [data]
-        else:
-            break
+    try:
+        info = query.info(uid, random.choice(cookie_list))
+    except Exception as e:
+        print(e)
+    if not info or info.retcode != 0:
+        data = {
+                "type": "node",
+                "data": {
+                    "name": "妈",
+                    "uin": "197812783",
+                    "content":'[%s]错误或者不存在 (%s)' % (uid, info.message)
+                        }
+                    }
+        return [data]
     stats = query.stats(info.data.stats, True)
     msg = 'UID: %s\n%s\n' % (uid, stats.string)
     for i in info.data.world_explorations:
         msg += '\n%s的探索进度为%s，声望等级为：%s级' % (i["name"], str(i["exploration_percentage"] / 10) + '%', i["level"])
+    Home_List = info.data.homes[0]
+    msg += "\n\n最高洞天仙力为" + str(Home_List["comfort_num"]) + '（' + Home_List["comfort_level_name"] + '）'
+    msg += "\n已获得摆件数量" + str(Home_List["item_num"])
+    msg += "\n信任等级为" + str(Home_List["level"]) + '级'
+    msg += "\n历史访客数" + str(Home_List["visit_num"])
     msg +='\n\n好感度大于等于8的角色有：'
     for i in info.data.avatars:
         if i["fetter"] > 7:
-            msg += f'\n{zipPic(i["name"])}{i["name"]},{i["level"]}级'
+            msg += f'\n{zipPic(i["name"])}{i["name"]},{i["level"]}级,{i["actived_constellation_num"]}命'
     data = {
             "type": "node",
             "data": {

@@ -16,7 +16,7 @@ sv = Service('picfinder', help_='''
 [识图+图片] 查询图片来源
 '''.strip())
 
-api_key="78f79e0d5d4bad57475f67a56d5c16fb187689b7"#填写你自己的api_key
+api_key=""#填写你自己的api_key
 minsim='70!'#相似度下限，低于下限不显示结果
 thumbSize = (250,250)
 MAX_NUM = 10 #单次搜索最大请求次数

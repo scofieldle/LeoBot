@@ -125,7 +125,7 @@ async def start_scheduled(bot, ev: CQEvent):
     dump_calendar_config()
     await bot.send(ev, f"开始推送日程", at_sender=True)
 
-@nonebot.scheduler.scheduled_job('interval', minutes = 1)
+@nonebot.scheduler.scheduled_job('interval', minutes = 5)
 async def scheduled_job():
     for key in _group_calendar:
         time = _group_calendar[key].get('time', '08:00')

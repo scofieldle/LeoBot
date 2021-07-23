@@ -18,7 +18,7 @@ class Setu:
         self.author = author
 
 def get_setu(r18,keyword,num,size1200):
-    apikey='185935825f100e45f31604'#你的API
+    apikey=''#你的API
     apiPath=r'https://api.lolicon.app/setu'
     params = {'apikey':apikey,'r18':r18,'keyword':keyword,'num':num,'size1200':size1200}
     try:

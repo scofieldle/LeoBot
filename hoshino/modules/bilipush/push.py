@@ -229,7 +229,7 @@ async def disubscribe_dynamic(bot, ev):
     await bot.send(ev, '取消订阅成功')
 
 
-@sv.scheduled_job('cron', minute='2')
+@sv.scheduled_job('cron', minute='5')
 async def check_bili_dynamic():
     global push_times
     global room_states

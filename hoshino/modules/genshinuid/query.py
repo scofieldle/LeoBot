@@ -31,11 +31,16 @@ def info(uid, cookie):
     req = requests.get(
         url="https://api-takumi.mihoyo.com/game_record/genshin/api/index?server=" + server + "&role_id=" + uid,
         headers={
+            'Accept': 'application/json, text/plain, */*',
             'DS': __get_ds__(),
-            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.4.0',
-            'Referer': 'https://webstatic.mihoyo.com/',
+            'Origin': 'https://webstatic.mihoyo.com',
             'x-rpc-app_version': mhyVersion,
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 9; Unspecified Device) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 miHoYoBBS/2.2.0',
             'x-rpc-client_type': '5',
+            'Referer': 'https://webstatic.mihoyo.com/app/community-game-records/index.html?v=6',
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,en-US;q=0.8',
+            'X-Requested-With': 'com.mihoyo.hyperion',
             'Cookie': cookie
         }
     )

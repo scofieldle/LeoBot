@@ -1,59 +1,70 @@
-from hoshino import Service, priv
-from hoshino.typing import CQEvent
+# -*- coding: utf-8 -*-
+from hoshino import Service
 
-sv = Service('_help_', manage_priv=priv.SUPERUSER, visible=False)
+sv = Service('help', bundle='帮助')
+msg = []
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"帕瑟芬妮bot功能表"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"dice:扔骰子。命令：.(int i)r(int j)    抛i个最大为j的骰子"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"priconne：pcr相关功能。命令：来一井、谁是霸瞳、brank、切噜"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"calendar：日程表，激活后每日推送。命令：日程"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"image：表情包生成器。命令：表情帮助"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"setu_mix：涩图模块，默认开启涩图撤回，默认关闭r18。命令：来x张涩图，搜涩图 xx"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"random-repeater：随机复读。"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"eclanrank：公会排名查询。命令：公会查询 xxx，排名查询 int，查询会长 xxx"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"yiyusentence：抑郁热评。命令：网抑云时间"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"fortune 命令：抽签、运势"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"clanbattle_report 命令：会战报告(@xxx)；离职报告(@xxx) 如需使用请联系开发者报api"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"nowtime：涩图报时。命令：报时"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"memberguess 命令：猜群友"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"total_guess：包含pcr、明日方舟、原神相关角色。 命令：猜一猜"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"Genshin_Impact_bot：原神插件。命令：原神帮助"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"bang-gacha：邦邦抽卡。命令：邦邦天井 [int]；邦邦十连 [int]"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"yobot：yobot会战和web页面功能，详情私聊bot登录查看"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"weather：天气查询。命令：天气、查天气"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"zhihu：知乎热词。命令：知乎、知乎日报"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"eqa：简易问答设定。命令：我问xxx你答xxx、删除问题xxx、不要回答xxx"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"jjc订阅：实时通知jjc、pjjc排名变动，命令：竞技场绑定 uid、竞技场查询、删除竞技场订阅"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"bilpush：B站动态订阅。命令：订阅动态 UID、取消订阅动态 UID"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"genshinuid：原神进度查询。命令：ys#UID"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"genshintune：原神版抽签。命令：原神抽签、原神运势"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"rua：搓头像。命令：rua@xxx,、搓@xxx"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"pcrfind：找头像小游戏。命令：找头像"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"BandoriStation：邦邦车站。命令：查询车站人数，ycm，有车吗"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"CP：土味情话生成。命令：cp x y"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"坎公抽卡 命令:坎公一井"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"Majsoul_Info：雀魂信息查询。命令详情:雀魂帮助"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"maimeng：戳一戳机器人，随机返回表情包。 命令：上传卖萌 名字 表情包"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"pixiv：p站插画插件。命令详情:插画帮助"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"akgacha：明日方舟抽卡。命令:@bot 方舟来一井; 方舟刷本效率"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"币安：币安插件。命令详情：币安帮助"}})
 
-TOP_MANUAL = '''
-=====================
-- HoshinoBot使用说明 -
-=====================
-发送方括号[]内的关键词即可触发
-※功能采取模块化管理，群管理可控制开关
+battle_msg = []
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"会战功能列表"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"创建x服公会"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"加入公会(@xxx);加入全部成员"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"状态"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"报刀 xxxx (@xxx);报刀昨日 xxxx (@xxx)"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"尾刀 (@xxx);尾刀 昨日 (@xxx)"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"撤销"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"预约 x (留言)"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"预约表"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"挂树(:留言);可重复挂树覆盖留言"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"申请出刀;锁定 x 留言"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"取消预约 x"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"取消挂树"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"解锁"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"面板"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"sl (@xxx);sl? (@xxx)"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"查树"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"进度"}})
+battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"登录; 需要私聊bot"}})
 
-[!帮助] 会战管理v2
-[怎么拆日和] 竞技场查询
-[星乃来发十连] 转蛋模拟
-[pcr速查] 常用网址
-[官漫132] 四格漫画（日）
-[切噜一下] 切噜语转换
-[lssv] 查看功能模块的开关状态（群管理限定）
-[来杯咖啡] 联系维护组
+@sv.on_fullmatch('帮助')
+async def help(bot, ev):
+    global msg
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
 
-发送以下关键词查看更多：
-[帮助pcr会战]
-[帮助pcr查询]
-[帮助pcr娱乐]
-[帮助pcr订阅]
-[帮助kancolle]
-[帮助通用]
-========
-※除这里中写明外 另有其他隐藏功能:)
-※隐藏功能属于赠品 不保证可用性
-※本bot开源，可自行搭建
-※服务器运行及开发维护需要成本，赞助支持请私戳作者
-※您的支持是本bot更新维护的动力
-※※调教时请注意使用频率，您的滥用可能会导致bot账号被封禁
-'''.strip()
-
-def gen_bundle_manual(bundle_name, service_list, gid):
-    manual = [bundle_name]
-    service_list = sorted(service_list, key=lambda s: s.name)
-    for sv in service_list:
-        if sv.visible:
-            spit_line = '=' * max(0, 18 - len(sv.name))
-            manual.append(f"|{'○' if sv.check_enabled(gid) else '×'}| {sv.name} {spit_line}")
-            if sv.help:
-                manual.append(sv.help)
-    return '\n'.join(manual)
-
-
-@sv.on_prefix(('help', '帮助'))
-async def send_help(bot, ev: CQEvent):
-    bundle_name = ev.message.extract_plain_text().strip()
-    bundles = Service.get_bundles()
-    if not bundle_name:
-        await bot.send(ev, TOP_MANUAL)
-    elif bundle_name in bundles:
-        msg = gen_bundle_manual(bundle_name, bundles[bundle_name], ev.group_id)
-        await bot.send(ev, msg)
-    # else: ignore
+@sv.on_fullmatch('会战帮助')
+async def help(bot, ev):
+    global battle_msg
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=battle_msg)
