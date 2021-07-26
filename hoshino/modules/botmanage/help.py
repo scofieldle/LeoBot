@@ -17,6 +17,7 @@ msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","conten
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"nowtime：涩图报时。命令：报时"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"memberguess 命令：猜群友"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"total_guess：包含pcr、明日方舟、原神相关角色。 命令：猜一猜"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"genshin_wiki 命令：来点xx[故事|语音];、查看xx命之座"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"Genshin_Impact_bot：原神插件。命令：原神帮助"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"bang-gacha：邦邦抽卡。命令：邦邦天井 [int]；邦邦十连 [int]"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"yobot：yobot会战和web页面功能，详情私聊bot登录查看"}})
