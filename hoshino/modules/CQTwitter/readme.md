@@ -3,6 +3,7 @@
 > @Date: 2020-12-29  
 > 说明： 使用RSS和feedparser实现twitter关注和转发推文，无需twitter开发者账号  
 
+***代码仅供参考，RSS源已失效***
 
 # 安装  
 

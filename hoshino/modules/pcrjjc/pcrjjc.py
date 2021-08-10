@@ -6,7 +6,6 @@ from .pcrclient import pcrclient, ApiException
 from threading import Lock
 from os.path import dirname, join, exists
 from  datetime import datetime, timezone, timedelta
-import time
 import signal
 
 sv_help = '''

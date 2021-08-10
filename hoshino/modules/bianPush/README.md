@@ -4,7 +4,7 @@
 **本项目基于AGPL v3协议开源，由于项目特殊性，禁止基于本项目的任何商业行为**
 
 ## 配置方法
-1. pip安装py文件中import的库
+1. pip安装py文件中import的库，币安的库为binance-connector
 2. 注册币安账号
 3. 获取币安api，方法请自行百度
 4. 文件夹放入hoshino/modules下面，并在config中添加模块
