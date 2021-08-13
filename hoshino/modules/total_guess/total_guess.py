@@ -1,10 +1,7 @@
 from hoshino.typing import CQEvent
 from hoshino import Service
-import math, sqlite3, os, random, asyncio
-
-from PIL import Image
-from io import BytesIO
-import base64, codecs, json
+import random, asyncio
+import codecs, json
 from .guess import *
 
 sv = Service('total', help_='猜一猜'.strip())
