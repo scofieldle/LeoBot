@@ -1,15 +1,16 @@
-import re, hoshino, os, json
+import hoshino, os, json
 
 from . import RSS_class, rsshub
 from hoshino import Service, priv
 from hoshino.typing import CQEvent
-from .config import *
 
 sv = Service('twitter_spider', bundle='twitter订阅', help_='''
 添加订阅 订阅名 RSS地址(/twitter/user/username)
 删除订阅 订阅名
 查看所有订阅
 '''.strip())
+
+hoshino_path = './hoshino/modules/CQTwitter/'
 
 def load_config():
     try:

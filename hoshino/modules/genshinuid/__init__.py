@@ -18,7 +18,7 @@ db = util.init_db(config.cache_dir)
 cookie_list = [config.a,config.b,config.c,config.d,config.e]
 
 def zipPic(name):
-    path = os.getcwd() + '/hoshino/modules/genshinuid/genshin_card/' + name + '.png'
+    path = os.path.join(os.path.dirname(__file__), f'/genshin_card/{name}.png')
     im = Image.open(path)
     # 获得图像尺寸:
     w, h = im.size

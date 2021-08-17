@@ -1,8 +1,6 @@
 import os
-import time
 import random
 from  datetime import datetime, timezone, timedelta
-from hoshino import util
 from hoshino import Service
 from .data_source import add_text,pic_to_b64
 

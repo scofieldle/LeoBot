@@ -1,13 +1,9 @@
 import os
-import json
-import traceback
 import asyncio
-import aiohttp
 import random
 import string
 import base64
-from hoshino import R
-from .config import get_config, get_group_config
+from .config import get_group_config
 from .lolicon import lolicon_init, lolicon_get_setu,lolicon_fetch_process, lolicon_search_setu
 
 

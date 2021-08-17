@@ -12,7 +12,7 @@ from nonebot import MessageSegment
 img_dir = path.join(path.abspath(path.dirname(__file__)),"meme/")
 img = []
 img_name = []
-backImage = '/home/ubuntu/HoshinoBot/hoshino/modules/image/backImage.jpg'
+backImage = os.path.join(os.path.dirname(__file__), '/backImage.jpg')
 sv_help = '''
 [表情列表] 查看当前表情列表
 [查看表情 <名字>] 查看指定表情

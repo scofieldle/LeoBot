@@ -1,5 +1,4 @@
 # -*- coding: UTF-8 -*-
-import asyncio
 import json
 import os
 import re
@@ -15,13 +14,12 @@ from nonebot.log import logger
 from pyquery import PyQuery as pq
 import numpy as np
 from PIL import Image
-import base64
 from hoshino.util import pic2b64
 from nonebot import MessageSegment
 from .config import *
 
 # 存储目录
-file_path = abs_path
+file_path = os.path.dirname(__file__)
 
 async def getRSS(rss):  # 链接，订阅名
     d = ""

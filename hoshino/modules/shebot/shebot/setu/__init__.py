@@ -1,13 +1,10 @@
 from nonebot import MessageSegment
 import os
-import asyncio
 import time
-import json
 import traceback
 import nonebot
 
-from queue import Queue
-from .api import get_final_setu,get_final_setu_async
+from .api import get_final_setu_async
 from .data_source import SetuWarehouse,add_to_delete,get_random_pic,save_config,load_config,send_setus
 import re
 import threading 

@@ -1,9 +1,7 @@
-import random, os, sqlite3, asyncio, operator, re
+import random, os, asyncio, operator, re
 from PIL import Image
 
-import hoshino
-from hoshino import Service, priv, util, log, R
-from hoshino.modules.priconne import chara
+from hoshino import Service, priv, util, R
 from hoshino.typing import MessageSegment, CQEvent
 
 from . import GameMaster

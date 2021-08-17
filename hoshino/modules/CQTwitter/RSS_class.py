@@ -1,4 +1,3 @@
-import re
 
 class rss():
     # 定义基本属性

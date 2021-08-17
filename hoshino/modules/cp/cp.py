@@ -2,19 +2,17 @@
 import ujson
 import os
 import random
-import aiofiles
 from hoshino import Service
 
 sv = Service('cp', bundle='cp小故事', help_='''
 cp 攻 受
 '''.strip())
 
-path = '/home/ubuntu/HoshinoBot/hoshino/modules/cp'
+path = os.path.dirname(__file__)
 
 def readInfo(file):
     with open(os.path.join(path,file), 'r', encoding='utf-8') as f:
         return ujson.loads((f.read()).strip())
-    raise Exception
 
 def getMessage(bot, userGroup):
     content = readInfo('content.json')

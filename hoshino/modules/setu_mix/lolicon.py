@@ -6,7 +6,6 @@ import io
 import random
 import datetime
 from PIL import Image
-from hoshino import R
 from .config import get_config
 
 quota_limit_time = datetime.datetime.now()

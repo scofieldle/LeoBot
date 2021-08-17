@@ -20,7 +20,7 @@ async def whois(bot, ev: CQEvent):
         guess = True
     c = chara.fromid(id_)
 
-    if confi < 60:
+    if confi < 90:
         return
 
     uid = ev.user_id

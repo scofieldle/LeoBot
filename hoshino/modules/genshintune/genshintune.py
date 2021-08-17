@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import re
 import random
 import os
 from os import path

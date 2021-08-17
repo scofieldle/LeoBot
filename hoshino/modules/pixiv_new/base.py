@@ -3,7 +3,6 @@ import string
 import base64
 from io import BytesIO
 from PIL import Image, ImageDraw
-from hoshino.util import pic2b64
 from .pixiv import download_image, native_get, pixiv_init
 
 def format_setu_msg(image, item):

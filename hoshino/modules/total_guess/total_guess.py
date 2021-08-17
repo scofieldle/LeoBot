@@ -16,7 +16,7 @@ def get_question():
     
 def load_config():
     try:
-        config_path = '/home/ubuntu/HoshinoBot/hoshino/modules/total_guess/Genshin_chara.json'
+        config_path = os.path.join(os.path.dirname(__file__), '/Genshin_chara.json')
         with codecs.open(config_path, 'r', encoding='utf-8') as config_file:
             return json.load(config_file)
     except Exception as e:
