@@ -42,8 +42,8 @@ print('r18线程启动')
 thd_r18 = threading.Thread(target=r18_wh.keep_supply)
 thd_r18.start()
 
-config_path = os.path.dirname(__file__)+'/config.json'
-help_path = os.path.dirname(__file__)+'/help.txt'
+config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+help_path = os.path.join(os.path.dirname(__file__),'help.txt')
 sv = Service('涩图',config_path,help_path,default_enable=True)
 @sv.on_message()
 async def _(bot,ctx):

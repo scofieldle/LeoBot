@@ -36,6 +36,16 @@ async def lssv(session:CommandSession):
             msg.append(f"|{x}| {sv.name}")
     await session.send('\n'.join(msg))
 
+@on_command('lssg', aliases=('群列表'), permission=perm.GROUP_ADMIN, only_to_me=False, shell_like=True)
+async def lssg(session:CommandSession):
+    bot = session.bot
+    sid = '197812783'
+    gl = await bot.get_group_list(self_id=sid)
+    msg = f"bot:{sid}\n| 群号 | 群名 | 群成员数 | 共{len(gl)}个群"
+    for g in gl:
+        ml = await bot.get_group_member_list(group_id=g['group_id'],self_id=sid)
+        msg += f'\n{g["group_id"]} {g["group_name"]} {len(ml)}'
+    await session.send(msg)
 
 @on_command('enable', aliases=('启用', '开启', '打开'), permission=perm.GROUP, only_to_me=False)
 async def enable_service(session:CommandSession):
@@ -58,7 +68,7 @@ async def switch_service(session:CommandSession, turn_on:bool):
             if name in svs:
                 sv = svs[name]
                 u_priv = priv.get_user_priv(session.ctx)
-                if u_priv >= sv.manage_priv:
+                if u_priv >= priv.ADMIN:
                     sv.set_enable(group_id) if turn_on else sv.set_disable(group_id)
                     succ.append(name)
                 else:

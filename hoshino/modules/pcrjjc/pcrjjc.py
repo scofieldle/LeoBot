@@ -98,7 +98,7 @@ async def on_arena_bind(bot, ev):
                 'gid': str(ev['group_id']),
                 'arena_on': last is None or last['arena_on'],
                 'grand_arena_on': last is None or last['grand_arena_on'],
-                'private': False,
+                'private': True,
             }
             save_binds()
         break
@@ -172,7 +172,6 @@ async def send_arena_sub_status(bot,ev):
                 竞技场订阅：{'开启' if info['arena_on'] else '关闭'}
                 公主竞技场订阅：{'开启' if info['grand_arena_on'] else '关闭'}''',at_sender=True)
         break
-
 
 @sv.scheduled_job('interval', minutes=2)
 async def on_arena_schedule():

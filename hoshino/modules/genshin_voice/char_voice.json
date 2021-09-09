@@ -216,6 +216,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/300002_kr.wav"
+    },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/1001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/1001_en.wav",
@@ -341,6 +359,320 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/6001_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/6001_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/albedo/6001_kr.wav"
+    }
+  },
+  "aloy": {
+    "下雨的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1201_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1201_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1201_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1201_kr.wav"
+    },
+    "下雪的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1203_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1203_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1203_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1203_kr.wav"
+    },
+    "中午好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1002_kr.wav"
+    },
+    "倒下·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500001_kr.wav"
+    },
+    "倒下·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500003_kr.wav"
+    },
+    "倒下·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/500002_kr.wav"
+    },
+    "元素战技·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100001_kr.wav"
+    },
+    "元素战技·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100003_kr.wav"
+    },
+    "元素战技·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/100002_kr.wav"
+    },
+    "元素爆发·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200001_kr.wav"
+    },
+    "元素爆发·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200003_kr.wav"
+    },
+    "元素爆发·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/200002_kr.wav"
+    },
+    "关于埃洛伊自己…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2001_kr.wav"
+    },
+    "关于我们·前进": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2004_kr.wav"
+    },
+    "关于我们·行动": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2003_kr.wav"
+    },
+    "关于我们·誓约": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/2002_kr.wav"
+    },
+    "初次见面…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1000_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1000_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1000_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1000_kr.wav"
+    },
+    "刮大风了…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1205_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1205_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1205_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1205_kr.wav"
+    },
+    "加入队伍·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600001_kr.wav"
+    },
+    "加入队伍·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600003_kr.wav"
+    },
+    "加入队伍·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/600002_kr.wav"
+    },
+    "喜欢的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6003_kr.wav"
+    },
+    "埃洛伊的烦恼…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6002_kr.wav"
+    },
+    "埃洛伊的爱好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6001_kr.wav"
+    },
+    "想要了解埃洛伊·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5001_kr.wav"
+    },
+    "想要了解埃洛伊·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5003_kr.wav"
+    },
+    "想要了解埃洛伊·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5002_kr.wav"
+    },
+    "想要了解埃洛伊·其五": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5005_kr.wav"
+    },
+    "想要了解埃洛伊·其四": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/5004_kr.wav"
+    },
+    "感兴趣的见闻…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3003_kr.wav"
+    },
+    "打开风之翼·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/800001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/800001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/800001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/800001_kr.wav"
+    },
+    "早上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1001_kr.wav"
+    },
+    "晚上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1003_kr.wav"
+    },
+    "晚安…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1004_kr.wav"
+    },
+    "普通被击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900001_kr.wav"
+    },
+    "普通被击·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/900002_kr.wav"
+    },
+    "有什么想要分享…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/3002_kr.wav"
+    },
+    "生命值低·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410001_kr.wav"
+    },
+    "生命值低·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410003_kr.wav"
+    },
+    "生命值低·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/410002_kr.wav"
+    },
+    "生日…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/7001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/7001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/7001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/7001_kr.wav"
+    },
+    "突破的感受·合": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8004_kr.wav"
+    },
+    "突破的感受·承": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8002_kr.wav"
+    },
+    "突破的感受·起": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8001_kr.wav"
+    },
+    "突破的感受·转": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/8003_kr.wav"
+    },
+    "讨厌的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/6004_kr.wav"
+    },
+    "起风的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1204_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1204_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1204_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1204_kr.wav"
+    },
+    "重受击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910001_kr.wav"
+    },
+    "重受击·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/910002_kr.wav"
+    },
+    "闲聊·动身": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1101_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1101_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1101_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1101_kr.wav"
+    },
+    "闲聊·帮助": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1102_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1102_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1102_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1102_kr.wav"
+    },
+    "雨过天晴…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1202_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1202_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1202_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/aloy/1202_kr.wav"
     }
   },
   "amber": {
@@ -607,6 +939,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/amber/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/amber/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/amber/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/amber/300002_kr.wav"
     },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/amber/800001_cn.wav",
@@ -910,6 +1260,11 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4008_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4008_kr.wav"
     },
+    "关于雷电将军·立场": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4009_cn.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4009_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4009_kr.wav"
+    },
     "关于鹿野院平藏…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/4003_en.wav",
@@ -981,6 +1336,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ayaka/1202_cn.wav",
@@ -1374,6 +1747,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/barbara/1202_en.wav",
@@ -1628,6 +2019,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/2004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/2004_kr.wav"
     },
+    "关于枫原万叶…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4010_kr.wav"
+    },
     "关于瑶瑶…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4009_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/4009_en.wav",
@@ -1753,6 +2150,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/beidou/1202_cn.wav",
@@ -2133,6 +2548,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/bennett/1202_en.wav",
@@ -2489,6 +2922,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/700001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/chongyun/700001_en.wav",
@@ -2832,6 +3283,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diluc/1001_cn.wav",
@@ -3249,6 +3718,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diona/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diona/3004_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/diona/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/diona/800001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/diona/800001_en.wav",
@@ -3629,6 +4116,18 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/600002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/600002_kr.wav"
     },
+    "同伴生命值低·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_kr.wav"
+    },
+    "同伴生命值低·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_kr.wav"
+    },
     "喜欢的食物…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/6003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/6003_en.wav",
@@ -3670,6 +4169,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/3004_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/300002_kr.wav"
     },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/800001_cn.wav",
@@ -3714,10 +4231,10 @@
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/3002_kr.wav"
     },
     "生命值低·其一": {
-      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410001_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410001_en.wav",
-      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410001_jp.wav",
-      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410001_kr.wav"
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400001_kr.wav"
     },
     "生命值低·其三": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410003_cn.wav",
@@ -3726,10 +4243,10 @@
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410003_kr.wav"
     },
     "生命值低·其二": {
-      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410002_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410002_en.wav",
-      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410002_jp.wav",
-      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/410002_kr.wav"
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/eula/400002_kr.wav"
     },
     "生日…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/eula/7001_cn.wav",
@@ -3979,6 +4496,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/600002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/600002_kr.wav"
     },
+    "同伴生命值低·其一": {
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/400001_kr.wav"
+    },
+    "同伴生命值低·其二": {
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/400002_kr.wav"
+    },
     "喜欢的食物…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/6003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/6003_en.wav",
@@ -4020,6 +4543,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/3004_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/1001_cn.wav",
@@ -4067,7 +4608,7 @@
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410001_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410001_jp.wav",
-      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410001_kr.wav"
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/400001_kr.wav"
     },
     "生命值低·其三": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410003_cn.wav",
@@ -4079,7 +4620,7 @@
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410002_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410002_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410002_jp.wav",
-      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/410002_kr.wav"
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/400002_kr.wav"
     },
     "生日…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yanfei/7001_cn.wav",
@@ -4365,6 +4906,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/1202_en.wav",
@@ -4508,6 +5067,431 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/1201_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/1201_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/fischl/1201_kr.wav"
+    }
+  },
+  "ganyu": {
+    "下雨的时候·听雨": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1202_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1202_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1202_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1202_kr.wav"
+    },
+    "下雨的时候·担忧": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1201_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1201_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1201_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1201_kr.wav"
+    },
+    "中午好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1002_kr.wav"
+    },
+    "倒下·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500001_kr.wav"
+    },
+    "倒下·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500003_kr.wav"
+    },
+    "倒下·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/500002_kr.wav"
+    },
+    "元素战技·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100001_kr.wav"
+    },
+    "元素战技·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100003_kr.wav"
+    },
+    "元素战技·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/100002_kr.wav"
+    },
+    "元素爆发·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200001_kr.wav"
+    },
+    "元素爆发·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200003_kr.wav"
+    },
+    "元素爆发·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200002_kr.wav"
+    },
+    "元素爆发·其四": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/200004_kr.wav"
+    },
+    "关于「神之眼」…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3001_kr.wav"
+    },
+    "关于凝光…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4003_kr.wav"
+    },
+    "关于刻晴·改观": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4005_kr.wav"
+    },
+    "关于刻晴·隔阂": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4004_kr.wav"
+    },
+    "关于北斗…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4008_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4008_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4008_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4008_kr.wav"
+    },
+    "关于我们·工作": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2002_kr.wav"
+    },
+    "关于我们·评价": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2004_kr.wav"
+    },
+    "关于我们·请求": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2003_kr.wav"
+    },
+    "关于摩拉克斯·信任": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4001_kr.wav"
+    },
+    "关于摩拉克斯·追随": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4002_kr.wav"
+    },
+    "关于烟绯…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4011_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4011_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4011_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4011_kr.wav"
+    },
+    "关于瑶瑶…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4009_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4009_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4009_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4009_kr.wav"
+    },
+    "关于甘雨自己…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/2001_kr.wav"
+    },
+    "关于行秋…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4006_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4006_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4006_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4006_kr.wav"
+    },
+    "关于香菱…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4007_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4007_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4007_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4007_kr.wav"
+    },
+    "关于魈…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/4010_kr.wav"
+    },
+    "冲刺开始·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700001_kr.wav"
+    },
+    "冲刺开始·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/700002_kr.wav"
+    },
+    "冲刺结束·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/710001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/710001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/710001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/710001_kr.wav"
+    },
+    "初次见面…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1000_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1000_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1000_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1000_kr.wav"
+    },
+    "加入队伍·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600001_kr.wav"
+    },
+    "加入队伍·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600003_kr.wav"
+    },
+    "加入队伍·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/600002_kr.wav"
+    },
+    "同伴生命值低·其一": {
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/400001_jp.wav"
+    },
+    "喜欢的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6003_kr.wav"
+    },
+    "想要了解甘雨·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5001_kr.wav"
+    },
+    "想要了解甘雨·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5003_kr.wav"
+    },
+    "想要了解甘雨·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5002_kr.wav"
+    },
+    "想要了解甘雨·其五": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5005_kr.wav"
+    },
+    "想要了解甘雨·其四": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/5004_kr.wav"
+    },
+    "感兴趣的见闻·名字": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3003_kr.wav"
+    },
+    "感兴趣的见闻·清心": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/300002_kr.wav"
+    },
+    "早上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1001_kr.wav"
+    },
+    "晚上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1003_kr.wav"
+    },
+    "晚安…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1004_kr.wav"
+    },
+    "普通受击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/900001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/900001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/900001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/900001_kr.wav"
+    },
+    "有什么想要分享…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/3002_kr.wav"
+    },
+    "甘雨的烦恼…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6002_kr.wav"
+    },
+    "甘雨的爱好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6001_kr.wav"
+    },
+    "生命值低·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/400001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410001_kr.wav"
+    },
+    "生命值低·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410003_kr.wav"
+    },
+    "生命值低·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/410002_kr.wav"
+    },
+    "生日…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/7001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/7001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/7001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/7001_kr.wav"
+    },
+    "突破的感受·合": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8004_kr.wav"
+    },
+    "突破的感受·承": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8002_kr.wav"
+    },
+    "突破的感受·起": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8001_kr.wav"
+    },
+    "突破的感受·转": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/8003_kr.wav"
+    },
+    "讨厌的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/6004_kr.wav"
+    },
+    "起风的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1205_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1205_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1205_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1205_kr.wav"
+    },
+    "重受击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/910001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/910001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/910001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/910001_kr.wav"
+    },
+    "闲聊·松弛": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1101_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1101_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1101_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1101_kr.wav"
+    },
+    "闲聊·焦虑": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1103_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1103_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1103_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1103_kr.wav"
+    },
+    "闲聊·聆听": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1102_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1102_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1102_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1102_kr.wav"
+    },
+    "阳光很好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1204_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1204_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1204_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1204_kr.wav"
+    },
+    "雨过天晴…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1203_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1203_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1203_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ganyu/1203_kr.wav"
     }
   },
   "hutao": {
@@ -4733,6 +5717,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/600002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/600002_kr.wav"
     },
+    "同伴生命值低·其一": {
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/400001_en.wav"
+    },
+    "同伴生命值低·其二": {
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/400002_en.wav"
+    },
     "喜欢的食物…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/6003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/6003_en.wav",
@@ -4775,6 +5765,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/710001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/710001_en.wav",
@@ -4813,7 +5821,7 @@
     },
     "生命值低·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410001_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410001_en.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/400001_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410001_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410001_kr.wav"
     },
@@ -4825,7 +5833,7 @@
     },
     "生命值低·其二": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410002_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410002_en.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/400002_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/hutao/410002_kr.wav"
     },
@@ -5160,6 +6168,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/qin/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qin/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qin/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qin/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qin/1001_cn.wav",
@@ -5553,6 +6579,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/800001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/kaeya/800001_en.wav",
@@ -5777,6 +6821,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4003_kr.wav"
     },
+    "关于九条裟罗·改观…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4004_kr.wav"
+    },
     "关于五郎…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4002_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4002_en.wav",
@@ -5818,6 +6868,12 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/2002_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/2002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/2002_kr.wav"
+    },
+    "关于珊瑚宫心海…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4009_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4009_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4009_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4009_kr.wav"
     },
     "关于神里绫华…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/4006_cn.wav",
@@ -5902,6 +6958,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/3004_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/300002_kr.wav"
     },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kazuha/800001_cn.wav",
@@ -6319,6 +7393,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/600002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/600002_kr.wav"
     },
+    "同伴生命值低·其一": {
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/400001_jp.wav"
+    },
+    "同伴生命值低·其二": {
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/400002_jp.wav"
+    },
     "喜欢的食物…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/6003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/6003_en.wav",
@@ -6360,6 +7440,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/3005_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/3005_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/3005_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/1202_cn.wav",
@@ -6412,7 +7510,7 @@
     "生命值低·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410001_en.wav",
-      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410001_jp.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/400001_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410001_kr.wav"
     },
     "生命值低·其三": {
@@ -6424,7 +7522,7 @@
     "生命值低·其二": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410002_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410002_en.wav",
-      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410002_jp.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/400002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/keqing/410002_kr.wav"
     },
     "生日…": {
@@ -6758,6 +7856,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/klee/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/klee/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/klee/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/klee/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/klee/1202_cn.wav",
@@ -7133,6 +8249,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/lisa/1202_en.wav",
@@ -7470,6 +8604,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/mona/3004_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/mona/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/mona/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/mona/300002_kr.wav"
     },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/mona/700001_cn.wav",
@@ -7863,6 +9015,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/300002_kr.wav"
+    },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/1001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/ningguang/1001_en.wav",
@@ -8224,6 +9394,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/noel/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/noel/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/noel/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/noel/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/noel/1202_cn.wav",
@@ -8593,6 +9781,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/800001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/qiqi/800001_en.wav",
@@ -8942,6 +10148,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/razor/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/razor/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/razor/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/razor/300002_kr.wav"
     },
     "打雷的时候·带路": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/razor/1204_cn.wav",
@@ -9317,6 +10541,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/1202_en.wav",
@@ -9442,6 +10684,392 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/1103_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/1103_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/rosaria/1103_kr.wav"
+    }
+  },
+  "sara": {
+    "下雨的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1201_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1201_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1201_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1201_kr.wav"
+    },
+    "下雪的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1203_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1203_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1203_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1203_kr.wav"
+    },
+    "中午好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1002_kr.wav"
+    },
+    "倒下·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500001_kr.wav"
+    },
+    "倒下·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500003_kr.wav"
+    },
+    "倒下·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/500002_kr.wav"
+    },
+    "元素战技·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100001_kr.wav"
+    },
+    "元素战技·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100003_kr.wav"
+    },
+    "元素战技·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/100002_kr.wav"
+    },
+    "元素爆发·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200001_kr.wav"
+    },
+    "元素爆发·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200003_kr.wav"
+    },
+    "元素爆发·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/200002_kr.wav"
+    },
+    "关于「神之眼」…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3001_kr.wav"
+    },
+    "关于五郎…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4008_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4008_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4008_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4008_kr.wav"
+    },
+    "关于八重神子…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4006_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4006_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4006_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4006_kr.wav"
+    },
+    "关于宵宫…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4003_kr.wav"
+    },
+    "关于我们·体会": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2004_kr.wav"
+    },
+    "关于我们·观察": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2002_kr.wav"
+    },
+    "关于托马…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4001_kr.wav"
+    },
+    "关于珊瑚宫心海…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4007_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4007_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4007_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4007_kr.wav"
+    },
+    "关于神里绫华…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4002_kr.wav"
+    },
+    "关于荒泷一斗…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4009_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4009_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4009_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4009_kr.wav"
+    },
+    "关于裟罗自己·备战": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2005_kr.wav"
+    },
+    "关于裟罗自己·天领奉行": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2001_kr.wav"
+    },
+    "关于裟罗自己·愿望": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/2003_kr.wav"
+    },
+    "关于雷电将军·相信": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4004_kr.wav"
+    },
+    "关于雷电将军·追随": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4005_kr.wav"
+    },
+    "关于鹿野院平藏…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/4010_kr.wav"
+    },
+    "初次见面…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1000_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1000_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1000_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1000_kr.wav"
+    },
+    "加入队伍·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600001_kr.wav"
+    },
+    "加入队伍·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600003_kr.wav"
+    },
+    "加入队伍·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/600002_kr.wav"
+    },
+    "喜欢的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6003_kr.wav"
+    },
+    "想要了解裟罗·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5001_kr.wav"
+    },
+    "想要了解裟罗·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5003_kr.wav"
+    },
+    "想要了解裟罗·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5002_kr.wav"
+    },
+    "想要了解裟罗·其五": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5005_kr.wav"
+    },
+    "想要了解裟罗·其四": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/5004_kr.wav"
+    },
+    "感兴趣的见闻…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3003_kr.wav"
+    },
+    "打雷的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1202_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1202_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1202_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1202_kr.wav"
+    },
+    "早上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1001_kr.wav"
+    },
+    "晚上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1003_kr.wav"
+    },
+    "晚安…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1004_kr.wav"
+    },
+    "普通被击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900001_kr.wav"
+    },
+    "普通被击·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/900002_kr.wav"
+    },
+    "有什么想要分享·特产": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3004_kr.wav"
+    },
+    "有什么想要分享·陀螺": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/3002_kr.wav"
+    },
+    "生命值低·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410001_kr.wav"
+    },
+    "生命值低·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410003_kr.wav"
+    },
+    "生命值低·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/410002_kr.wav"
+    },
+    "生日…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/7001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/7001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/7001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/7001_kr.wav"
+    },
+    "突破的感受·合": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8004_kr.wav"
+    },
+    "突破的感受·承": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8002_kr.wav"
+    },
+    "突破的感受·起": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8001_kr.wav"
+    },
+    "突破的感受·转": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/8003_kr.wav"
+    },
+    "裟罗的烦恼…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6002_kr.wav"
+    },
+    "裟罗的爱好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6001_kr.wav"
+    },
+    "讨厌的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/6004_kr.wav"
+    },
+    "重受击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910001_kr.wav"
+    },
+    "重受击·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/910002_kr.wav"
+    },
+    "闲聊·使命": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1103_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1103_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1103_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1103_kr.wav"
+    },
+    "闲聊·正鹄": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1101_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1101_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1101_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1101_kr.wav"
+    },
+    "闲聊·永恒": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1102_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1102_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1102_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1102_kr.wav"
+    },
+    "阳光很好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1204_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1204_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1204_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/kujouSara/1204_kr.wav"
     }
   },
   "sayu": {
@@ -9691,6 +11319,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/1202_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/1202_en.wav",
@@ -9846,6 +11492,386 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/1204_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/1204_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sayu/1204_kr.wav"
+    }
+  },
+  "shougun": {
+    "下雨的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1201_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1201_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1201_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1201_kr.wav"
+    },
+    "下雪的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1203_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1203_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1203_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1203_kr.wav"
+    },
+    "中午好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1002_kr.wav"
+    },
+    "倒下·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500001_kr.wav"
+    },
+    "倒下·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500003_kr.wav"
+    },
+    "倒下·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/500002_kr.wav"
+    },
+    "元素战技·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100001_kr.wav"
+    },
+    "元素战技·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100003_kr.wav"
+    },
+    "元素战技·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/100002_kr.wav"
+    },
+    "元素爆发·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200001_kr.wav"
+    },
+    "元素爆发·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200003_kr.wav"
+    },
+    "元素爆发·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/200002_kr.wav"
+    },
+    "关于「神之眼」…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3001_kr.wav"
+    },
+    "关于九条裟罗…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4004_kr.wav"
+    },
+    "关于八重神子…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4001_kr.wav"
+    },
+    "关于国崩…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4008_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4008_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4008_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4008_kr.wav"
+    },
+    "关于宵宫…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4005_kr.wav"
+    },
+    "关于我们·奥诘众": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2003_kr.wav"
+    },
+    "关于我们·用心棒": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2002_kr.wav"
+    },
+    "关于我们·直传": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2004_kr.wav"
+    },
+    "关于托马…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4006_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4006_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4006_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4006_kr.wav"
+    },
+    "关于摩拉克斯…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4010_kr.wav"
+    },
+    "关于温迪…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4011_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4011_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4011_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4011_kr.wav"
+    },
+    "关于珊瑚宫心海…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4007_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4007_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4007_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4007_kr.wav"
+    },
+    "关于神里绫人…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4002_kr.wav"
+    },
+    "关于神里绫华…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4003_kr.wav"
+    },
+    "关于荒泷一斗…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4009_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4009_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4009_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/4009_kr.wav"
+    },
+    "关于雷电将军自己·永恒": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2005_kr.wav"
+    },
+    "关于雷电将军自己·须臾": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/2001_kr.wav"
+    },
+    "初次见面…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1000_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1000_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1000_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1000_kr.wav"
+    },
+    "加入队伍·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600001_kr.wav"
+    },
+    "加入队伍·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600003_kr.wav"
+    },
+    "加入队伍·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/600002_kr.wav"
+    },
+    "喜欢的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6003_kr.wav"
+    },
+    "影的烦恼…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6002_kr.wav"
+    },
+    "想要了解影·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5003_kr.wav"
+    },
+    "想要了解影·其五": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5005_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5005_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5005_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5005_kr.wav"
+    },
+    "想要了解影·其四": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5004_kr.wav"
+    },
+    "想要了解雷电将军·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5001_kr.wav"
+    },
+    "想要了解雷电将军·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/5002_kr.wav"
+    },
+    "感兴趣的见闻…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3003_kr.wav"
+    },
+    "打雷的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1202_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1202_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1202_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1202_kr.wav"
+    },
+    "早上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1001_kr.wav"
+    },
+    "晚上好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1003_kr.wav"
+    },
+    "晚安…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1004_kr.wav"
+    },
+    "晴天的时候…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1204_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1204_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1204_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1204_kr.wav"
+    },
+    "有什么想要分享…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/3002_kr.wav"
+    },
+    "生命值低·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410001_kr.wav"
+    },
+    "生命值低·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410003_kr.wav"
+    },
+    "生命值低·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/410002_kr.wav"
+    },
+    "生日…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7002_kr.wav"
+    },
+    "生辰…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/7001_kr.wav"
+    },
+    "突破的感受·合": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8004_kr.wav"
+    },
+    "突破的感受·承": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8002_kr.wav"
+    },
+    "突破的感受·起": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8001_kr.wav"
+    },
+    "突破的感受·转": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/8003_kr.wav"
+    },
+    "讨厌的食物…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6004_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6004_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6004_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6004_kr.wav"
+    },
+    "重受击·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910001_kr.wav"
+    },
+    "重受击·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/910002_kr.wav"
+    },
+    "闲聊·徒然": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1101_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1101_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1101_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1101_kr.wav"
+    },
+    "闲聊·浮世": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1102_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1102_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1102_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1102_kr.wav"
+    },
+    "闲聊·花鸟余情": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1103_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1103_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1103_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/1103_kr.wav"
+    },
+    "雷电将军的爱好…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/raidenShogun/6001_kr.wav"
     }
   },
   "sucrose": {
@@ -10053,6 +12079,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/600002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/600002_kr.wav"
     },
+    "同伴生命值低·其一": {
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/400001_en.wav"
+    },
+    "同伴生命值低·其二": {
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/400002_en.wav"
+    },
     "喜欢的食物…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/6003_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/6003_en.wav",
@@ -10095,6 +12127,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/300002_kr.wav"
+    },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/1001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/1001_en.wav",
@@ -10127,7 +12177,7 @@
     },
     "生命值低·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410001_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410001_en.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/400001_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410001_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410001_kr.wav"
     },
@@ -10139,7 +12189,7 @@
     },
     "生命值低·其二": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410002_cn.wav",
-      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410002_en.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/400002_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410002_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/sucrose/410002_kr.wav"
     },
@@ -10469,6 +12519,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/800001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/tartaglia/800001_en.wav",
@@ -10693,6 +12761,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4009_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4009_kr.wav"
     },
+    "关于巴尔…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/4010_kr.wav"
+    },
     "关于我们·使徒": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/2004_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/2004_en.wav",
@@ -10848,6 +12922,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/venti/300002_kr.wav"
     },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/venti/800001_cn.wav",
@@ -11216,6 +13308,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiangling/1001_cn.wav",
@@ -11597,6 +13707,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/3003_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/300002_kr.wav"
+    },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/1203_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/xiao/1203_en.wav",
@@ -11970,6 +14098,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xingqiu/1001_cn.wav",
@@ -12356,6 +14502,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/3004_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/3004_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/3004_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/300002_kr.wav"
     },
     "打雷的时候…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/xinyan/1202_cn.wav",
@@ -12755,6 +14919,24 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/3005_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/3005_kr.wav"
     },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/300002_kr.wav"
+    },
     "打开风之翼·其一": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/800001_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/yoimiya/800001_en.wav",
@@ -12991,6 +15173,12 @@
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4008_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4008_kr.wav"
     },
+    "关于巴尔…": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4010_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4010_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4010_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/4010_kr.wav"
+    },
     "关于我们·公平": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/2004_cn.wav",
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/2004_en.wav",
@@ -13134,6 +15322,24 @@
       "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/3003_en.wav",
       "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/3003_jp.wav",
       "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/3003_kr.wav"
+    },
+    "打开宝箱·其一": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300001_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300001_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300001_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300001_kr.wav"
+    },
+    "打开宝箱·其三": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300003_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300003_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300003_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300003_kr.wav"
+    },
+    "打开宝箱·其二": {
+      "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300002_cn.wav",
+      "en": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300002_en.wav",
+      "jp": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300002_jp.wav",
+      "kr": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/300002_kr.wav"
     },
     "早上好…": {
       "cn": "https://genshin.honeyhunterworld.com/audio/quotes/zhongli/1001_cn.wav",

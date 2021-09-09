@@ -3,48 +3,56 @@ import time
 import string
 import random
 import hashlib
-import requests
+from hoshino import aiorequests
 from . import util
+from urllib.parse import urlencode
 
-mhyVersion = "2.7.0"
+mhyVersion = "2.11.1"
     
-def __md5__(text):
-    _md5 = hashlib.md5()
-    _md5.update(text.encode())
-    return _md5.hexdigest()
+def md5(text):
+    md5 = hashlib.md5()
+    md5.update(text.encode())
+    return md5.hexdigest()
 
-
-def __get_ds__():
-    n = "14bmu1mz0yuljprsfgpvjh3ju2ni468r"
+def __get_ds__(query, body=None):
+    n = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
     i = str(int(time.time()))
     r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
-    c = __md5__("salt=" + n + "&t=" + i + "&r=" + r)
+    q = '&'.join([f'{k}={v}' for k, v in query.items()])
+    c = md5("salt=" + n + "&t=" + i + "&r=" + r + '&b=' + (body or '') + '&q=' + q)
     return i + "," + r + "," + c
 
-
-def info(uid, cookie):
+async def info(uid, cookie):
     server = 'cn_gf01'
     if uid[0] == "5":
         server = 'cn_qd01'
-    #"https://api-takumi.mihoyo.com/game_record/genshin/api/index?server=" + server + "&role_id=" + uid
-    #f'https://api-takumi.mihoyo.com/game_record/genshin/api/spiralAbyss?schedule_type=1&server={server}&role_id={uid}'
-    req = requests.get(
-        url="https://api-takumi.mihoyo.com/game_record/genshin/api/index?server=" + server + "&role_id=" + uid,
-        headers={
-            'Accept': 'application/json, text/plain, */*',
-            'DS': __get_ds__(),
-            'Origin': 'https://webstatic.mihoyo.com',
-            'x-rpc-app_version': mhyVersion,
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 9; Unspecified Device) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 miHoYoBBS/2.2.0',
-            'x-rpc-client_type': '5',
-            'Referer': 'https://webstatic.mihoyo.com/app/community-game-records/index.html?v=6',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,en-US;q=0.8',
-            'X-Requested-With': 'com.mihoyo.hyperion',
-            'Cookie': cookie
-        }
-    )
-    return util.dict_to_object(json.loads(req.text))
+    headers = {
+        'Accept': 'application/json, text/plain, */*',
+        "User-Agent":
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.11.1",
+        "Referer": "https://webstatic.mihoyo.com/",
+        "x-rpc-app_version": "2.11.1",
+        "x-rpc-client_type": '5',
+        "DS": "",
+        'Cookie': cookie
+    }
+
+    params = {"role_id": uid, "server": server}
+
+    api = 'index'
+    json_data = None
+    fn = aiorequests.get
+    base_url = 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/%s'
+    url = base_url % api + '?'
+    url += urlencode(params)
+
+    headers['DS'] = __get_ds__(
+        params, json_data and json.dumps(json_data, separators=(',', ':')))
+    req = await fn(url=url, headers=headers, json=json_data)
+    if req:
+        return util.dict_to_object(json.loads(await req.text))
+    else:
+        return
 
 
 class stats:

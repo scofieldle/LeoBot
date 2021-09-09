@@ -241,8 +241,6 @@ async def check_bili_dynamic():
         await loadConfig()
     uids = push_uids.keys()
     for uid in uids:
-        # if uid != "171818544":
-        #    continue
         header = {
             'Referer': 'https://space.bilibili.com/{user_uid}/'.format(user_uid=uid)
         }
@@ -254,15 +252,12 @@ async def check_bili_dynamic():
                 sv.logger.info(f'检查{uid}时出错 request response is None')
                 continue
             cards = res['data']['cards']
-            # cards=[res['data']['cards'][10]]
+            # cards=[res['data']['cards'][:10]]
             for card in cards:
                 sendCQCode = []
-                userUid = card['desc']['user_profile']['info']['uid']
-                # uname=card['desc']['user_profile']['info']['uname']
                 uname = all_user_name[uid]
                 timestamp = card['desc']['timestamp']
                 if timestamp < push_times[uid]:
-                    # sv.logger.info(uname+'检查完成')
                     break
                 dynamicId = card['desc']['dynamic_id']
                 dynamicType = card['desc']['type']
@@ -420,8 +415,10 @@ async def check_bili_dynamic():
                     sv.logger.info(f'type={dynamicType},暂不支持此类动态')
                 msg = ''.join(sendCQCode)
                 if push_uids[uid][0] == 'all':
+                    push_times[uid] = int(time.time())
                     await broadcast(msg, sv_name='bili-dynamic')
                 else:
+                    push_times[uid] = int(time.time())
                     await broadcast(msg, push_uids[uid])
                 time.sleep(0.5)
             push_times[uid] = int(time.time())

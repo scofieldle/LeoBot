@@ -15,10 +15,10 @@ config = util.get_config()
 _bot = get_bot()
 
 db = util.init_db(config.cache_dir)
-cookie_list = [config.a,config.b,config.c,config.d,config.e]
+cookie_list = []
 
 def zipPic(name):
-    path = os.path.join(os.path.dirname(__file__), f'/genshin_card/{name}.png')
+    path = os.path.join(os.path.dirname(__file__), f'genshin_card/{name}.png')
     im = Image.open(path)
     # 获得图像尺寸:
     w, h = im.size
@@ -51,7 +51,7 @@ async def main(*params):
 
 async def get_stat(uid):
     try:
-        info = query.info(uid, random.choice(cookie_list))
+        info = await query.info(uid, random.choice(cookie_list))
     except Exception as e:
         print(e)
     if not info or info.retcode != 0:

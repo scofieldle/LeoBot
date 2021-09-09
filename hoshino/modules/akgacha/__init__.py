@@ -9,7 +9,7 @@ import nonebot
 from hoshino import R, Service, priv, util
 from hoshino.typing import *
 from hoshino.util import DailyNumberLimiter
-from .akgacha import Gacha
+from .akgacha import *
 from .prtsres import *
 from urllib import request
 
@@ -90,7 +90,8 @@ async def set_pool(bot, ev: CQEvent):
 @sv.on_fullmatch(("查看方舟历史卡池","查看舟游历史卡池"))
 async def history_pool(bot, ev: CQEvent):
     lines = ["全部卡池:"] + list(gacha_data["banners"].keys()) + ["", "使用命令 切换方舟卡池 x（x为卡池名）进行设置"]
-    await bot.finish(ev, "\n".join(lines))
+    msg = [{"type": "node","data": {"name": "小冰","uin": "2854196306","content":"\n".join(lines)}}]
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
 
 async def check_jewel(bot, ev):
     if not jewel_limit.check(ev.user_id):

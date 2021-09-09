@@ -1,6 +1,7 @@
 from hoshino.modules.priconne import chara
 from hoshino.modules.priconne import _pcr_data as pcr_data
 from hoshino.util import pic2b64
+import hoshino
 import base64, json
 from io import BytesIO
 from PIL import Image
@@ -58,7 +59,7 @@ def pcr_img_guess():
         return head
     except Exception as e:
         print('pcr_img', e)
-
+        
 def mrfz_img_guess():
     try:
         BLACKLIST_ID = [1000]
@@ -138,7 +139,7 @@ def mrfz_word_guess():
         
 def load_config():
     try:
-        config_path = '/home/ubuntu/HoshinoBot/hoshino/modules/total_guess/Genshin_chara.json'
+        config_path = os.path.join(os.path.dirname(__file__),'Genshin_chara.json')
         with open(config_path, 'r', encoding='utf-8') as config_file:
             return json.load(config_file)
     except Exception as e:

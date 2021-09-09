@@ -1,25 +1,25 @@
 from nonebot import *
-import requests,random,os,json,re, time
-from hoshino import Service
-import urllib
+import random, os, json, re, time
+from hoshino import Service, aiorequests
+import urllib, requests
 import string
 import hashlib
 import math
-import requests
-import os
-from  PIL  import Image,ImageFont,ImageDraw
+from io import BytesIO
+from  PIL import Image,ImageFont,ImageDraw
 import io
 import base64
-from PIL import Image
 from threading import Lock
+from urllib.parse import urlencode
+from lxml import etree
 
 
 #信息抓取源码来源于https://github.com/Womsxd/YuanShen_User_Info
 sv = Service('ysInfo')
 bot = get_bot()
+ip_list = []
 
-mhyVersion = "2.9.0"
-salt = "w5k9n3aqhoaovgw25l373ee18nsazydo" # Github-@Azure99
+mhyVersion = "2.11.1"
 client_type = "5"
 cache_Cookie = []
 
@@ -29,66 +29,114 @@ FONTS_PATH = os.path.join(FONTS_PATH,'sakura.ttf')
 last_time = time.time()
 lck = Lock()
 
-def md5(text):
-    md5 = hashlib.md5()
-    md5.update(text.encode())
-    return md5.hexdigest()
+def load_config():
+    global ip_list
+    with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'r', encoding='utf-8') as f:
+        line = f.readline()
+        while line:
+            ip_list.append(line)
 
-def DSGet():
-    n = salt
+def save_config():
+    global ip_list
+    with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'w', encoding='utf-8') as f:
+        for ip in ip_list:
+            f.write(ip)
+            f.write('\n')
+
+load_config()
+
+# 设置代理服务器
+async def get_ip_list(url):
+    global ip_list
+    html = requests.get(url, headers={'User-Agent':"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1"})
+    tree = etree.HTML(html.text)
+    ips = tree.xpath('//table[@class="table table-hover table-bordered"]/tbody/tr')
+    for i in range(1, len(ips)):
+        ip_info = ips[i]
+        tds = ip_info.xpath('td')
+        del_time = tds[7].xpath("string(.)")
+        if tds[4].xpath("string(.)") == '支持' and tds[5].xpath("string(.)") == '支持' and (del_time.startswith('0.') or del_time.startswith('1.')):
+            ip = 'https://'+tds[0].xpath("string(.)") + ':' + tds[1].xpath("string(.)")
+            if not ip in ip_list:
+                ip_list.append(ip)
+
+def __md5__(text):
+    _md5 = hashlib.md5()
+    _md5.update(text.encode())
+    return _md5.hexdigest()
+
+def __get_ds__(query, body=None):
+    if body:
+        body = json.dumps(body)
+    n = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs" # Github-@lulu666lulu
     i = str(int(time.time()))
-    r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
-    c = md5("salt=" + n + "&t=" + i + "&r=" + r)
+    r = str(random.randint(100000, 200000))
+    q = '&'.join([f'{k}={v}' for k, v in query.items()])
+    c = __md5__("salt=" + n + "&t=" + i + "&r=" + r + '&b=' + (body or '') + '&q=' + q)
     return i + "," + r + "," + c
 
-def GetInfo(Uid, ServerID, cookie):
+async def request_data(uid=0, api='index', character_ids=None, cookie=''):
+    server = 'cn_gf01'
+    if uid[0] == "5":
+        server = 'cn_qd01'
+    headers = {
+        'Accept': 'application/json, text/plain, */*',
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.11.1",
+        "Referer": "https://webstatic.mihoyo.com/",
+        "x-rpc-app_version": "2.11.1",
+        "x-rpc-client_type": '5',
+        "DS": "",
+        'Cookie': cookie
+    }
+
+    params = {"role_id": uid, "server": server}
+
+    json_data = None
+    fn = aiorequests.get
+    base_url = 'https://api-takumi.mihoyo.com/game_record/app/genshin/api/%s'
+    url = base_url % api + '?'
+    if api == 'index':
+        url += urlencode(params)
+    elif api == 'character':
+        fn = aiorequests.post
+        json_data = {"character_ids": character_ids,"role_id": uid, "server": server}
+        params = {}
+
+    headers['DS'] = __get_ds__(params, json_data)
     req = ''
-    req = requests.get(
-        url="https://api-takumi.mihoyo.com/game_record/genshin/api/index?server=" + ServerID + "&role_id=" + Uid,
-        headers={
-            'Accept': 'application/json, text/plain, */*',
-            'DS': DSGet(),
-            'Origin': 'https://webstatic.mihoyo.com',
-            'x-rpc-app_version': mhyVersion,
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 9; Unspecified Device) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 miHoYoBBS/2.2.0',
-            'x-rpc-client_type': client_type,
-            'Referer': 'https://webstatic.mihoyo.com/app/community-game-records/index.html?v=6',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,en-US;q=0.8',
-            'X-Requested-With': 'com.mihoyo.hyperion',
-            "Cookie": cookie
-        },
-        timeout = 5
-    )
+    if api == 'index':
+        req = await fn(url=url, headers=headers, json=json_data, timeout=10)
+    else:
+        num = random.random()
+        if num > 0.5:
+            ip = random.choice(ip_list)
+            try:
+                print(f'使用了代理{ip}')
+                req = await fn(url=url, headers=headers, json=json_data, timeout=10, proxies={'https':ip})
+            except:
+                print(f'代理{ip}访问失败了')
+                ip_list.remove(ip)
+                save_config()
+                req = await fn(url=url, headers=headers, json=json_data, timeout=10)
+        else:
+            req = await fn(url=url, headers=headers, json=json_data, timeout=10)
     if req:
-        return req.text
+        return await req.text
     else:
         return
-    
-def GetCharacter(Uid, ServerID, Character_ids, cookie):
-    req = ''
-    req = requests.post(
-        url = "https://api-takumi.mihoyo.com/game_record/genshin/api/character",
-        headers = {
-            'Accept': 'application/json, text/plain, */*',
-            'DS': DSGet(),
-            'Origin': 'https://webstatic.mihoyo.com',
-            'x-rpc-app_version': mhyVersion,
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 9; Unspecified Device) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36 miHoYoBBS/2.2.0',
-            'x-rpc-client_type': '5',
-            'Referer': 'https://webstatic.mihoyo.com/app/community-game-records/index.html?v=6',
-            'Accept-Encoding': 'gzip, deflate',
-            'Accept-Language': 'zh-CN,en-US;q=0.8',
-            'X-Requested-With': 'com.mihoyo.hyperion',
-            'Cookie': cookie
-        },
-        json = {"character_ids": Character_ids ,"role_id": Uid ,"server": ServerID },
-        timeout = 5
-    )
-    if req:
-        return req.text
-    else:
-        return
+
+async def get_pic(url, size=None):
+    """
+    从网络获取图片，格式化为RGBA格式的指定尺寸
+    """
+    resp = await aiorequests.get(url, timeout = 10)
+    if resp.status_code != 200:
+        return None
+    pic = Image.open(BytesIO(await resp.content))
+    pic = pic.convert("RGBA")
+    if size is not None:
+        pic = pic.resize(size, Image.LANCZOS)
+    return pic
 
 def calcStringLength(text):
     # 令len(str(string).encode()) = m, len(str(string)) = n
@@ -129,13 +177,13 @@ def elementDict(text, isOculus=False):
     elif not isOculus:
         return elementProperty + "属性"
 
-def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
-    if JsonText:
-        data = json.loads(JsonText)
+async def JsonAnalysis(info, Uid, nickname, cookie, qid):
+    if info:
+        data = json.loads(info)
         if data["retcode"] == 10001:
             return "Cookie错误/过期，请重置Cookie"
         if data["retcode"] != 0:
-            return ("Api报错，返回内容为："+ JsonText)
+            return ("Api报错，返回内容为："+ info)
     else:
         return "UID输入错误 or 不存在"
 
@@ -143,9 +191,13 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
     Character_ids = []
     for i in Character_List:
         Character_ids +=  [i["id"]]
-    dataC = json.loads(GetCharacter(Uid, ServerID, Character_ids, cookie)) 
+    time.sleep(5)
+    dataC = json.loads(await request_data(uid=Uid, api='character', character_ids=Character_ids, cookie=cookie))
     Character_datas = dataC["data"]["avatars"]
     
+    #命之座及好感度
+    PLAYER = os.path.join(FILE_PATH,'player')
+    FETTER = os.path.join(FILE_PATH,'fetter')
     #获取角色数量，计算输出图片长度
     characternum = data["data"]["stats"]["avatar_number"]
     need_middle = math.ceil(characternum/6)
@@ -199,14 +251,11 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
     
     #插入查询者信息
     #插入昵称、uid、随机角色头像
-    #随机获取有的角色的一个头像,插入背景
-    picid = random.sample(Character_ids,1)
-    picname = str(picid[0])+'.png'
-    base_img_t = os.path.join(IMG_PATH,picname)
-    dtimg_t = Image.open(base_img_t).convert('RGBA')
-    dtimg_t = dtimg_t.resize((213, 213))
-    dtbox_t = (70, 53)
-    im.paste(dtimg_t, dtbox_t, mask=dtimg_t.split()[3])
+    url = f'http://q.qlogo.cn/headimg_dl?dst_uin={qid}&spec=640&img_type=jpg'
+    img = await get_pic(url, (180, 180))
+    if img:
+        dtbox_t = (86, 67)
+        im.paste(img, dtbox_t, mask=img.split()[3])
     
     draw = ImageDraw.Draw(im)
     #插入UID
@@ -308,19 +357,66 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
                 draw.text((915, 595), line, font=font, fill = (255, 255, 255))
     
     #尘歌壶
-    Home_List = data["data"]["homes"]
-    line = "尘歌壶 Lv."+ str(Home_List[0]["level"])
-    font = ImageFont.truetype(FONTS_PATH, 30)
-    w, h = draw.textsize(line, font=font)
-    draw.text(((2474 - w) / 2, 75), line, font=font, fill = (255, 255, 255))
-    
-    #尘歌壶3个洞天
-    homeworld_list = []
-    #有解锁的洞天
-    for i in Home_List:
-        homeworld_list.append(i["name"])
-        if i['name']=='翠黛峰':
-            line = i['name']
+    if len(data["data"]["homes"]) != 0:
+        Home_List = data["data"]["homes"]
+        line = "尘歌壶 Lv."+ str(Home_List[0]["level"])
+        font = ImageFont.truetype(FONTS_PATH, 30)
+        w, h = draw.textsize(line, font=font)
+        draw.text(((2474 - w) / 2, 75), line, font=font, fill = (255, 255, 255))
+        
+        #尘歌壶3个洞天
+        homeworld_list = []
+        #有解锁的洞天
+        for i in Home_List:
+            homeworld_list.append(i["name"])
+            if i['name']=='翠黛峰':
+                line = i['name']
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 165), line, font=font, fill = (242, 196, 127))
+                
+                line = "洞天等级"
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 203), line, font=font, fill = (250, 245, 207))
+                
+                line = i['comfort_level_name']
+                font = ImageFont.truetype(FONTS_PATH, 24)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 232), line, font=font, fill = (255, 255, 255))
+            elif i['name']=='罗浮洞':
+                line = i['name']
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 368), line, font=font, fill = (242, 196, 127))
+                
+                line = "洞天等级"
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 406), line, font=font, fill = (250, 245, 207))
+                
+                line = i['comfort_level_name']
+                font = ImageFont.truetype(FONTS_PATH, 24)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 435), line, font=font, fill = (255, 255, 255))
+            elif i['name']=='清琼岛':
+                line = i['name']
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 571), line, font=font, fill = (242, 196, 127))
+                
+                line = "洞天等级"
+                font = ImageFont.truetype(FONTS_PATH, 30)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 609), line, font=font, fill = (250, 245, 207))
+                
+                line = i['comfort_level_name']
+                font = ImageFont.truetype(FONTS_PATH, 24)
+                w, h = draw.textsize(line, font=font)
+                draw.text(((2474 - w) / 2, 638), line, font=font, fill = (255, 255, 255))
+        #未解锁的洞天
+        if '翠黛峰' not in homeworld_list:
+            line = '翠黛峰'
             font = ImageFont.truetype(FONTS_PATH, 30)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 165), line, font=font, fill = (242, 196, 127))
@@ -330,12 +426,12 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 203), line, font=font, fill = (250, 245, 207))
             
-            line = i['comfort_level_name']
+            line = '未解锁'
             font = ImageFont.truetype(FONTS_PATH, 24)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 232), line, font=font, fill = (255, 255, 255))
-        elif i['name']=='罗浮洞':
-            line = i['name']
+        if '罗浮洞' not in homeworld_list:
+            line = '罗浮洞'
             font = ImageFont.truetype(FONTS_PATH, 30)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 368), line, font=font, fill = (242, 196, 127))
@@ -345,12 +441,12 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 406), line, font=font, fill = (250, 245, 207))
             
-            line = i['comfort_level_name']
+            line = '未解锁'
             font = ImageFont.truetype(FONTS_PATH, 24)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 435), line, font=font, fill = (255, 255, 255))
-        elif i['name']=='清琼岛':
-            line = i['name']
+        if '清琼岛' not in homeworld_list:
+            line = '清琼岛'
             font = ImageFont.truetype(FONTS_PATH, 30)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 571), line, font=font, fill = (242, 196, 127))
@@ -360,12 +456,22 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 609), line, font=font, fill = (250, 245, 207))
             
-            line = i['comfort_level_name']
+            line = '未解锁'
             font = ImageFont.truetype(FONTS_PATH, 24)
             w, h = draw.textsize(line, font=font)
             draw.text(((2474 - w) / 2, 638), line, font=font, fill = (255, 255, 255))
-    #未解锁的洞天
-    if '翠黛峰' not in homeworld_list:
+            
+        #摆设
+        line = "摆件:" + str(Home_List[0]["item_num"])
+        font = ImageFont.truetype(FONTS_PATH, 26)
+        w, h = draw.textsize(line, font=font)
+        draw.text(((2474 - w) / 2, 730), line, font=font, fill = (255, 255, 255))
+        #最大仙力
+        line = '仙力:' + str(Home_List[0]["comfort_num"])
+        font = ImageFont.truetype(FONTS_PATH, 26)
+        w, h = draw.textsize(line, font=font)
+        draw.text(((2474 - w) / 2, 770), line, font=font, fill = (255, 255, 255))
+    else:
         line = '翠黛峰'
         font = ImageFont.truetype(FONTS_PATH, 30)
         w, h = draw.textsize(line, font=font)
@@ -380,7 +486,7 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
         font = ImageFont.truetype(FONTS_PATH, 24)
         w, h = draw.textsize(line, font=font)
         draw.text(((2474 - w) / 2, 232), line, font=font, fill = (255, 255, 255))
-    if '罗浮洞' not in homeworld_list:
+
         line = '罗浮洞'
         font = ImageFont.truetype(FONTS_PATH, 30)
         w, h = draw.textsize(line, font=font)
@@ -395,7 +501,7 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
         font = ImageFont.truetype(FONTS_PATH, 24)
         w, h = draw.textsize(line, font=font)
         draw.text(((2474 - w) / 2, 435), line, font=font, fill = (255, 255, 255))
-    if '清琼岛' not in homeworld_list:
+
         line = '清琼岛'
         font = ImageFont.truetype(FONTS_PATH, 30)
         w, h = draw.textsize(line, font=font)
@@ -411,16 +517,16 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
         w, h = draw.textsize(line, font=font)
         draw.text(((2474 - w) / 2, 638), line, font=font, fill = (255, 255, 255))
         
-    #摆设
-    line = "摆件:" + str(Home_List[0]["item_num"])
-    font = ImageFont.truetype(FONTS_PATH, 26)
-    w, h = draw.textsize(line, font=font)
-    draw.text(((2474 - w) / 2, 730), line, font=font, fill = (255, 255, 255))
-    #最大仙力
-    line = '仙力:' + str(Home_List[0]["comfort_num"])
-    font = ImageFont.truetype(FONTS_PATH, 26)
-    w, h = draw.textsize(line, font=font)
-    draw.text(((2474 - w) / 2, 770), line, font=font, fill = (255, 255, 255))
+        #摆设
+        line = "摆件:0"
+        font = ImageFont.truetype(FONTS_PATH, 26)
+        w, h = draw.textsize(line, font=font)
+        draw.text(((2474 - w) / 2, 730), line, font=font, fill = (255, 255, 255))
+        #最大仙力
+        line = '仙力:0'
+        font = ImageFont.truetype(FONTS_PATH, 26)
+        w, h = draw.textsize(line, font=font)
+        draw.text(((2474 - w) / 2, 770), line, font=font, fill = (255, 255, 255))
     
     zb_list = []
     for l in range(need_middle):
@@ -465,10 +571,12 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
         
         #插入角色命座
         line = str(i["actived_constellation_num"])
-        font = ImageFont.truetype(FONTS_PATH, 26)
-        mz_left = z_left + 178
-        mz_top = z_top + 7
-        draw.text((mz_left, mz_top), line, font=font, fill = (0, 0, 0))
+        i_con = Image.open(os.path.join(PLAYER, f'命之座{line}.png'))
+        i_con = i_con.resize((43, 43))
+        mz_left = z_left + 158
+        mz_top = z_top
+        mzbox = (mz_left, mz_top)
+        im.paste(i_con, mzbox, mask=i_con.split()[3])
         
         #插入角色属性
         elementname = str(i["element"]) +".png"
@@ -496,11 +604,13 @@ def JsonAnalysis(JsonText,Uid, ServerID, nickname, cookie):
         draw.text((level_left, level_top), line, font=font, fill = (0, 0, 0))
         
         #插入角色好感度
-        line = "♥ " + spaceWrap(str(i["fetter"]), 2)
-        font = ImageFont.truetype(FONTS_PATH, 26)
-        fetter_left = z_left + 120
-        fetter_top = z_top + 250
-        draw.text((fetter_left, fetter_top), line, font=font, fill = (0, 0, 0))
+        line = str(i["fetter"])
+        i_fet = Image.open(os.path.join(FETTER, f'好感度{line}.png'))
+        i_fet = i_fet.resize((45, 45))
+        fetter_left = z_left + 135
+        fetter_top = z_top + 242
+        fetterbox = (fetter_left, fetter_top)
+        im.paste(i_fet, fetterbox, mask=i_fet.split()[3])
         
         #插入武器图片
         weaponname = str(weapon["name"]) +".png"
@@ -543,8 +653,9 @@ async def genshin(bot, ev):
     global lck, last_time
     now_time = time.time()
     uid = ev.message.extract_plain_text()
+    qid = ev.user_id
     sender = ev.sender
-    if now_time - last_time < 5:
+    if now_time - last_time < 10:
         await bot.send(ev, '请求过于频繁！')
         return
     while not lck.locked():
@@ -553,13 +664,14 @@ async def genshin(bot, ev):
                 cookie = random.choice(cache_Cookie)
                 nickname = sender["card"] or sender["nickname"]
                 try:
+                    await bot.send(ev, '正在前往米游社查询信息')
                     if (uid[0] == "1"):
-                        mes = JsonAnalysis(GetInfo(uid, "cn_gf01", cookie), uid, "cn_gf01", nickname, cookie)
+                        mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
                     elif (uid[0] == "5"):
-                        mes = JsonAnalysis(GetInfo(uid, "cn_qd01", cookie), uid, "cn_qd01", nickname, cookie)
+                        mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
                 except Exception as e:
                     print(e)
-                    await bot.send(ev, '米游社无法查询到此uid')
+                    await bot.send(ev, f'米游社无法查询到此uid\n{e}')
                     last_time = time.time()
                     return
                 await bot.send(ev, mes)
@@ -567,3 +679,15 @@ async def genshin(bot, ev):
             else:
                 await bot.send(ev, 'UID输入有误！', at_sender=True)
         break
+
+@sv.on_fullmatch('更新代理池')
+async def up_ip_list(bot, ev):
+    await bot.send(ev, '开始更新')
+    for i in range(20):
+        url = f'https://ip.ihuan.me/?page={i}'
+        await get_ip_list(url)
+        time.sleep(0.5)
+    save_config()
+    await bot.send(ev, f'更新完成，目前代理池IP数量为{len(ip_list)}')
+
+

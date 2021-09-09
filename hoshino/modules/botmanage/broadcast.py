@@ -2,7 +2,7 @@ import asyncio
 
 import hoshino
 from hoshino.service import sucmd
-from hoshino.typing import CommandSession, CQHttpError
+from hoshino.typing import CommandSession
 
 
 @sucmd('broadcast', aliases=('bc', '广播'))

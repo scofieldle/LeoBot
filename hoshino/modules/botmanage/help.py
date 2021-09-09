@@ -16,7 +16,7 @@ msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","conten
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"clanbattle_report 命令：会战报告(@xxx)；离职报告(@xxx) 如需使用请联系开发者报api"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"nowtime：涩图报时。命令：报时"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"memberguess 命令：猜群友"}})
-msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"total_guess：包含pcr、明日方舟、原神相关角色。 命令：猜一猜"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"total_guess：包含pcr、明日方舟、原神相关角色。 命令：猜一猜、猜原神、猜干员、猜明日方舟、猜角色、猜pcr、猜公主连结"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"Genshin_Impact_bot：原神插件。命令：原神帮助"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"bang-gacha：邦邦抽卡。命令：邦邦天井 [int]；邦邦十连 [int]"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"yobot：yobot会战和web页面功能，详情私聊bot登录查看"}})
@@ -33,8 +33,9 @@ msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","conten
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"Majsoul_Info：雀魂信息查询。命令详情:雀魂帮助"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"maimeng：戳一戳机器人，随机返回表情包。 命令：上传卖萌 名字 表情包"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"pixiv：p站插画插件。命令详情:插画帮助"}})
-msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"akgacha：明日方舟抽卡。命令:@bot 方舟来一井; 方舟刷本效率"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"akgacha：明日方舟相关功能，命令详情:方舟帮助"}})
 msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"币安：币安插件。命令详情：币安帮助"}})
+msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"人生重来模拟器：人生重来 /remake"}})
 
 battle_msg = []
 battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"会战功能列表"}})
@@ -57,6 +58,16 @@ battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306",
 battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"进度"}})
 battle_msg.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"登录; 需要私聊bot"}})
 
+FZ_help = []
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"@Bot方舟十连"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"@Bot方舟来一井"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"查看方舟卡池"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"切换方舟卡池"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"查看方舟历史卡池"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"猜干员"}})
+FZ_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"猜明日方舟"}})
+
+
 @sv.on_fullmatch('帮助')
 async def help(bot, ev):
     global msg
@@ -66,3 +77,8 @@ async def help(bot, ev):
 async def help(bot, ev):
     global battle_msg
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=battle_msg)
+   
+@sv.on_fullmatch('方舟帮助')
+async def help(bot, ev):
+    global battle_msg
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=FZ_help)
