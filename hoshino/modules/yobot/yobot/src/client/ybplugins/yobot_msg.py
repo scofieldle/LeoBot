@@ -9,7 +9,7 @@ class Message:
     def __init__(self, glo_setting: dict, *args, **kwargs):
         self.version = glo_setting["verinfo"]["ver_name"]
         self.setting = glo_setting
-        self.help_page = 'http://18.179.120.112:9222/help'
+        self.help_page = 'http://18.183.80.177:9222/help'
 
     @staticmethod
     def match(cmd: str) -> int:
