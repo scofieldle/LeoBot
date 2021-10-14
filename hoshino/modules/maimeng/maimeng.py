@@ -6,9 +6,9 @@ from hoshino.util import FreqLimiter, DailyNumberLimiter
 from PIL import Image
 from io import BytesIO
 
-_max = 5
-EXCEED_NOTICE = f'一天戳{_max}次还不够吗？！'
-_nlmt = DailyNumberLimiter(_max)
+#_max = 5
+#EXCEED_NOTICE = f'一天戳{_max}次还不够吗？！'
+#_nlmt = DailyNumberLimiter(_max)
 _flmt = FreqLimiter(3)
 
 sv = Service('maimeng')
@@ -35,14 +35,14 @@ async def maimeng(session: NoticeSession):
     at_id = str(session.ctx['target_id'])
     if at_id != '197812783':
         return
-    if not _nlmt.check(uid):
-        await session.send(EXCEED_NOTICE)
-        return
+    #if not _nlmt.check(uid):
+    #    await session.send(EXCEED_NOTICE)
+    #    return
     if not _flmt.check(uid):
         await session.send(f'太快了啦，人家也要时间准备的{uid}')
         return
     _flmt.start_cd(uid)
-    _nlmt.increase(uid)
+    #_nlmt.increase(uid)
 
     # conditions all ok, send a maimeng.
     pic = get_maimeng()

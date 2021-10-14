@@ -145,8 +145,17 @@ def load_config():
     except Exception as e:
         return {}
         
+def load_character():
+    try:
+        config_path = os.path.join(os.path.dirname(__file__),'character.json')
+        with open(config_path, 'r', encoding='utf-8') as config_file:
+            return json.load(config_file)
+    except Exception as e:
+        return {}
+        
 def get_cqcode(name):
-    path = '/home/ubuntu/HoshinoBot/hoshino/modules/total_guess/pic/' + name + '.jpg'
+    pic_name = name + '.jpg'
+    path = os.path.join(os.path.dirname(__file__),'pic', pic_name)
     img = Image.open(path)
     image = MessageSegment.image(pic2b64(img))
     return image
@@ -156,11 +165,13 @@ def genshin_word_guess():
         head = {'flag':True,'answer':[], 'img':'','game_type':'word','question_list':[]}
             
         chara_list = load_config()
+        character = load_character()
         chara_name_list = list(chara_list.keys())
         random.shuffle(chara_name_list)
         answer = chara_name_list[0]
         
-        head['answer'] = [answer]
+        head['answer'] = character[answer]
+        head['answer'].append(answer)
         head['img'] = get_cqcode(answer)
         
         data_label = list(chara_list[answer].keys())

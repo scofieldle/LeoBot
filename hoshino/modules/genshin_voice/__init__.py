@@ -43,7 +43,9 @@ def get_random_voice(name, language: Optional[str] = 'cn') -> Optional[str]:
         return None
 
 def get_cqcode(name):
-    path = '/home/ubuntu/HoshinoBot/hoshino/modules/total_guess/pic/' + name + '.jpg'
+    pic_name = name + '.jpg'
+    parent = os.path.dirname(os.path.dirname(__file__))
+    path = os.path.join(parent,'total_guess','pic',pic_name)
     img = Image.open(path)
     image = MessageSegment.image(pic2b64(img))
     return str(image)

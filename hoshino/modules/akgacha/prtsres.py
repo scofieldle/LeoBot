@@ -21,8 +21,7 @@ gacha_data = json.load(
     open(os.path.join(working_path, "config.json"), encoding="utf-8"))
 
 
-proxies={ 'http':'socks5h://127.0.0.1:1080',
-               'https':'socks5h://127.0.0.1:1080'}
+proxies={ 'http':'socks5h://127.0.0.1:1080', 'https':'socks5h://127.0.0.1:1080'}
 
 async def update_res(): 
     count=0
@@ -66,7 +65,7 @@ async def update_res():
         png_path = os.path.join(half_dir, filename)
         if os.path.exists(png_path):
             continue
-        print(" - 下载", png_path)
+        #print(" - 下载", png_path)
         png = await (await aiorequests.get(filelink, timeout=20)).content
         count+=1
         with open(png_path, 'wb') as f:
@@ -96,7 +95,7 @@ async def update_res():
             continue
         png = await (await aiorequests.get(filelink, timeout=20)).content
         count+=1
-        print(" - 下载", png_path)
+        #print(" - 下载", png_path)
         with open(png_path, 'wb') as f:
             f.write(png)
         
@@ -221,7 +220,7 @@ async def update_config():
         cur["up_6"] = star6
         cur["up_5"] = star5
         cur["up_4"] = star4
-        print(name)
+        #print(name)
         cur["exclude"] = exclude
         banner[name] = cur
 
@@ -268,7 +267,7 @@ async def update_config():
         cur["up_6"] = star6
         cur["up_5"] = star5
         cur["up_4"] = star4
-        print(name)
+        #print(name)
         cur["exclude"] = exclude
         banner[name] = cur
 
@@ -325,7 +324,7 @@ async def update_config():
         cur["up_6"] = star6
         cur["up_5"] = star5
         cur["up_4"] = star4
-        print(gachaid)
+        #print(gachaid)
         cur["exclude"] = exclude
         banner[f'普池#{gachaid}'] = cur
 

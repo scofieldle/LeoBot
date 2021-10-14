@@ -222,6 +222,8 @@ async def on_arena_schedule():
                     if not '维护' in str(e):
                         binds[user]['private'] = False
                         save_binds()
+                    else:
+                        return
         break
 
 @sv.on_notice('group_decrease.leave')

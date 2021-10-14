@@ -157,58 +157,33 @@ def save_pic(url):
             f.write(img)
     return filename
 
-@sv.on_fullmatch(("更新方舟基础数据","更新舟游基础数据"))
-async def update_table(bot, ev: CQEvent):
+@sv.on_fullmatch(("更新方舟数据","更新舟游数据"))
+async def update(bot, ev: CQEvent):
     global char_data
     if not priv.check_priv(ev, priv.SUPERUSER):
         await bot.send(ev,'此命令仅维护组可用，请联系维护组~')
         return
     await bot.send(ev, '正在更新请稍候……')
     try:
-        result = await update_chara_db()
-        if result:
-            data_init()
-            char_data = json.load(open(os.path.join(working_path, "character_table.json"), encoding="utf-8"))
-            await bot.send(ev, '更新基础数据成功！')
-        else:
-            await bot.send(ev, '基础数据已是最新版本！')
+        await update_table()
+        await bot.send(ev, '更新基础数据成功！')
+        await update_pool()
+        await bot.send(ev, '更新卡池成功！')
+        await update_res()
+        await bot.send(ev, '更新资源成功！')
     except Exception as e:
         print(format_exc())
         await bot.send(ev, f'更新失败……{e}')
+    
+async def update_table():
+    result = await update_chara_db()
+    if result:
+        data_init()
+        char_data = json.load(open(os.path.join(working_path, "character_table.json"), encoding="utf-8"))
 
+async def update_pool():
+    result = await update_config()
+    if result:
+        data_init()
+        gacha_data = json.load(open(os.path.join(working_path, "config.json"), encoding="utf-8"))
 
-@sv.on_fullmatch(("更新方舟卡池","更新舟游卡池"))
-async def update_pool(bot, ev: CQEvent):
-    global gacha_data
-    if not priv.check_priv(ev, priv.SUPERUSER):
-        await bot.send(ev,'此命令仅维护组可用，请联系维护组~')
-        return
-    await bot.send(ev, '正在更新请稍候……')
-    try:
-        result = await update_config()
-        if result:
-            data_init()
-            gacha_data = json.load(open(os.path.join(working_path, "config.json"), encoding="utf-8"))
-            await bot.send(ev, '更新卡池成功！')
-        else:
-            await bot.send(ev, '卡池已是最新版本！')
-    except Exception as e:
-        print(format_exc())
-        await bot.send(ev, f'更新失败……{e}')
-
-
-@sv.on_fullmatch(("更新方舟资源","更新舟游资源"))
-async def update_pool(bot, ev: CQEvent):
-    if not priv.check_priv(ev, priv.SUPERUSER):
-        await bot.send(ev,'此命令仅维护组可用，请联系维护组~')
-        return
-    await bot.send(ev, '正在更新请稍候……')
-    try:
-        result = await update_res()
-        if result:
-            await bot.send(ev, f'更新资源成功！已新增{result}张图像！')
-        else:
-            await bot.send(ev, '资源已是最新版本！')
-    except Exception as e:
-        print(format_exc())
-        await bot.send(ev, f'更新失败……{e}')

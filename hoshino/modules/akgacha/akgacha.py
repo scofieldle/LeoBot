@@ -114,9 +114,7 @@ class Gacha:
                 id = get_charid(key)
                 rarity = "star_%d" % (char_data[id]["rarity"] + 1)
                 n = self.banner["multi"][key]
-                print(id, rarity, n)
-                self.pool[rarity] += [key] * n
-                print(self.pool[rarity])                
+                self.pool[rarity] += [key] * n             
     
     def explain_banner(self):
         main_up = self.banner["up_6"]
@@ -178,7 +176,7 @@ class Gacha:
         if self.banner.get("tenjou", None):
             tenjou = self.banner["tenjou"]
             if self.nth == tenjou["n"] and not self.char_count.get(tenjou["name"], None):
-                print(f"井了 - {tenjou['n']}")
+                #print(f"井了 - {tenjou['n']}")
                 result = { "char": tenjou["name"], "star": 6, "up": True, "tenjou": True }
                 cname = tenjou["name"]
                 self.tenjou = True
@@ -187,7 +185,7 @@ class Gacha:
             if char_key == "up_5" and not self.up5_name:
                 self.up5_name = cname # 第一次抽到up5，标记
             elif self.up5_name:
-                print("触发up5星保底")
+                #print("触发up5星保底")
                 result["char"] = cname = random.sample([x for x in self.pool["up_5"] if x != self.up5_name], 1)[0]
                 self.up5_name = "used"
                 
@@ -214,10 +212,9 @@ class Gacha:
             self.rare_chance = False
             self.rare_list[result["star"]].append(cname)
         # 清除软保底
-        if result["star"] == 6:
-            print(result)            
+        if result["star"] == 6:          
             if self.n6count >= 50:
-                print("软保底 - %d" % (self.n6count+1))
+                #print("软保底 - %d" % (self.n6count+1))
                 result["软保底"] = True
             self.n6count = 0
         else:
