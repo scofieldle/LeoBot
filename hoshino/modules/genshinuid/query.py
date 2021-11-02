@@ -15,11 +15,13 @@ def md5(text):
     return md5.hexdigest()
 
 def __get_ds__(query, body=None):
-    n = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    if body:
+        body = json.dumps(body)
+    n = "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs" # Github-@lulu666lulu
     i = str(int(time.time()))
-    r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
+    r = str(random.randint(100000, 200000))
     q = '&'.join([f'{k}={v}' for k, v in query.items()])
-    c = md5("salt=" + n + "&t=" + i + "&r=" + r + '&b=' + (body or '') + '&q=' + q)
+    c = __md5__("salt=" + n + "&t=" + i + "&r=" + r + '&b=' + (body or '') + '&q=' + q)
     return i + "," + r + "," + c
 
 async def info(uid, cookie):
@@ -46,8 +48,7 @@ async def info(uid, cookie):
     url = base_url % api + '?'
     url += urlencode(params)
 
-    headers['DS'] = __get_ds__(
-        params, json_data and json.dumps(json_data, separators=(',', ':')))
+    headers['DS'] = __get_ds__(params, json_data and json.dumps(json_data, separators=(',', ':')))
     req = await fn(url=url, headers=headers, json=json_data)
     if req:
         return util.dict_to_object(json.loads(await req.text))
