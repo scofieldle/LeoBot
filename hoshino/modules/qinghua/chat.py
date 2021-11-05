@@ -32,12 +32,10 @@ async def chat(bot: HoshinoBot, ev: CQEvent):
     _chat_flmt.start_cd(user_id)
     
     temp = ''
-    if msg in data.keys():
-        temp = random.choice(data[msg])
-    else:
-        for key in data.keys():
-            if key in msg:
-                temp = random.choice(data[msg])
-    if temp:
-        await bot.send(ev, temp, at_sender = True)
-
+    for key in data.keys():
+        if key in msg:
+            await bot.send(ev, random.choice(data[key]), at_sender = True)
+            return
+        if msg in key:
+            await bot.send(ev, random.choice(data[key]), at_sender = True)
+            return

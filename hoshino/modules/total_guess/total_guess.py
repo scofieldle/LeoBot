@@ -169,7 +169,7 @@ async def on_input_chara_name(bot, ev: CQEvent):
         if gid in TEMP.keys() and TEMP[gid]['flag']:
             if s in TEMP[gid]['answer']:
                 msg_part = f'猜对了，真厉害!\n(此轮游戏将在几秒后自动结束，请耐心等待)'
-                msg =  f'正确答案是: {TEMP[gid]["answer"][-1]}{TEMP[gid]["img"]}\n{msg_part}'
+                msg =  f'正确答案是: {random.choice(TEMP[gid]["answer"])}{TEMP[gid]["img"]}\n{msg_part}'
                 await bot.send(ev, msg, at_sender=True)
                 TEMP[gid]['flag'] = False
     except Exception as e:

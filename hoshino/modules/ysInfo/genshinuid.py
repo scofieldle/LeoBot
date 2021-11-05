@@ -1,7 +1,8 @@
 from nonebot import *
 import random, os, json, re, time
 from hoshino import Service, aiorequests
-import urllib
+import urllib, requests
+import string
 import hashlib
 import math
 from io import BytesIO
@@ -20,7 +21,12 @@ ip_list = []
 
 mhyVersion = "2.11.1"
 client_type = "5"
-cache_Cookie = []
+cache_Cookie = ['account_id=156463045; cookie_token=YTCH757SbuwzA7kSl2vkKOypnyPd2Oi5BVnFAm9t;',
+            'account_id=7250452; cookie_token=xjAbaDN6bYpicppuYUye5h8exJSoYxLHyPFdO25X;',
+            'account_id=279914305; cookie_token=GHCeB7nMYup87e5SWIcCDyFFhBoNNFfVPDpGnGXM;',
+            'cookie_token=TUyfX4KBhWvOMlB43ELBFNMB13Hf9YgL5sa5f2SG; account_id=274933782;',
+            'cookie_token=a734qsu6wfVo2DXeN0m6f4hMwApn5HkLyuF2RCg8; account_id=8546718;',
+            'cookie_token=SmebcKUbZVonSRY5h0fEFVXU35nInT8RurSiu3j4; account_id=286893444;']
 
 FILE_PATH = os.path.dirname(__file__)
 FONTS_PATH = os.path.join(FILE_PATH,'fonts')
@@ -68,10 +74,12 @@ user_agent = [
 
 def load_config():
     global ip_list
+    ip_list = []
     with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'r', encoding='utf-8') as f:
         line = f.readline()
         while line:
-            ip_list.append(line)
+            if line:
+                ip_list.append(line.replace('\n',''))
             line = f.readline()
 
 def save_config():
@@ -79,8 +87,9 @@ def save_config():
     if ip_list:
         with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'w', encoding='utf-8') as f:
             for ip in ip_list:
-                f.write(ip)
-                f.write('\n')
+                if ip:
+                    f.write(ip.replace('\n',''))
+                    f.write('\n')
 
 load_config()
 
@@ -96,7 +105,7 @@ async def get_ip_list(url):
         del_time = tds[7].xpath("string(.)")
         if tds[4].xpath("string(.)") == '支持' and tds[5].xpath("string(.)") == '支持' and (del_time.startswith('0.') or del_time.startswith('1.') or del_time.startswith('2.') or del_time.startswith('3.')):
             ip = 'https://'+tds[0].xpath("string(.)") + ':' + tds[1].xpath("string(.)")
-            if not ip in ip_list:
+            if ip and not ip in ip_list:
                 ip_list.append(ip)
 
 def __md5__(text):
@@ -120,7 +129,7 @@ async def request_data(uid=0, api='index', character_ids=None, cookie=''):
         server = 'cn_qd01'
     headers = {
         'Accept': 'application/json, text/plain, */*',
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.11.1",
+        "User-Agent": random.choice(user_agent),
         "Referer": "https://webstatic.mihoyo.com/",
         "x-rpc-app_version": "2.11.1",
         "x-rpc-client_type": '5',
@@ -156,6 +165,7 @@ async def request_data(uid=0, api='index', character_ids=None, cookie=''):
                 print(f'代理{ip}访问失败了')
                 ip_list.remove(ip)
                 save_config()
+                load_config()
                 req = await fn(url=url, headers=headers, json=json_data, timeout=10)
         else:
             req = await fn(url=url, headers=headers, json=json_data, timeout=10)
@@ -704,7 +714,7 @@ async def genshin(bot, ev):
                 nickname = sender["card"] or sender["nickname"]
                 try:
                     await bot.send(ev, '正在前往米游社查询信息')
-                    if (uid[0] == "1"):
+                    if (uid[0] == "1") or (uid[0] == "2"):
                         mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
                     elif (uid[0] == "5"):
                         mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
@@ -727,12 +737,16 @@ async def up_ip_list(bot, ev):
         await get_ip_list(url)
         time.sleep(0.5)
     save_config()
+    load_config()
     await bot.send(ev, f'更新完成，目前代理池IP数量为{len(ip_list)}')
 
 @sv.scheduled_job('interval', minutes=5)
 async def schedule_ip_list():
-    for i in range(20):
-        url = f'https://ip.ihuan.me/?page={i}'
-        await get_ip_list(url)
-        time.sleep(0.5)
-    save_config()
+    if len(ip_list) < 20:
+        for i in range(20):
+            url = f'https://ip.ihuan.me/?page={i}'
+            await get_ip_list(url)
+            time.sleep(0.5)
+        save_config()
+        load_config()
+    return
