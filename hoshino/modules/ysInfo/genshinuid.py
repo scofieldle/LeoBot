@@ -1,5 +1,5 @@
 from nonebot import *
-import random, os, json, re, time
+import random, os, json, re, time, datetime
 from hoshino import Service, aiorequests
 import urllib, requests
 import string
@@ -31,6 +31,7 @@ cache_Cookie = ['account_id=156463045; cookie_token=YTCH757SbuwzA7kSl2vkKOypnyPd
 FILE_PATH = os.path.dirname(__file__)
 FONTS_PATH = os.path.join(FILE_PATH,'fonts')
 FONTS_PATH = os.path.join(FONTS_PATH,'sakura.ttf')
+PIC_PATH = os.path.join(FILE_PATH,'pic')
 last_time = time.time()
 lck = Lock()
 user_agent = [
@@ -71,6 +72,18 @@ user_agent = [
     "Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25", 
     "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.11.1"
 ]
+pic_list = {}
+
+def load_pic():
+    global pic_list
+    temp = os.listdir(PIC_PATH)
+    for pic in temp:
+        uid = pic.split('-')[0]
+        pic_list[uid] = {}
+        pic_list[uid]['pic_name'] = pic
+        make_time = pic[10:-4]
+        make_time = datetime.datetime.strptime(make_time,'%Y-%m-%d').date()
+        pic_list[uid]['time'] = make_time
 
 def load_config():
     global ip_list
@@ -92,6 +105,7 @@ def save_config():
                     f.write('\n')
 
 load_config()
+load_pic()
 
 # 设置代理服务器
 async def get_ip_list(url):
@@ -227,6 +241,7 @@ def elementDict(text, isOculus=False):
         return elementProperty + "属性"
 
 async def JsonAnalysis(info, Uid, nickname, cookie, qid):
+    global pic_list
     if info:
         data = json.loads(info)
         if data["retcode"] == 10001:
@@ -691,6 +706,14 @@ async def JsonAnalysis(info, Uid, nickname, cookie, qid):
         
         jishu = jishu + 1
         
+    nowtime = str(datetime.datetime.now().date())
+    pic_name = Uid + '-' + nowtime + '.png'
+    save_path = os.path.join(PIC_PATH, pic_name)
+    im.save(save_path)
+    if Uid in pic_list.keys():
+        os.remove(os.path.join(PIC_PATH,pic_list[Uid]['pic_name']))
+    load_pic()
+
     bio  = io.BytesIO()
     im.save(bio, format='PNG')
     base64_str = 'base64://' + base64.b64encode(bio.getvalue()).decode()
@@ -699,7 +722,7 @@ async def JsonAnalysis(info, Uid, nickname, cookie, qid):
     
 @sv.on_prefix('原神信息')
 async def genshin(bot, ev):
-    global lck, last_time
+    global lck, last_time, pic_list
     now_time = time.time()
     uid = ev.message.extract_plain_text()
     qid = ev.user_id
@@ -710,6 +733,17 @@ async def genshin(bot, ev):
     while not lck.locked():
         with lck:
             if uid.isdigit() and (len(uid) == 9):
+                if uid in pic_list.keys():
+                    nowtime = datetime.datetime.now().date()
+                    if (nowtime - pic_list[uid]['time']).days < 4:
+                        image = Image.open(os.path.join(PIC_PATH, pic_list[uid]['pic_name']))
+                        bio = BytesIO()
+                        image.save(bio, format='PNG')
+                        base64_str = 'base64://' + base64.b64encode(bio.getvalue()).decode()
+                        mes = f"[CQ:image,file={base64_str}]"
+                        await bot.send(ev, f"距离上次查询{str((nowtime - pic_list[uid]['time']).days)}天，使用前次图片")
+                        await bot.send(ev, mes)
+                        return
                 cookie = random.choice(cache_Cookie)
                 nickname = sender["card"] or sender["nickname"]
                 try:
