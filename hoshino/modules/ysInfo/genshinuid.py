@@ -21,12 +21,7 @@ ip_list = []
 
 mhyVersion = "2.11.1"
 client_type = "5"
-cache_Cookie = ['account_id=156463045; cookie_token=YTCH757SbuwzA7kSl2vkKOypnyPd2Oi5BVnFAm9t;',
-            'account_id=7250452; cookie_token=xjAbaDN6bYpicppuYUye5h8exJSoYxLHyPFdO25X;',
-            'account_id=279914305; cookie_token=GHCeB7nMYup87e5SWIcCDyFFhBoNNFfVPDpGnGXM;',
-            'cookie_token=TUyfX4KBhWvOMlB43ELBFNMB13Hf9YgL5sa5f2SG; account_id=274933782;',
-            'cookie_token=a734qsu6wfVo2DXeN0m6f4hMwApn5HkLyuF2RCg8; account_id=8546718;',
-            'cookie_token=SmebcKUbZVonSRY5h0fEFVXU35nInT8RurSiu3j4; account_id=286893444;']
+cache_Cookie = []
 
 FILE_PATH = os.path.dirname(__file__)
 FONTS_PATH = os.path.join(FILE_PATH,'fonts')
