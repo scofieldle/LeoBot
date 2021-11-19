@@ -99,7 +99,7 @@ async def check_jewel(bot, ev):
     elif not tenjo_limit.check(ev.user_id):
         await bot.finish(ev, TENJO_EXCEED_NOTICE, at_sender=True)
 
-@sv.on_prefix(("方舟十连"), only_to_me=True)
+@sv.on_prefix(("方舟十连"))
 async def gacha_10(bot, ev: CQEvent):
     gid = str(ev.group_id)
     if not gid in group_banner:
@@ -116,7 +116,7 @@ async def gacha_10(bot, ev: CQEvent):
     result = g.ten_pull()
     await bot.send(ev, g.summarize_tenpull(result), at_sender=True)
 
-@sv.on_prefix(("方舟来一井"), only_to_me=True)
+@sv.on_prefix(("方舟来一井"))
 async def gacha_300(bot, ev: CQEvent):
     gid = str(ev.group_id)
     if not gid in group_banner:
@@ -169,19 +169,21 @@ async def update(bot, ev: CQEvent):
         await bot.send(ev, '更新基础数据成功！')
         await update_pool()
         await bot.send(ev, '更新卡池成功！')
-        await update_res()
+        result = await update_res()
         await bot.send(ev, '更新资源成功！')
     except Exception as e:
         print(format_exc())
         await bot.send(ev, f'更新失败……{e}')
     
 async def update_table():
+    global char_data
     result = await update_chara_db()
     if result:
         data_init()
         char_data = json.load(open(os.path.join(working_path, "character_table.json"), encoding="utf-8"))
 
 async def update_pool():
+    global gacha_data
     result = await update_config()
     if result:
         data_init()

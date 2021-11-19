@@ -28,11 +28,6 @@ async def update_res():
     print("- 更新res资源包...")
     chars = json.load(open(os.path.join(working_path, "character_table.json"), encoding="utf-8"))
 
-    for k in chars.keys():
-        name = chars[k]["name"]
-        if not k.startswith("char"):
-            pass
-
     r = await aiorequests.get('http://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88')
     soup = BeautifulSoup(await r.text)
     for index in soup.find(id="mw-content-text").find_all('div'):
@@ -66,7 +61,7 @@ async def update_res():
         if os.path.exists(png_path):
             continue
         #print(" - 下载", png_path)
-        png = await (await aiorequests.get(filelink, timeout=20)).content
+        png = await (await aiorequests.get('http:' + filelink, timeout=20)).content
         count+=1
         with open(png_path, 'wb') as f:
             f.write(png)
@@ -93,7 +88,7 @@ async def update_res():
         png_path = os.path.join(icon_dir, filename)
         if os.path.exists(png_path):
             continue
-        png = await (await aiorequests.get(filelink, timeout=20)).content
+        png = await (await aiorequests.get('http:' + filelink, timeout=20)).content
         count+=1
         #print(" - 下载", png_path)
         with open(png_path, 'wb') as f:
@@ -106,15 +101,10 @@ async def update_chara_db():
     print("- 更新 character_table...")
     global char_data
     try:
-        res = await aiorequests.get("https://gitcdn.link/repo/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10)
+        res = await aiorequests.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10)
     except:
-        try:
-            res = await aiorequests.get("https://gitcdn.link/repo/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10,proxies=proxies)
-        except:
-            try:
-                res = await aiorequests.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10)
-            except:
-                res = await aiorequests.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10,proxies=proxies)
+        res = await aiorequests.get("https://gitcdn.link/repo/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10)
+        #res = await aiorequests.get("https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/character_table.json", timeout=10,proxies=proxies)
     new = await res.json()
     if new == char_data:
         return 0

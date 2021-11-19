@@ -3,7 +3,7 @@ from nonebot import get_bot
 from hoshino import Service
 from threading import Lock
 from os.path import dirname, join
-from binance import spot
+from binance import Client
 import time, signal
 import pandas as pd
 import cufflinks as cf
@@ -41,41 +41,7 @@ with open(config) as fp:
 
 with open(join(curpath, 'account.json')) as fp:
     key = load(fp)
-    client = spot.Spot(key = key['api_key'], secret = key['secret_key'])
-
-# 自定义超时异常
-class TimeoutError(Exception):
-    def __init__(self, msg):
-        super(TimeoutError, self).__init__()
-        self.msg = msg
-
-def time_out(interval, callback):
-    def decorator(func):
-        def handler(signum, frame):
-            raise TimeoutError("run func timeout")
-
-        def wrapper(*args, **kwargs):
-            try:
-                signal.signal(signal.SIGALRM, handler)
-                signal.alarm(interval)       # interval秒后向进程发送SIGALRM信号
-                result = func(*args, **kwargs)
-                signal.alarm(0)              # 函数在规定时间执行完后关闭alarm闹钟
-                return result
-            except:
-                callback("run func timeout")
-        return wrapper
-    return decorator
-
-def timeout_callback(e):
-    print(e.msg)
-  
-@time_out(6, timeout_callback)
-async def query(id:str):
-    while client.shouldLogin:
-        await client.login()
-    return (await client.callapi('/profile/get_profile', {
-            'target_viewer_id': int(id)
-        }))['user_info']
+    client = Client(api_key = key['api_key'], api_secret = key['secret_key'])
 
 def save_binds():
     with open(config, 'w') as fp:
@@ -89,7 +55,7 @@ async def normal_bind(bot, ev):
     if len(message) == 3 and message[1].isdigit() and message[2].isdigit():
         BTC = message[0].upper() + 'USDT'
         try:
-            client.ticker_price(symbol = BTC)
+            client.get_symbol_ticker(symbol = BTC)
         except:
             await bot.send(ev, '参数错误,请检查货币拼写', at_sender=True)
             return
@@ -124,7 +90,7 @@ async def query_binance(bot, ev):
     global client
     BTC = ev.message.extract_plain_text().upper() + 'USDT'
     try:
-        resp = '$' + str(client.ticker_price(symbol = BTC)['price'])
+        resp = '$' + str(client.get_symbol_ticker(symbol = BTC)['price'])
         msg = f'当前{BTC}价格为{resp}'
         await bot.send(ev, msg, at_sender= True)
     except:
@@ -138,7 +104,7 @@ async def binance_push(bot,ev):
         return
     BTC = ev.message.extract_plain_text().upper() +'USDT'
     try:
-        client.ticker_price(symbol = BTC)
+        client.get_symbol_ticker(symbol = BTC)
     except:
         await bot.send(ev, '参数错误,请检查货币拼写', at_sender=True)
         return
@@ -194,7 +160,7 @@ def timestamp_to_fomat(timestamp=None,format='%Y-%m-%d %H:%M:%S'):
     
 async def draw_klines(BTC, length, path):
     global client
-    resp = client.klines(symbol = BTC, interval = '5m', limit = length)
+    resp = client.get_klines(symbol = BTC, interval = '5m', limit = length)
     df = pd.DataFrame(resp)
     # 剔除不需要的数据部分并更改列名
     df = df.drop(columns=[6, 7, 8, 9, 10, 11])
@@ -237,7 +203,7 @@ async def binance_schedule():
     #push
     price = {}
     for BTC in admin_bind.keys():
-        resp = '$' + str(client.ticker_price(symbol = BTC)['price'])
+        resp = '$' + str(client.get_symbol_ticker(symbol = BTC)['price'])
         for gid in admin_bind[BTC]:
             if gid in price.keys():
                 price[gid] += f'\n{BTC}的价格为{resp}'
@@ -255,7 +221,7 @@ async def binance_schedule():
     
     #remind
     for BTC in normal_bind.keys():
-        resp = float(client.ticker_price(symbol = BTC)['price'])
+        resp = float(client.get_symbol_ticker(symbol = BTC)['price'])
         for uid in normal_bind[BTC].keys():
             price1 = normal_bind[BTC][uid]['price1']
             price2 = normal_bind[BTC][uid]['price2']
