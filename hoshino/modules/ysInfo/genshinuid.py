@@ -12,7 +12,8 @@ import base64
 from threading import Lock
 from urllib.parse import urlencode
 from lxml import etree
-
+from hoshino.service import newpri
+from hoshino.typing import CommandSession
 
 #信息抓取源码来源于https://github.com/Womsxd/YuanShen_User_Info
 sv = Service('ysInfo')
@@ -21,9 +22,10 @@ ip_list = []
 
 mhyVersion = "2.11.1"
 client_type = "5"
-cache_Cookie = []
+cache_Cookie = {}
 
 FILE_PATH = os.path.dirname(__file__)
+COOKIE_PATH = os.path.join(FILE_PATH,'cookie.json')
 FONTS_PATH = os.path.join(FILE_PATH,'fonts')
 FONTS_PATH = os.path.join(FONTS_PATH,'sakura.ttf')
 PIC_PATH = os.path.join(FILE_PATH,'pic')
@@ -68,6 +70,51 @@ user_agent = [
     "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.11.1"
 ]
 pic_list = {}
+
+def load_cookie():
+    global cache_Cookie
+    with open(COOKIE_PATH, 'r', encoding='utf-8') as f:
+        cache_Cookie = json.load(f)
+
+load_cookie()
+
+def save_cookie():
+    global cache_Cookie
+    with open(COOKIE_PATH, 'w', encoding='utf8') as f:
+        json.dump(cache_Cookie, f, ensure_ascii=False, indent=4)
+
+@newpri('bind', aliases=('原神绑定'))
+async def bind(session: CommandSession):
+    global cache_Cookie
+    msg = session.current_arg.split(' ')
+    qid = session.event.user_id
+    nickname = session.event.sender["card"] or session.event.sender["nickname"]
+    if len(msg) == 2 and msg[0].isdigit() and (len(msg[0]) == 9) and ('account_id' in msg[1]) and ('cookie_token' in msg[1]):
+        info = await request_data(uid=msg[0], cookie=msg[1])
+        if info:
+            data = json.loads(info)
+            if data["retcode"] == 10001:
+                await session.send("Cookie错误/过期，请重置Cookie")
+                return
+            if data["retcode"] != 0:
+                await session.send("Api报错，返回内容为："+ info)
+                return
+            if len(data["data"]["avatars"]) == 8:
+                await session.send("不匹配的cookie，只能查询到部分人物")
+                return
+            cache_Cookie[msg[0]] = msg[1]
+            save_cookie()
+            load_cookie()
+            await session.send("Cookie绑定成功")
+            await JsonAnalysis(info, msg[0], nickname, msg[1], qid)
+            return
+        else:
+            await session.send("UID输入错误 or 不存在")
+            return
+    else:
+        await session.send("请检查UID或cookie，cookie只需要account_id和cookie_token两项，cookie需要用';'隔开与结尾且没有空格")
+        await session.send("命令如：原神绑定 100000001 account_id=xxx;cookie_token=xxx;")
+        return
 
 def load_pic():
     global pic_list
@@ -705,7 +752,7 @@ async def JsonAnalysis(info, Uid, nickname, cookie, qid):
     pic_name = Uid + '-' + nowtime + '.png'
     save_path = os.path.join(PIC_PATH, pic_name)
     im.save(save_path)
-    if Uid in pic_list.keys():
+    if Uid in pic_list.keys() and (pic_name != pic_list[Uid]['pic_name']):
         os.remove(os.path.join(PIC_PATH,pic_list[Uid]['pic_name']))
     load_pic()
 
@@ -728,9 +775,11 @@ async def genshin(bot, ev):
     while not lck.locked():
         with lck:
             if uid.isdigit() and (len(uid) == 9):
+                mes = '目前米游社无法查看他人全部人物信息，可以私聊bot绑定个人cookie后查看全部信息\n命令如：原神绑定 100000001 account_id=xxx;cookie_token=xxx;'
+                await bot.send(ev, mes)
                 if uid in pic_list.keys():
                     nowtime = datetime.datetime.now().date()
-                    if (nowtime - pic_list[uid]['time']).days < 4:
+                    if (nowtime - pic_list[uid]['time']).days < 3:
                         image = Image.open(os.path.join(PIC_PATH, pic_list[uid]['pic_name']))
                         bio = BytesIO()
                         image.save(bio, format='PNG')
@@ -739,7 +788,10 @@ async def genshin(bot, ev):
                         await bot.send(ev, f"距离上次查询{str((nowtime - pic_list[uid]['time']).days)}天，使用前次图片")
                         await bot.send(ev, mes)
                         return
-                cookie = random.choice(cache_Cookie)
+                if uid in cache_Cookie.keys():
+                    cookie = cache_Cookie[uid]
+                else:
+                    cookie = cache_Cookie[random.choice(list(cache_Cookie.keys()))]
                 nickname = sender["card"] or sender["nickname"]
                 try:
                     await bot.send(ev, '正在前往米游社查询信息')

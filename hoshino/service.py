@@ -395,3 +395,22 @@ def sucmd(name, force_private=True, **kwargs) -> Callable:
                 sulogger.exception(e)
         return nonebot.on_command(name, **kwargs)(wrapper)
     return deco
+
+def newpri(name, force_private=True, **kwargs) -> Callable:
+    kwargs['privileged'] = True
+    kwargs['only_to_me'] = False
+    def deco(func) -> Callable:
+        @wraps(func)
+        async def wrapper(session: CommandSession):
+            if force_private and session.event.detail_type != 'private':
+                await session.send('> This command should only be used in private session.')
+                return
+            try:
+                return await func(session)
+            except (_PauseException, _FinishException, SwitchException):
+                raise
+            except Exception as e:
+                sulogger.error(f'{type(e)} occured when {func.__name__} handling message {session.event.message_id}.')
+                sulogger.exception(e)
+        return nonebot.on_command(name, **kwargs)(wrapper)
+    return deco
