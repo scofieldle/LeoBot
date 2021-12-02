@@ -179,7 +179,10 @@ async def request_data(uid=0, api='index', character_ids=None, cookie=''):
     if api == 'index':
         req = await fn(url=url, headers=headers, json=json_data, timeout=10)
     else:
-        req = await fn(url=url, headers=headers, json=json_data, timeout=10)
+        try:
+            req = await fn(url=url, headers=headers, json=json_data, timeout=10)
+        except:
+            req = ''
     if req:
         return json.loads(await req.text)
     return
