@@ -251,7 +251,10 @@ async def check_bili_dynamic():
             if res is None:
                 sv.logger.info(f'检查{uid}时出错 request response is None')
                 continue
-            cards = res['data']['cards']
+            if 'cards' in res['data'].keys():
+                cards = res['data']['cards']
+            else:
+                continue
             # cards=[res['data']['cards'][:10]]
             for card in cards:
                 sendCQCode = []
@@ -424,6 +427,7 @@ async def check_bili_dynamic():
             push_times[uid] = int(time.time())
         except Exception as e:
             sv.logger.info(f'B站动态检查发生错误 uid={uid}\n' + traceback.format_exc())
+            continue
     # 直播状态检查
     for uid in uids:
         try:
@@ -433,40 +437,41 @@ async def check_bili_dynamic():
             }
             resp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), headers=header, timeout=20)
             res = await resp.json()
-            if res['data']['live_room']['liveStatus'] == 1 and not room_states[uid]:
-                room_states[uid] = True
-                sendCQCode = []
-                userName = all_user_name[uid]
-                sendCQCode.append(userName)
-                sendCQCode.append('开播了：\n')
-                sendCQCode.append(res['data']['live_room']['title'])
-                sendCQCode.append('\n')
-                sendCQCode.append(getImageCqCode(res['data']['live_room']['cover']))
-                sendCQCode.append('\n')
-                sendCQCode.append(res['data']['live_room']['url'])
-                msg = ''.join(sendCQCode)
-                if push_uids[uid][0] == 'all':
-                    await broadcast(msg, sv_name='bili-dynamic')
-                else:
-                    await broadcast(msg, push_uids[uid])
-            elif room_states[uid] and res['data']['live_room']['liveStatus'] == 0:
-                room_states[uid] = False
-                sendCQCode = []
-                userResp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), timeout=20)
-                userRes = await userResp.json()
-                userName = userRes['data']['name']
-                sendCQCode.append(userName)
-                sendCQCode.append('下播了')
-                msg = ''.join(sendCQCode)
-                if push_uids[uid][0] == 'all':
-                    await broadcast(msg, sv_name='bili-dynamic')
-                else:
-                    await broadcast(msg, push_uids[uid])
+            if res and 'live_room' in res['data'].keys():
+                if res['data']['live_room']['liveStatus'] == 1 and not room_states[uid]:
+                    room_states[uid] = True
+                    sendCQCode = []
+                    userName = all_user_name[uid]
+                    sendCQCode.append(userName)
+                    sendCQCode.append('开播了：\n')
+                    sendCQCode.append(res['data']['live_room']['title'])
+                    sendCQCode.append('\n')
+                    sendCQCode.append(getImageCqCode(res['data']['live_room']['cover']))
+                    sendCQCode.append('\n')
+                    sendCQCode.append(res['data']['live_room']['url'])
+                    msg = ''.join(sendCQCode)
+                    if push_uids[uid][0] == 'all':
+                        await broadcast(msg, sv_name='bili-dynamic')
+                    else:
+                        await broadcast(msg, push_uids[uid])
+                elif room_states[uid] and res['data']['live_room']['liveStatus'] == 0:
+                    room_states[uid] = False
+                    sendCQCode = []
+                    userResp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), timeout=20)
+                    userRes = await userResp.json()
+                    userName = userRes['data']['name']
+                    sendCQCode.append(userName)
+                    sendCQCode.append('下播了')
+                    msg = ''.join(sendCQCode)
+                    if push_uids[uid][0] == 'all':
+                        await broadcast(msg, sv_name='bili-dynamic')
+                    else:
+                        await broadcast(msg, push_uids[uid])
             time.sleep(0.5)
         except Exception as e:
             sv.logger.info(f'B站直播检查发生错误 uid={uid}\n' + traceback.format_exc())
+            continue
     isOnChecking = False
-
 
 async def make_big_image(image_urls, size, imageNum):
     dirPath = path.join(path.dirname(__file__), 'res', 'image')

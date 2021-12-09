@@ -12,10 +12,12 @@ from nonebot import MessageSegment
 img_dir = path.join(path.abspath(path.dirname(__file__)),"meme/")
 img = []
 img_name = []
-backImage = os.path.join(os.path.dirname(__file__), '/backImage.jpg')
+backImage = '/home/ubuntu/HoshinoBot/hoshino/modules/image/backImage.jpg'
 sv_help = '''
 [表情列表] 查看当前表情列表
 [查看表情 <名字>] 查看指定表情
+[底图 <名字>] 设置个人图片底图
+[文案.jpg] 使用底图生成表情
 [生成表情 <名字> <文案>] 生成一张表情
 [上传表情 <名字> <图片>] 上传一张表情
 [删除表情 <名字>] 删除一张表情（仅限管理员）
@@ -44,7 +46,7 @@ sv = Service('image',visible=True)
 
 @sv.on_fullmatch(('表情帮助'))
 async def img_help(bot, ev):
-    await bot.send(ev, sv_help)
+    await bot.send(ev, sv_help, at_sender=True)
 
 @sv.on_prefix(('img','底图'))
 async def switch_img(bot, ev):
@@ -95,9 +97,9 @@ async def reload_memes(bot,event):
 
 @sv.on_prefix(('上传表情'))
 async def upload_meme(bot,event):
-	# if not priv.check_priv(event,priv.ADMIN):
-	#     await bot.send(event, '该操作需要管理员权限', at_sender=True)
-	#     return
+	if not priv.check_priv(event,priv.ADMIN):
+	    await bot.send(event, '该操作需要管理员权限', at_sender=True)
+	    return
 	msg = event.message.extract_plain_text().split(" ")
 	meme_name = ''.join(e for e in msg[0] if e.isalnum())
 	for seg in event.message:

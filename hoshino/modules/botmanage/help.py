@@ -79,6 +79,7 @@ vedio_help = []
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"原神功能展示：https://b23.tv/1McXWWu"}})
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"猜一猜功能展示：https://b23.tv/TYx7I3J"}})
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"涩图功能展示：https://b23.tv/hWE9mzz"}})
+vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"表情包、币安、雀魂功能展示：https://b23.tv/7Sjb5Tu"}})
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"其他功能展示：https://b23.tv/VYncaJ5"}})#我问你答、订阅动态、rua、cp、人生重来、点歌、情话
 
 @sv.on_fullmatch('帮助')
