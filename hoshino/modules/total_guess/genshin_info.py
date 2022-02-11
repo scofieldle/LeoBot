@@ -78,6 +78,15 @@ async def total_ys(bot, ev: CQEvent):
         await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
         return
 
+def check(s,weapon):
+    weapon = weapon.split('.')[0]
+    temp = 0
+    num = 1.0/len(weapon)
+    for i in weapon:
+        if i in s:
+            temp += num
+    return int(100*temp)
+
 @sv.on_prefix('查看原神武器')
 async def ys_weapon(bot, ev: CQEvent):
     s = ev.message.extract_plain_text() + '.png'
@@ -88,6 +97,15 @@ async def ys_weapon(bot, ev: CQEvent):
         msg = [{"type": "node","data": {"name": "小冰","uin": "2854196306","content":image}}]
         await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
     else:
+        for weapon in weapon_list:
+            temp = check(s,weapon) 
+            if temp > 50:
+                img = Image.open(os.path.join(weapon_path, weapon))
+                image = MessageSegment.image(pic2b64(img))
+                msg = [{"type": "node","data": {"name": "小冰","uin": "2854196306","content":image}}]
+                await bot.send(ev,f'您有{temp}%的可能在找{weapon}')
+                await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
+                return
         await bot.send(ev, f'没有叫{ev.message}的武器哦！')
 
 @sv.on_prefix('查看原神角色')

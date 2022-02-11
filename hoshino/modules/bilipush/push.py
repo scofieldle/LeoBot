@@ -143,40 +143,23 @@ async def load_username(uid):
 async def subscribe_dynamic(bot, ev):
     if push_uids == {}:
         await loadConfig()
-    text = str(ev.message).strip()
+    text = str(ev.message.extract_plain_text())
     if not text:
         await bot.send(ev, "请按照格式发送", at_sender=True)
         return
-    if not ' ' in text:  # 仅当前群组
-        if not await check_uid_exsist(text):
-            await bot.send(ev, '订阅失败：用户不存在')
-            return
-        if not text in push_uids:
-            push_uids[text] = [str(ev.group_id)]
-            room_states[text] = False
-        else:
-            if str(ev.group_id) in push_uids[text]:
-                await bot.send(ev, '订阅失败：请勿重复订阅')
-                return
-            push_uids[text].append(str(ev.group_id))
-        await load_username(text)
-        push_times[text] = int(time.time())
+    if not await check_uid_exsist(text):
+        await bot.send(ev, '订阅失败：用户不存在')
+        return
+    if not text in push_uids:
+        push_uids[text] = [str(ev.group_id)]
+        room_states[text] = False
     else:
-        subUid = text.split(' ')[0]
-        subGroup = text.split(' ')[1]
-        if not await check_uid_exsist(subUid):
-            await bot.send(ev, '订阅失败：用户不存在')
+        if str(ev.group_id) in push_uids[text]:
+            await bot.send(ev, '订阅失败：请勿重复订阅')
             return
-        if not subUid in push_uids:
-            push_uids[subUid] = [subGroup]
-            room_states[subUid] = False
-        else:
-            if subGroup in push_uids[subUid]:
-                await bot.send(ev, '订阅失败：请勿重复订阅')
-                return
-            push_uids[subUid].append(subGroup)
-        await load_username(subUid)
-        push_times[subUid] = int(time.time())
+        push_uids[text].append(str(ev.group_id))
+    await load_username(text)
+    push_times[text] = int(time.time())
     saveConfig()
     await bot.send(ev, '订阅成功')
 

@@ -13,7 +13,6 @@ comm:
   # 怎么提问
   answer_all:
     - 我问
-  answer_me: 仅当我问
 
   # 问后回答处理  比如 大家说1回答2  这里的回答定义文字
   answer_handler: 你答

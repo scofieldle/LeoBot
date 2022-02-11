@@ -18,6 +18,7 @@ from hoshino.typing import CommandSession
 #信息抓取源码来源于https://github.com/Womsxd/YuanShen_User_Info
 sv = Service('ysInfo')
 bot = get_bot()
+ip_list = []
 
 mhyVersion = "2.11.1"
 client_type = "5"
@@ -81,7 +82,7 @@ def save_cookie():
     global cache_Cookie
     with open(COOKIE_PATH, 'w', encoding='utf8') as f:
         json.dump(cache_Cookie, f, ensure_ascii=False, indent=4)
-
+        
 def get_cookie():
     global cache_Cookie
     key = random.choice(list(cache_Cookie["cookie"].keys()))
@@ -110,12 +111,14 @@ async def bind(session: CommandSession):
             save_cookie()
             load_cookie()
             await session.send("Cookie绑定成功")
+            await JsonAnalysis(info, msg[0], nickname, msg[1], qid)
             return
         else:
             await session.send("UID输入错误 or 不存在")
             return
     else:
-        await session.send("请检查UID或cookie，cookie只需要account_id和cookie_token两项，需要用';'隔开且结尾没有空格\n命令如：原神绑定 100000001 account_id=xxx;cookie_token=xxx;")
+        await session.send("请检查UID或cookie，cookie只需要account_id和cookie_token两项，cookie需要用';'隔开与结尾且没有空格")
+        await session.send("命令如：原神绑定 100000001 account_id=xxx;cookie_token=xxx;")
         return
 
 def load_pic():
@@ -129,7 +132,42 @@ def load_pic():
         make_time = datetime.datetime.strptime(make_time,'%Y-%m-%d').date()
         pic_list[uid]['time'] = make_time
 
+def load_config():
+    global ip_list
+    ip_list = []
+    with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'r', encoding='utf-8') as f:
+        line = f.readline()
+        while line:
+            if line:
+                ip_list.append(line.replace('\n',''))
+            line = f.readline()
+
+def save_config():
+    global ip_list
+    if ip_list:
+        with open(os.path.join(os.path.dirname(__file__), 'ip_list.txt'), 'w', encoding='utf-8') as f:
+            for ip in ip_list:
+                if ip:
+                    f.write(ip.replace('\n',''))
+                    f.write('\n')
+
+load_config()
 load_pic()
+
+# 设置代理服务器
+async def get_ip_list(url):
+    global ip_list
+    html = await aiorequests.get(url, headers={'User-Agent':"Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1"})
+    tree = etree.HTML(await html.text)
+    ips = tree.xpath('//table[@class="table table-hover table-bordered"]/tbody/tr')
+    for i in range(1, len(ips)):
+        ip_info = ips[i]
+        tds = ip_info.xpath('td')
+        del_time = tds[7].xpath("string(.)")
+        if tds[4].xpath("string(.)") == '支持' and tds[5].xpath("string(.)") == '支持' and (del_time.startswith('0.') or del_time.startswith('1.') or del_time.startswith('2.') or del_time.startswith('3.')):
+            ip = 'https://'+tds[0].xpath("string(.)") + ':' + tds[1].xpath("string(.)")
+            if ip and not ip in ip_list:
+                ip_list.append(ip)
 
 def __md5__(text):
     _md5 = hashlib.md5()
@@ -147,7 +185,6 @@ def __get_ds__(query, body=None):
     return i + "," + r + "," + c
 
 async def request_data(uid=0, api='index', character_ids=None, cookie=''):
-    global cache_Cookie
     server = 'cn_gf01'
     if uid[0] == "5":
         server = 'cn_qd01'
@@ -179,13 +216,24 @@ async def request_data(uid=0, api='index', character_ids=None, cookie=''):
     if api == 'index':
         req = await fn(url=url, headers=headers, json=json_data, timeout=10)
     else:
-        try:
+        num = random.random()
+        if num > 0.5:
+            ip = random.choice(ip_list)
+            try:
+                print(f'使用了代理{ip}')
+                req = await fn(url=url, headers=headers, json=json_data, timeout=10, proxies={'https':ip})
+            except:
+                print(f'代理{ip}访问失败了')
+                ip_list.remove(ip)
+                save_config()
+                load_config()
+                req = await fn(url=url, headers=headers, json=json_data, timeout=10)
+        else:
             req = await fn(url=url, headers=headers, json=json_data, timeout=10)
-        except:
-            req = ''
     if req:
-        return json.loads(await req.text)
-    return
+        return await req.text
+    else:
+        return
 
 async def get_pic(url, size=None):
     """
@@ -239,63 +287,24 @@ def elementDict(text, isOculus=False):
     elif not isOculus:
         return elementProperty + "属性"
 
-def load_character():
-    temp = {}
-    with open(os.path.join(FILE_PATH,'character.json'), 'r', encoding='utf-8') as f:
-        temp = json.load(f)
-    return temp.keys()
-
-async def request_all_avatar(uid, raw_data):
-    global cache_Cookie
-    avatar_number = raw_data['data']['stats']['avatar_number']
-    print('uid: %s 获取全部角色信息' % uid)
-    all_character = list(load_character())
-    # 查看数据库是否已经存储过
-    avatar_db_ids = ''
-    if cache_Cookie['info'] and uid in cache_Cookie['info'].keys():
-        avatar_db_ids = cache_Cookie['info'][uid]
-    raw_data['data']['avatars'] = []
-    if avatar_db_ids and (avatar_number == len(avatar_db_ids)):
-        # 如果有 并且数量和现有角色对得上 那么返回缓存
-        print('uid: %s 使用缓存' % uid)
-        if len(avatar_db_ids) > 8:
-            for x in range(0,len(avatar_db_ids),8):
-                temp = await request_data(uid=uid, api='character', character_ids=avatar_db_ids[x:x+8], cookie=get_cookie())
-                for item in temp['data']['avatars']:
-                    raw_data['data']['avatars'].append(item)
-                time.sleep(1)
-        else:
-            temp = await request_data(uid=uid, api='character', character_ids=avatar_db_ids, cookie=get_cookie())
-            raw_data['data']['avatars'] = temp['data']['avatars']
-        return raw_data
-
-    for x in all_character:
-        temp = await request_data(uid=uid, api='character', character_ids=[int(x)], cookie=get_cookie())
-        if temp['data']:
-            raw_data['data']['avatars'].append(temp['data']['avatars'][0])
-    
-    cache_Cookie['info'][uid] = [x['id'] for x in raw_data['data']['avatars']]
-    save_cookie()
-    load_cookie()
-    return raw_data
-
-async def JsonAnalysis(info, Uid, nickname, qid):
+async def JsonAnalysis(info, Uid, nickname, cookie, qid):
     global pic_list
     if info:
-        if info["retcode"] == 10001:
+        data = json.loads(info)
+        if data["retcode"] == 10001:
             return "Cookie错误/过期，请重置Cookie"
-        if info["retcode"] != 0:
+        if data["retcode"] != 0:
             return ("Api报错，返回内容为："+ info)
     else:
         return "UID输入错误 or 不存在"
-    data = info
-    time.sleep(1)
-    dataC = await request_all_avatar(Uid, info)
+
+    Character_List = data["data"]["avatars"]
+    Character_ids = []
+    for i in Character_List:
+        Character_ids +=  [i["id"]]
+    time.sleep(5)
+    dataC = json.loads(await request_data(uid=Uid, api='character', character_ids=Character_ids, cookie=cookie))
     Character_datas = dataC["data"]["avatars"]
-    for i in range(len(Character_datas)-1):
-        for j in range(i,len(Character_datas)):
-            if int(Character_datas[i]['level']) < int(Character_datas[j]['level']):
-                Character_datas[j],Character_datas[i] = Character_datas[i],Character_datas[j]
     
     #命之座及好感度
     PLAYER = os.path.join(FILE_PATH,'player')
@@ -771,6 +780,8 @@ async def genshin(bot, ev):
     while not lck.locked():
         with lck:
             if uid.isdigit() and (len(uid) == 9):
+                mes = '目前米游社无法查看他人全部人物信息，可以私聊bot绑定个人cookie后查看全部信息\n命令如：原神绑定 100000001 account_id=xxx;cookie_token=xxx;'
+                await bot.send(ev, mes)
                 if uid in pic_list.keys():
                     nowtime = datetime.datetime.now().date()
                     if (nowtime - pic_list[uid]['time']).days < 3:
@@ -782,19 +793,17 @@ async def genshin(bot, ev):
                         await bot.send(ev, f"距离上次查询{str((nowtime - pic_list[uid]['time']).days)}天，使用前次图片")
                         await bot.send(ev, mes)
                         return
+                if uid in cache_Cookie['cookie'].keys():
+                    cookie = cache_Cookie['cookie'][uid]
+                else:
+                    cookie = get_cookie()
                 nickname = sender["card"] or sender["nickname"]
                 try:
-                    await bot.send(ev, '正在前往米游社查询信息，目前版本查询速度较慢，请等待')
-                    if uid in cache_Cookie['cookie'].keys():
-                        cookie = cache_Cookie['cookie'][uid]
-                        info = await request_data(uid=uid, cookie=cookie)
-                        if info:
-                            mes = await JsonAnalysis(info, uid, nickname, qid)
-                        else:
-                            await bot.send(ev, f'该账号绑定的cookie可能已过期，使用其他cookie重新查询中')
-                            mes = await JsonAnalysis(await request_data(uid=uid, cookie=get_cookie()), uid, nickname, qid)
-                    else:
-                        mes = await JsonAnalysis(await request_data(uid=uid, cookie=get_cookie()), uid, nickname, qid)
+                    await bot.send(ev, '正在前往米游社查询信息')
+                    if (uid[0] == "1") or (uid[0] == "2"):
+                        mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
+                    elif (uid[0] == "5"):
+                        mes = await JsonAnalysis(await request_data(uid=uid, cookie=cookie), uid, nickname, cookie, qid)
                 except Exception as e:
                     print(e)
                     await bot.send(ev, f'米游社无法查询到此uid\n{e}')
@@ -806,3 +815,24 @@ async def genshin(bot, ev):
                 await bot.send(ev, 'UID输入有误！', at_sender=True)
         break
 
+@sv.on_fullmatch('更新代理池')
+async def up_ip_list(bot, ev):
+    await bot.send(ev, '开始更新')
+    for i in range(20):
+        url = f'https://ip.ihuan.me/?page={i}'
+        await get_ip_list(url)
+        time.sleep(0.5)
+    save_config()
+    load_config()
+    await bot.send(ev, f'更新完成，目前代理池IP数量为{len(ip_list)}')
+
+@sv.scheduled_job('interval', minutes=5)
+async def schedule_ip_list():
+    if len(ip_list) < 20:
+        for i in range(20):
+            url = f'https://ip.ihuan.me/?page={i}'
+            await get_ip_list(url)
+            time.sleep(0.5)
+        save_config()
+        load_config()
+    return

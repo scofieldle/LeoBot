@@ -1,11 +1,4 @@
 # -*- coding: UTF-8 -*-
-"""
-作者艾琳有栖
-
-版本 0.0.8
-
-基于 nonebot 问答
-"""
 import re
 import random
 from nonebot import *
@@ -39,19 +32,12 @@ async def eqa_main(*params):
         if msg:
             return await bot.send(ctx, msg)
 
-    # 处理回答自己的问题
-    keyword = util.get_msg_keyword(config['comm']['answer_me'], msg, True)
-    if keyword:
-        msg = await ask(ctx, keyword, True)
-        if msg:
-            return await bot.send(ctx, msg)
-
     # 回复消息
     ans = await answer(ctx)
     if isinstance(ans, list):
         return await bot.send(ctx, ans)
-    # elif isinstance(ans, str):
-    #     return ans
+    elif isinstance(ans, str):
+        return ans
 
     # 显示全部设置的问题
     show_target = util.get_msg_keyword(config['comm']['show_question_list'], msg, True)
@@ -79,10 +65,7 @@ async def ask(ctx, keyword, is_me):
     is_super_admin = ctx['user_id'] in admins
     is_admin = util.is_group_admin(ctx) or is_super_admin
 
-    if config['rule']['only_admin_answer_all'] and not is_me and not is_admin:
-        return '回答所有人的只能管理设置啦'
-
-    question_handler = config['comm']['answer_me'] if is_me else config['comm']['answer_all']
+    question_handler = config['comm']['answer_all']
     answer_handler = config['comm']['answer_handler']
     qa_msg = util.get_msg_keyword(answer_handler, keyword)
     if not qa_msg:
@@ -131,6 +114,8 @@ async def ask(ctx, keyword, is_me):
 
 # 回复的函数
 async def answer(ctx):
+    if random.random() > 0.5:
+        return False
     msg = util.get_message_str(ctx['message']).strip()
     ans_list = db.get(msg, [])
     if not ans_list:
@@ -144,17 +129,11 @@ async def answer(ctx):
 
     # 获取到当前群的列表 判断是否来自该群 或者是否是超级管理员
     # 超级管理员设置的是否为所有群问答
-    ans_list = util.filter_list(ans_list, lambda x: group_id == x['group_id'] or (
-            x['user_id'] in admins) if super_admin_is_all_group else False)
-
-    # 木有在这群
-    if not ans_list:
-        return False
 
     # 是否优先自己的回答 是的话则选择自己的列表
-    if priority_self_answer:
-        self_list = util.filter_list(ans_list, lambda x: user_id == x['user_id'])
-        ans_list = self_list if self_list else ans_list
+    #if priority_self_answer:
+    #    self_list = util.filter_list(ans_list, lambda x: user_id == x['user_id'])
+    #    ans_list = self_list if self_list else ans_list
 
     # 判断规则是否随机
     if multiple_question_random_answer:
@@ -165,10 +144,10 @@ async def answer(ctx):
         ans = ans_list[-1]
 
     # 判断是否是设置为自己的回复
-    if ans['is_me']:
+    #if ans['is_me']:
         # 如果是自己的回复 但是人不对就返回
-        if ans['user_id'] != user_id:
-            return False
+    #    if ans['user_id'] != user_id:
+    #        return False
 
     msg = ans['message']
     if len(msg) == 1:  # str(Message(msg))

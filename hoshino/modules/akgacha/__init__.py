@@ -26,9 +26,7 @@ sv_help = '''
 [查看方舟历史卡池] 查看可抽的所有卡池
 ------
 管理命令:
-[更新方舟基础数据] 更新角色数据库
-[更新方舟卡池] 更新卡池信息
-[更新方舟资源] 下载头像包到/res/img/akgacha/
+[更新方舟数据] 更新角色数据库、更新卡池信息、下载头像包到/res/img/akgacha/
 '''.strip()
 sv = Service('akgacha', help_=sv_help, bundle="akgacha", enable_on_default=True)
 

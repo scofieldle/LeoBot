@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from hoshino import Service
+from hoshino import Service, priv
 from io import BytesIO
 from PIL import Image
 import base64, os
@@ -78,9 +78,14 @@ pcr_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","c
 vedio_help = []
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"原神功能展示：https://b23.tv/1McXWWu"}})
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"猜一猜功能展示：https://b23.tv/TYx7I3J"}})
-vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"涩图功能展示：https://b23.tv/hWE9mzz"}})
-vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"表情包、币安、雀魂功能展示：https://b23.tv/7Sjb5Tu"}})
+vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"表情包、雀魂功能展示：https://b23.tv/7Sjb5Tu"}})
 vedio_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"其他功能展示：https://b23.tv/VYncaJ5"}})#我问你答、订阅动态、rua、cp、人生重来、点歌、情话
+
+update_help = []
+update_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"更新方舟数据"}})
+update_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"更新原神卡池"}})
+update_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"更新原神地图"}})
+update_help.append({"type": "node","data": {"name": "小冰","uin": "2854196306","content":"更新原神语音列表"}})
 
 @sv.on_fullmatch('帮助')
 async def help(bot, ev):
@@ -93,7 +98,11 @@ async def help(bot, ev):
     mes = f"[CQ:image,file={base64_str}]"
     #await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
     await bot.send(ev,mes)
-    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=vedio_help)
+    await bot.send(ev,"原神功能展示：https://b23.tv/1McXWWu")
+    await bot.send(ev,"猜一猜功能展示：https://b23.tv/TYx7I3J")
+    await bot.send(ev,"表情包、雀魂功能展示：https://b23.tv/7Sjb5Tu")
+    await bot.send(ev,"其他功能展示：https://b23.tv/VYncaJ5")
+    #await bot.send_group_forward_msg(group_id=ev['group_id'], messages=vedio_help)
 
 @sv.on_fullmatch('会战帮助')
 async def help(bot, ev):
@@ -102,10 +111,18 @@ async def help(bot, ev):
    
 @sv.on_fullmatch('方舟帮助')
 async def help(bot, ev):
-    global FZ_msg
+    global FZ_help
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=FZ_help)
     
 @sv.on_fullmatch('pcr帮助')
 async def help(bot, ev):
-    global pcr_msg
+    global pcr_help
     await bot.send_group_forward_msg(group_id=ev['group_id'], messages=pcr_help)
+
+@sv.on_fullmatch('更新帮助')
+async def help(bot, ev):
+    global update_help
+    if not priv.check_priv(ev, priv.SUPERUSER):
+        await bot.send(ev,'此命令仅维护组可用，请联系维护组~')
+        return
+    await bot.send_group_forward_msg(group_id=ev['group_id'], messages=update_help)

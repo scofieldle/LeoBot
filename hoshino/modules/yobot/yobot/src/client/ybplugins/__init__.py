@@ -9,7 +9,6 @@ __all__ = [
     'boss_dmg',
     'clan_battle',
     'login',
-    'marionette',
     'settings',
     'updater',
     'push_news',
