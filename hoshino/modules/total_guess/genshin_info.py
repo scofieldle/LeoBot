@@ -23,16 +23,31 @@ def load_config(json_name):
 async def Genshin_wiki(bot, ev: CQEvent):
     try:
         chara_list = load_config('Genshin_chara.json')
+        chara_name = load_config('char_name.json')
         s = ev.message.extract_plain_text()
         name = s
-        if '故事' in name or '语音' in name:
+        if '故事' in name or '语音' in name or '技能' in name:
             tag = name[-2:]
             name = name[:-2].replace(' ','')
-            for temp in chara_list.keys():
-                if name in temp:
+            for temp in chara_name.keys():
+                if name in chara_name[temp]:
                     name = temp
                     break
-            if tag in chara_list[name].keys() and name in chara_list.keys():
+            if name in chara_list.keys() and tag in chara_list[name].keys():
+                index_list = chara_list[name][tag]
+                random.shuffle(index_list)
+                msg = index_list[0][0] + ':' + index_list[0][1]
+                await bot.send(ev, msg, at_sender=True)
+            else:
+                await bot.send(ev, f'{name}缺少{tag}，请提醒管理员补充数据')
+        elif '命之座' in name:
+            tag = name[-3:]
+            name = name[:-3].replace(' ','')
+            for temp in chara_name.keys():
+                if name in chara_name[temp]:
+                    name = temp
+                    break
+            if name in chara_list.keys() and tag in chara_list[name].keys():
                 index_list = chara_list[name][tag]
                 random.shuffle(index_list)
                 msg = index_list[0][0] + ':' + index_list[0][1]
@@ -40,8 +55,8 @@ async def Genshin_wiki(bot, ev: CQEvent):
             else:
                 await bot.send(ev, f'{name}缺少{tag}，请提醒管理员补充数据')
         else:
-            for temp in chara_list.keys():
-                if name in temp:
+            for temp in chara_name.keys():
+                if name in chara_name[temp]:
                     name = temp
                     break
             if name in chara_list.keys():
@@ -55,7 +70,33 @@ async def Genshin_wiki(bot, ev: CQEvent):
                 return
     except Exception as e:
         pass
-      
+
+@sv.on_prefix(('查看技能','查看故事','查看语音','查看命之座'))
+async def Genshin_wiki(bot, ev: CQEvent):
+    chara_list = load_config('Genshin_chara.json')
+    chara_name = load_config('char_name.json')
+    name = ev.message.extract_plain_text()
+
+    info = ev.raw_message
+    info = info.replace(name,'')
+    info = info.replace('查看','')
+    info = info.replace(' ','')
+
+    for temp in chara_name.keys():
+        if name in chara_name[temp]:
+            name = temp
+            break
+    if name in chara_list.keys() and info in chara_list[name].keys():
+        index_list = chara_list[name][info]
+        msg = []
+        for i in index_list:
+            if len(i[1]) > 150:
+                msg.append({"type": "node","data": {"name": "bot","uin": "197812783","content":i[0]+':'+i[1][:150]}})
+                msg.append({"type": "node","data": {"name": "bot","uin": "197812783","content":i[0]+':'+i[1][150:]}})
+            else:
+                msg.append({"type": "node","data": {"name": "bot","uin": "197812783","content":i[0]+':'+i[1]}})
+        await bot.send_group_forward_msg(group_id=ev['group_id'], messages=msg)
+
 @sv.on_fullmatch(('全部原神武器','全部原神角色','查看全部原神武器','查看全部原神角色'))
 async def total_ys(bot, ev: CQEvent):
     info = ev.raw_message

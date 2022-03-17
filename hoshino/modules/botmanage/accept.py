@@ -1,23 +1,34 @@
 from nonebot import on_request, NoticeSession
 from hoshino import Service
+from hoshino.util import GROUP_DB
 
 sv = Service('accept')
-
-group_list = []
-hoshino_path = './hoshino/modules/botmanage/'
-with open(hoshino_path + '1.txt','r',encoding='utf-8') as f:
-    line = f.readline()
-    while line:
-        group = line.split(' ')[0]
-        group_list.append(group)
-        line = f.readline()
 
 @on_request('group.invite')
 async def accept(session: NoticeSession):
     group_id = session.event.group_id
-    print(group_id)
-    if group_id in group_list:
-        await session.approve()
+    await session.approve()
+    GROUP_DB.init_group(group_id)
+    coffee = session.bot.config.SUPERUSERS[0]
+    await session.bot.send_private_msg(self_id=session.event.self_id, user_id=coffee, message=f'被邀请入群{group_id}')
+
+@sv.on_prefix('解锁群聊')
+async def unlock(bot, ev):
+    gid = ev.message.extract_plain_text()
+    if GROUP_DB.exist(gid):
+        GROUP_DB.unlock(gid)
+        await bot.send(ev, f'已解锁群聊{gid}')
     else:
-        await session.reject(reason = '该群不在列表中')
-        
+        GROUP_DB.init_group(gid)
+        GROUP_DB.unlock(gid)
+        await bot.send(ev, f'已解锁群聊{gid}')
+
+@sv.on_prefix('锁定群聊')
+async def lock(bot, ev):
+    gid = ev.message.extract_plain_text()
+    if GROUP_DB.exist(gid):
+        GROUP_DB.lock(gid)
+        await bot.send(ev, f'已锁定群聊{gid}')
+    else:
+        GROUP_DB.init_group(gid)
+        await bot.send(ev, f'已锁定群聊{gid}')

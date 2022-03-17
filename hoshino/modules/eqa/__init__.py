@@ -109,6 +109,7 @@ async def ask(ctx, keyword, is_me):
         'message': message
     })
     db[qus] = qus_list
+    
     return '我学会啦 来问问我吧！'
 
 

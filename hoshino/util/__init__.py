@@ -11,6 +11,7 @@ import zhconv
 from aiocqhttp.exceptions import ActionFailed
 from matplotlib import pyplot as plt
 from PIL import Image
+from sqlitedict import SqliteDict
 
 import hoshino
 from hoshino.typing import CQEvent, Message, Union
@@ -19,9 +20,6 @@ try:
     import ujson as json
 except:
     import json
-
-
-
 
 def load_config(inbuilt_file_var):
     """
@@ -120,6 +118,8 @@ NUM_NAME = (
 def time_name(hh:int, mm:int) -> str:
     return NUM_NAME[hh] + NUM_NAME[mm]
 
+def get_path(*paths):
+    return os.path.join(os.path.dirname(__file__), *paths)
 
 class FreqLimiter:
     def __init__(self, default_cd_seconds):
@@ -135,6 +135,91 @@ class FreqLimiter:
     def left_time(self, key) -> float:
         return self.next_time[key] - time.time()
 
+class DailyGroupLimiter:
+    tz = pytz.timezone('Asia/Shanghai')
+    def __init__(self):
+        self.db = self.init_db('./data/')
+        self.max = 60
+
+    def init_db(self, db_dir, db_name='db.sqlite'):
+        return SqliteDict(get_path(db_dir, db_name),
+                        encode=json.dumps,
+                        decode=json.loads,
+                        autocommit=True)
+    
+    async def check(self, gid) -> bool:
+        gid = str(gid)
+        now = datetime.now(self.tz)
+        day = (now - timedelta(hours=5)).day
+        if self.exist(gid):
+            group_info = self.db[gid]
+        else:
+            return True
+        if group_info['flag']:
+            return True
+        if day != group_info['day']:
+            group_info['day'] = day
+            group_info['count'] = 0
+            self.db[gid] = group_info
+            self.db.commit()
+        return bool(group_info['count'] < self.max)
+
+    def get_num(self, gid):
+        if self.exist(gid):
+            return self.db[gid]['count']
+
+    async def increase(self, gid, num=1):
+        gid = str(gid)
+        if self.exist(gid):
+            temp = self.db[gid]
+            temp['count'] += num
+            self.db[gid] = temp
+            self.db.commit()
+            print(f'{gid} increase')
+
+    async def reset(self, gid):
+        gid = str(gid)
+        if self.exist(gid):
+            temp = self.db[gid]
+            temp['count'] = 0
+            self.db[gid] = temp
+            self.db.commit()
+
+    async def init_group(self, gid):
+        gid = str(gid)
+        now = datetime.now(self.tz)
+        day = (now - timedelta(hours=5)).day
+        self.db[gid] = {
+            'day': day,
+            'count': 0,
+            'flag': False
+        }
+
+    def exist(self, gid):
+        gid = str(gid)
+        return gid in list(self.db.keys())
+
+    async def lock(self, gid):
+        gid = str(gid)
+        temp = self.db[gid]
+        temp['flag'] = False
+        self.db[gid] = temp
+        self.db.commit()
+
+    async def unlock(self, gid):
+        gid = str(gid)
+        temp = self.db[gid]
+        temp['flag'] = True
+        self.db[gid] = temp
+        self.db.commit()
+
+    async def delete(self, gid):
+        gid = str(gid)
+        if self.exist(gid):
+            self.db.pop(gid)
+            self.db.commit()
+
+GROUP_DB = DailyGroupLimiter()
 
 class DailyNumberLimiter:
     tz = pytz.timezone('Asia/Shanghai')

@@ -15,7 +15,6 @@ messageLengthLimit = 0
 push_uids = {}
 push_times = {}
 room_states = {}
-all_user_name = {}
 isOnChecking = False
 bilibiliCookie = ''
 
@@ -80,7 +79,6 @@ async def loadConfig():
         list2.append(str2)
     b = "".join(list2)
     bilibiliCookie = 'LIVE_BUVID=AUTO{random_id};'.format(random_id=b)
-    await load_all_username()
     sv.logger.info('B站动态推送配置文件加载成功')
 
 
@@ -103,7 +101,7 @@ async def check_uid_exsist(uid):
         'Referer': 'https://space.bilibili.com/{user_uid}/'.format(user_uid=uid)
     }
     try:
-        resp = await aiorequests.get('http://api.bilibili.com/x/space/acc/info?mid={user_uid}'.format(user_uid=uid), headers=header, timeout=20)
+        resp = await aiorequests.get('http://api.bilibili.com/x/space/acc/info?mid={user_uid}'.format(user_uid=uid), headers=header, timeout=5)
         res = await resp.json()
         if res['code'] == 0:
             return True
@@ -111,32 +109,6 @@ async def check_uid_exsist(uid):
     except Exception as e:
         sv.logger.info(f'B站用户检查发生错误 uid={uid}\n' + traceback.format_exc())
         return False
-
-
-async def get_user_name(uid):
-    header = {
-        'Referer': 'https://space.bilibili.com/{user_uid}/'.format(user_uid=uid)
-    }
-    try:
-        resp = await aiorequests.get('http://api.bilibili.com/x/space/acc/info?mid={user_uid}'.format(user_uid=uid), headers=header, timeout=20)
-        res = await resp.json()
-        return res['data']['name']
-    except Exception as e:
-        sv.logger.info(f'B站用户名获取发生错误 uid={uid}\n' + traceback.format_exc())
-        return False
-
-
-async def load_all_username():
-    global all_user_name
-    uids = push_uids.keys()
-    for uid in uids:
-        all_user_name[uid] = await get_user_name(uid)
-
-
-async def load_username(uid):
-    global all_user_name
-    if uid not in all_user_name:
-        all_user_name[uid] = await get_user_name(uid)
 
 
 @sv.on_prefix('订阅动态')
@@ -158,7 +130,6 @@ async def subscribe_dynamic(bot, ev):
             await bot.send(ev, '订阅失败：请勿重复订阅')
             return
         push_uids[text].append(str(ev.group_id))
-    await load_username(text)
     push_times[text] = int(time.time())
     saveConfig()
     await bot.send(ev, '订阅成功')
@@ -229,7 +200,7 @@ async def check_bili_dynamic():
         }
         try:
             resp = await aiorequests.get('https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/space_history?host_uid={user_uid}'.format(user_uid=uid), headers=header,
-                                         timeout=20)
+                                         timeout=5)
             res = await resp.json()
             if res is None:
                 sv.logger.info(f'检查{uid}时出错 request response is None')
@@ -241,7 +212,7 @@ async def check_bili_dynamic():
             # cards=[res['data']['cards'][:10]]
             for card in cards:
                 sendCQCode = []
-                uname = all_user_name[uid]
+                uname = card['desc']['user_profile']['info']['uname']
                 timestamp = card['desc']['timestamp']
                 if timestamp < push_times[uid]:
                     break
@@ -413,18 +384,19 @@ async def check_bili_dynamic():
             continue
     # 直播状态检查
     for uid in uids:
+        time.sleep(0.5)
         try:
             header = {
                 'Referer': 'https://space.bilibili.com/{user_uid}/'.format(user_uid=uid),
                 'Cookie': bilibiliCookie
             }
-            resp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), headers=header, timeout=20)
+            resp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), headers=header, timeout=5)
             res = await resp.json()
             if res and 'live_room' in res['data'].keys():
                 if res['data']['live_room']['liveStatus'] == 1 and not room_states[uid]:
                     room_states[uid] = True
                     sendCQCode = []
-                    userName = all_user_name[uid]
+                    userName = res['data']['name']
                     sendCQCode.append(userName)
                     sendCQCode.append('开播了：\n')
                     sendCQCode.append(res['data']['live_room']['title'])
@@ -440,7 +412,7 @@ async def check_bili_dynamic():
                 elif room_states[uid] and res['data']['live_room']['liveStatus'] == 0:
                     room_states[uid] = False
                     sendCQCode = []
-                    userResp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), timeout=20)
+                    userResp = await aiorequests.get('https://api.bilibili.com/x/space/acc/info?mid={user_id}'.format(user_id=uid), timeout=5)
                     userRes = await userResp.json()
                     userName = userRes['data']['name']
                     sendCQCode.append(userName)
