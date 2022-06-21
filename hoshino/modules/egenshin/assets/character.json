@@ -175,16 +175,56 @@
   "10000049": {
     "name": "宵宫",
     "rarity": 5,
-    "element": "Yoimiya"
+    "element": "Pyro"
+  },
+  "10000050": {
+    "name": "托马",
+    "rarity": 4,
+    "element": "Pyro"
   },
   "10000051": {
     "name": "优菈",
     "rarity": 5,
     "element": "Cryo"
   },
+  "10000052": {
+    "name": "雷电将军",
+    "rarity": 5,
+    "element": "Electro"
+  },
   "10000053": {
     "name": "早柚",
     "rarity": 4,
-    "element": "Sayu"
+    "element": "Anemo"
+  },
+  "10000056": {
+    "name": "九条裟罗",
+    "rarity": 4,
+    "element": "Electro"
+  },
+  "10000062": {
+    "name": "埃洛伊",
+    "rarity": 5,
+    "element": "Cryo"
+  },
+  "10000054": {
+    "name": "珊瑚宫心海",
+    "rarity": 5,
+    "element": "Hydro"
+  },
+  "10000055": {
+    "name": "五郎",
+    "rarity": 4,
+    "element": "Geo"
+  },
+  "10000057": {
+    "name": "荒泷一斗",
+    "rarity": 5,
+    "element": "Geo"
+  },
+  "10000058": {
+    "name": "八重神子",
+    "rarity": 5,
+    "element": "Electro"
   }
 }
